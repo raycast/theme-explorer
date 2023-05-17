@@ -76,12 +76,15 @@
 
     const isValidTheme = queryParams.has('version') && queryParams.has('name') && queryParams.has('colors') && queryParams.has('appearance')
 
+
     if (isValidTheme) {
       const textElement = document.getElementById('text');
       const themeName = queryParams.get('name');
       textElement.innerText = `Opening "${themeName}" in Theme Studio`;
 
       const build = queryParams.get('build') || 'prod'
+      queryParams.delete('build')
+
       const newUrl = `${PROTOCOL[build]}://theme?${queryParams.toString()}`;
 
       window.location.replace(newUrl);
