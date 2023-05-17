@@ -1,17 +1,83 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Raycast Pro</title>
-  <script>
-    const queryParams = new URLSearchParams(window.location.search);
-    const newUrl = `raycast://theme?${queryParams.toString()}`;
-    window.location.replace(newUrl);
-  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
 </head>
-<body>
-  <h1>Opening in Raycast...</h1>
+
+<body
+  style="background-color: #0D0105; color: white; display: flex; min-height: 100vh; align-items: center; justify-content: center; margin: 0; font-family: 'Inter', sans-serif;">
+  <!-- <h1>Opening in Raycast...</h1> -->
+  <div style="display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 12px; ">
+    <div style="width: 56px; height: 56px; position: relative">
+      <svg style="position: absolute; " width="100%" height="100%" viewBox="0 0 176 176" fill="none"
+        xmlns="http://www.w3.org/2000/svg">
+        <g clip-path="url(#clip1)">
+          <path fill-rule="evenodd" clip-rule="evenodd"
+            d="M43.96 113.53V131.88L-0.039999 87.88L9.18 78.73L43.96 113.53ZM62.31 131.88H43.96L87.96 175.88L97.14 166.7L62.31 131.88ZM166.67 97.09L175.84 87.92L87.92 0L78.75 9.17001L113.49 43.96H92.49L68.24 19.73L59.06 28.9L74.16 44H63.65V112.23H131.88V101.73L146.98 116.83L156.15 107.65L131.88 83.33V62.33L166.67 97.09ZM48.55 39.37L39.38 48.55L49.22 58.39L58.39 49.21L48.55 39.37ZM126.63 117.45L117.49 126.62L127.33 136.46L136.51 127.29L126.63 117.45ZM28.86 59.06L19.69 68.23L43.96 92.51V74.15L28.86 59.06ZM101.68 131.88H83.33L107.61 156.15L116.78 146.98L101.68 131.88Z"
+            fill="white" />
+        </g>
+        <defs>
+          <clipPath id="clip1">
+            <rect width="175.84" height="175.84" />
+          </clipPath>
+        </defs>
+      </svg>
+
+      <svg style="position: absolute; bottom: -1px; left: -1px; mix-blend-mode: overlay;" width="100%" height="100%"
+        viewBox="0 0 176 176" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <g clip-path="url(#clip2)">
+          <path fill-rule="evenodd" clip-rule="evenodd"
+            d="M43.96 113.53V131.88L-0.039999 87.88L9.18 78.73L43.96 113.53ZM62.31 131.88H43.96L87.96 175.88L97.14 166.7L62.31 131.88ZM166.67 97.09L175.84 87.92L87.92 0L78.75 9.17001L113.49 43.96H92.49L68.24 19.73L59.06 28.9L74.16 44H63.65V112.23H131.88V101.73L146.98 116.83L156.15 107.65L131.88 83.33V62.33L166.67 97.09ZM48.55 39.37L39.38 48.55L49.22 58.39L58.39 49.21L48.55 39.37ZM126.63 117.45L117.49 126.62L127.33 136.46L136.51 127.29L126.63 117.45ZM28.86 59.06L19.69 68.23L43.96 92.51V74.15L28.86 59.06ZM101.68 131.88H83.33L107.61 156.15L116.78 146.98L101.68 131.88Z"
+            fill="red" />
+        </g>
+        <defs>
+          <clipPath id="clip2">
+            <rect width="175.84" height="175.84" />
+          </clipPath>
+        </defs>
+      </svg>
+
+      <svg style="position: absolute; top: -1px; right: -1px; mix-blend-mode: overlay;" width="100%" height="100%"
+        viewBox="0 0 176 176" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <g clip-path="url(#clip3)">
+          <path fill-rule="evenodd" clip-rule="evenodd"
+            d="M43.96 113.53V131.88L-0.039999 87.88L9.18 78.73L43.96 113.53ZM62.31 131.88H43.96L87.96 175.88L97.14 166.7L62.31 131.88ZM166.67 97.09L175.84 87.92L87.92 0L78.75 9.17001L113.49 43.96H92.49L68.24 19.73L59.06 28.9L74.16 44H63.65V112.23H131.88V101.73L146.98 116.83L156.15 107.65L131.88 83.33V62.33L166.67 97.09ZM48.55 39.37L39.38 48.55L49.22 58.39L58.39 49.21L48.55 39.37ZM126.63 117.45L117.49 126.62L127.33 136.46L136.51 127.29L126.63 117.45ZM28.86 59.06L19.69 68.23L43.96 92.51V74.15L28.86 59.06ZM101.68 131.88H83.33L107.61 156.15L116.78 146.98L101.68 131.88Z"
+            fill="cyan" />
+        </g>
+        <defs>
+          <clipPath id="clip3">
+            <rect width="175.84" height="175.84" />
+          </clipPath>
+        </defs>
+      </svg>
+    </div>
+
+    <p id="text" style="color: #c2c7ca"></p>
+  </div>
+
+  <script>
+    // A valid Theme config looks like this:
+    // ?version=1&name=Spotify&colors=%23121212FF,%23121212FF,%23FFFFFFFF,%2300FF5AFF,%2328FF74FF,%23F50A0AFF,%23F5600AFF,%23E0A200FF,%2307BA65FF,%230A7FF5FF,%23470AF5FF,%23F50AA3FF&appearance=dark
+
+
+    const queryParams = new URLSearchParams(window.location.search);
+    const isValidTheme = queryParams.has('version') && queryParams.has('name') && queryParams.has('colors') && queryParams.has('appearance')
+    if (isValidTheme) {
+      const textElement = document.getElementById('text');
+      const themeName = queryParams.get('name');
+      textElement.innerText = `Opening "${themeName}" in Theme Studio`;
+      const newUrl = `raycast://theme?${queryParams.toString()}`;
+      console.log("goodf")
+      // window.location.replace(newUrl);
+    }
+  </script>
 </body>
+
 </html>
