@@ -1,8 +1,0 @@
-{
-  "rewrites": [
-    {
-      "source": "/:path*",
-      "destination": "raycastinternal://theme:path*"
-    }
-  ]    
-}

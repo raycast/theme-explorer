@@ -5,6 +5,11 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Raycast Pro</title>
+  <script>
+    const queryParams = new URLSearchParams(window.location.search);
+    const newUrl = `raycast://theme?${queryParams.toString()}`;
+    window.location.replace(newUrl);
+  </script>
 </head>
 <body>
   <h1>Opening in Raycast...</h1>
