@@ -1,6 +1,7 @@
 "use client";
 import React from "react";
 import { Raycast } from "@/components/raycast";
+import NextLink from "next/link";
 import type { Theme } from "@/components/raycast";
 
 const themes: Theme[] = [
@@ -116,11 +117,18 @@ export default function Home() {
     <div>
       <Raycast theme={activeTheme} />
       <div className="flex px-4 gap-4">
+        Themes:{" "}
         {themes.map((theme) => (
           <button key={theme.name} onClick={() => setActiveTheme(theme)}>
             {theme.name}
           </button>
         ))}
+      </div>
+
+      <div className="flex px-4 gap-4">
+        Pages:
+        <NextLink href="/peduarte/red">Red by Peduarte</NextLink>
+        <NextLink href="/peduarte/red">Dracula by Zenorocha</NextLink>
       </div>
     </div>
   );

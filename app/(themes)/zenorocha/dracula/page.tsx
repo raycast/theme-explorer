@@ -1,6 +1,7 @@
 import React from "react";
 import { Raycast } from "@/components/raycast";
 import type { Theme } from "@/components/raycast";
+import { Metadata } from "next";
 
 const theme: Theme = {
   author: "zenorocha",
@@ -23,30 +24,27 @@ const theme: Theme = {
   },
 };
 
-export async function generateMetadata({
-  params,
-}: {
-  params: { domain: string };
-}) {
-  const title = `${theme.name} by ${theme.author}`;
-  const encodedTheme = encodeURIComponent(JSON.stringify(theme));
-  const image = `http://${
-    params.domain || "localhost:3000"
-  }/og?theme=${encodedTheme}`;
+export const BASE_URL = {
+  development: "http://localhost:3000",
+  preview: `https://${process.env.NEXT_PUBLIC_VERCEL_URL}`,
+  production: "https://themes.ray.so",
+}[process.env.NEXT_PUBLIC_VERCEL_ENV || "development"];
 
-  return {
+const title = `${theme.name} by ${theme.author}`;
+const encodedTheme = encodeURIComponent(JSON.stringify(theme));
+const image = `http://${BASE_URL}/og?theme=${encodedTheme}`;
+
+export const metadata: Metadata = {
+  title,
+  openGraph: {
     title,
-    image,
-    openGraph: {
-      title,
-      images: [
-        {
-          url: image,
-        },
-      ],
-    },
-  };
-}
+    images: [
+      {
+        url: image,
+      },
+    ],
+  },
+};
 
 export default function Home() {
   return (
