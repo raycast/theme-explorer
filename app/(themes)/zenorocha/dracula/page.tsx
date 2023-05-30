@@ -24,7 +24,7 @@ const theme: Theme = {
   },
 };
 
-export const BASE_URL = {
+const BASE_URL = {
   development: "http://localhost:3000",
   preview: `https://${process.env.NEXT_PUBLIC_VERCEL_URL}`,
   production: "https://themes.ray.so",
