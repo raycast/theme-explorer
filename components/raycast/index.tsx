@@ -6,6 +6,8 @@ import { RootHeader } from "@/components/raycast/root-header";
 import chroma from "chroma-js";
 import React from "react";
 import Image from "next/image";
+import backgroundDark from "@/public/bg-dark.jpg";
+import backgroundLight from "@/public/bg-light.jpg";
 
 export type Theme = {
   author: string;
@@ -31,16 +33,24 @@ export type Theme = {
 export function Raycast({ theme }: { theme: Theme }) {
   return (
     <ThemeProvider theme={theme}>
-      <div className="aspect-[16/9] min-h-[600px] max-h-[675px] w-full flex items-center md:justify-center relative p-[48px] 2xl:w-[1280px] 2xl:mx-auto 2xl:rounded-4 2xl:my-[48px]">
+      <div
+        className="aspect-[16/9] min-h-[600px] max-h-[675px] w-full flex items-center md:justify-center relative p-[48px] 
+      2xl:w-[1280px] 2xl:mx-auto 2xl:rounded-4 2xl:my-[48px]
+      "
+        style={{
+          backgroundColor: chroma(theme.colors.text).alpha(0.5).css(),
+        }}
+      >
         <div
           id="raycast"
-          className={`w-[750px] h-[475px] rounded-4 backdrop-blur-[72px] border border-ray-border shadow flex flex-col relative overflow-hidden select-none shrink-0`}
+          className={`w-[750px] h-[475px] rounded-4 backdrop-blur-[72px] border shadow flex flex-col relative overflow-hidden select-none shrink-0`}
           style={Object.assign(
             {
               zIndex: 2,
               backgroundColor: chroma(theme.colors.backgroundPrimary)
                 .alpha(0.6)
                 .css(),
+              borderColor: chroma(theme.colors.text).alpha(0.2).css(),
             },
             ...Object.entries(theme.colors).map(([key, value]) => ({
               ["--" + key]: value,
@@ -58,11 +68,17 @@ export function Raycast({ theme }: { theme: Theme }) {
         </div>
         <Image
           className="rounded-inherit"
-          src={theme.appearance === "dark" ? "/bg-dark.jpg" : "/bg-light.jpg"}
+          src={theme.appearance === "dark" ? backgroundDark : backgroundLight}
           fill
           alt=""
           quality={100}
-          style={{ objectFit: "cover", zIndex: 1 }}
+          placeholder="blur"
+          style={{
+            objectFit: "cover",
+            zIndex: 1,
+            pointerEvents: "none",
+            mixBlendMode: theme.appearance === "dark" ? "screen" : "multiply",
+          }}
         />
       </div>
     </ThemeProvider>
