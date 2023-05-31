@@ -128,7 +128,7 @@ export default function Home() {
       <div className="flex px-4 gap-4">
         Pages:
         <NextLink href="/peduarte/red">Red by Peduarte</NextLink>
-        <NextLink href="/peduarte/red">Dracula by Zenorocha</NextLink>
+        <NextLink href="/zenorocha/dracula">Dracula by Zenorocha</NextLink>
       </div>
     </div>
   );
