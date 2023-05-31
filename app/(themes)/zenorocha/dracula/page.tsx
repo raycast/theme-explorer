@@ -32,7 +32,7 @@ const BASE_URL = {
 
 const title = `${theme.name} by ${theme.author}`;
 const encodedTheme = encodeURIComponent(JSON.stringify(theme));
-const image = `http://${BASE_URL}/og?theme=${encodedTheme}`;
+const image = `${BASE_URL}/og?theme=${encodedTheme}`;
 
 export const metadata: Metadata = {
   title,
