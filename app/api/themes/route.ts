@@ -1,24 +1,9 @@
 import { NextResponse } from "next/server";
-import { readFile } from "fs";
-import { basename, join } from "path";
-import { glob } from "glob";
-import { promisify } from "util";
 
-const themesDir = join(process.cwd(), "themes");
-
-const readFileAsync = promisify(readFile);
+import { getAllThemes } from "@/lib/getAllThemes";
 
 export async function GET() {
-  const allThemePaths = await glob(`${themesDir}/**/*.json`);
-
-  const themes = await Promise.all(
-    allThemePaths.map(async (filePath) => {
-      const fileName = basename(filePath);
-      const data = await readFileAsync(filePath);
-      const jsonData = JSON.parse(data.toString());
-      return { ...jsonData, slug: fileName.replace(".json", "") };
-    })
-  );
+  const themes = await getAllThemes();
 
   return NextResponse.json(themes);
 }

@@ -1,18 +1,10 @@
 import React from "react";
-import type { Theme } from "@/components/raycast";
-import Playground from "@/app/playground";
-import { BASE_URL } from "@/lib/url";
+import Playground from "@/components/playground";
+
+import { getAllThemes } from "@/lib/getAllThemes";
 
 export default async function Home() {
-  const res = await fetch(`${BASE_URL}/api/themes`, {
-    cache: "no-cache",
-  });
+  const themes = await getAllThemes();
 
-  const themes: Theme[] = await res.json();
-
-  return (
-    <div>
-      <Playground themes={themes} />
-    </div>
-  );
+  return <div>{themes && <Playground themes={themes} />}</div>;
 }
