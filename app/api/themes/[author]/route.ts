@@ -5,6 +5,6 @@ export async function GET(
   request: Request,
   { params }: { params: { author: string } }
 ) {
-  const themes = getThemesByAuthor(params.author);
+  const themes = await getThemesByAuthor(params.author);
   return NextResponse.json(themes);
 }
