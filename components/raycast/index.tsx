@@ -35,8 +35,7 @@ export function Raycast({ theme }: { theme: Theme }) {
     <ThemeProvider theme={theme}>
       <div
         className="aspect-[16/9] min-h-[600px] max-h-[675px] w-full flex items-center md:justify-center relative p-[48px] 
-      2xl:w-[1280px] 2xl:mx-auto 2xl:rounded-4 2xl:my-[48px]
-      "
+      2xl:w-[1280px] 2xl:mx-auto 2xl:rounded-4 2xl:my-[48px]"
         style={{
           backgroundColor: chroma(theme.colors.text).alpha(0.5).css(),
         }}
@@ -45,7 +44,7 @@ export function Raycast({ theme }: { theme: Theme }) {
           viewBox="0 0 750 475"
           height="475"
           xmlns="http://www.w3.org/2000/svg"
-          style={{ display: "block", border: "none" }}
+          className="block rounded-4"
         >
           <foreignObject width="750" height="475" x="0" y="0">
             <div
