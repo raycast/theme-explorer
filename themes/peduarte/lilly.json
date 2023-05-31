@@ -1,0 +1,20 @@
+{
+  "author": "peduarte",
+  "version": "1",
+  "name": "Lilly",
+  "appearance": "dark",
+  "colors": {
+    "backgroundPrimary": "#622159",
+    "backgroundSecondary": "#282A36",
+    "text": "#F8F8F2",
+    "selection": "#93edf9",
+    "loader": "#faf20e",
+    "red": "#FF5555",
+    "orange": "#FFB86C",
+    "yellow": "#F1FA8C",
+    "green": "#50FA7B",
+    "blue": "#8BE9FD",
+    "purple": "#BD93F9",
+    "pink": "#FF79C6"
+  }
+}

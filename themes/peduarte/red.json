@@ -1,0 +1,20 @@
+{
+  "author": "peduarte",
+  "version": "1",
+  "name": "Red",
+  "appearance": "light",
+  "colors": {
+    "backgroundPrimary": "#FAFAFA",
+    "backgroundSecondary": "#E4E4E4",
+    "text": "#ff0000",
+    "selection": "#ff0000",
+    "loader": "#ff0000",
+    "red": "#E24343",
+    "orange": "#E2612A",
+    "yellow": "#CAC235",
+    "green": "#56A156",
+    "blue": "#1485BA",
+    "purple": "#642EA4",
+    "pink": "#A42EA2"
+  }
+}

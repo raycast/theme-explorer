@@ -13,6 +13,7 @@ export type Theme = {
   author: string;
   version: string;
   name: string;
+  slug: string;
   appearance: "light" | "dark";
   colors: {
     backgroundPrimary: string;

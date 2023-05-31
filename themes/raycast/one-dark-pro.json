@@ -1,0 +1,20 @@
+{
+  "author": "raycast",
+  "version": "1",
+  "name": "One Dark Pro",
+  "appearance": "dark",
+  "colors": {
+    "backgroundPrimary": "#21252B",
+    "backgroundSecondary": "#21252B",
+    "text": "#FFFFFF",
+    "selection": "#808FA7",
+    "loader": "#61AFEF",
+    "red": "#E06C75",
+    "orange": "#E5C07B",
+    "yellow": "#E5D67B",
+    "green": "#95BE77",
+    "blue": "#61AFEF",
+    "purple": "#BF75D6",
+    "pink": "#D675A7"
+  }
+}
