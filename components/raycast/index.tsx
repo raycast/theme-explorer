@@ -41,45 +41,57 @@ export function Raycast({ theme }: { theme: Theme }) {
           backgroundColor: chroma(theme.colors.text).alpha(0.5).css(),
         }}
       >
-        <div
-          id="raycast"
-          className={`w-[750px] h-[475px] rounded-4 backdrop-blur-[72px] border shadow flex flex-col relative overflow-hidden select-none shrink-0`}
-          style={Object.assign(
-            {
-              zIndex: 2,
-              backgroundColor: chroma(theme.colors.backgroundPrimary)
-                .alpha(0.6)
-                .css(),
-              borderColor: chroma(theme.colors.text).alpha(0.2).css(),
-            },
-            ...Object.entries(theme.colors).map(([key, value]) => ({
-              ["--" + key]: value,
-            }))
-          )}
+        <svg
+          viewBox="0 0 750 475"
+          height="475"
+          xmlns="http://www.w3.org/2000/svg"
+          style={{ display: "block", border: "none" }}
         >
-          <RootHeader />
+          <foreignObject width="750" height="475" x="0" y="0">
+            <div
+              id="raycast"
+              className={`w-[750px] h-[475px] rounded-4 backdrop-blur-[72px] border shadow flex flex-col relative overflow-hidden select-none shrink-0`}
+              style={Object.assign(
+                {
+                  zIndex: 2,
+                  backgroundColor: chroma(theme.colors.backgroundPrimary)
+                    .alpha(0.6)
+                    .css(),
+                  borderColor: chroma(theme.colors.text).alpha(0.2).css(),
+                },
+                ...Object.entries(theme.colors).map(([key, value]) => ({
+                  ["--" + key]: value,
+                }))
+              )}
+            >
+              <RootHeader />
 
-          <main className="flex-1 overflow-hidden py-1">
-            <List />
-            <Grid />
-          </main>
+              <main className="flex-1 overflow-hidden py-1">
+                <List />
+                <Grid />
+              </main>
 
-          <RootFooter />
-        </div>
-        <Image
-          className="rounded-inherit"
-          src={theme.appearance === "dark" ? backgroundDark : backgroundLight}
-          fill
-          alt=""
-          quality={100}
-          placeholder="blur"
-          style={{
-            objectFit: "cover",
-            zIndex: 1,
-            pointerEvents: "none",
-            mixBlendMode: theme.appearance === "dark" ? "screen" : "multiply",
-          }}
-        />
+              <RootFooter />
+            </div>
+            <Image
+              className="rounded-inherit"
+              src={
+                theme.appearance === "dark" ? backgroundDark : backgroundLight
+              }
+              fill
+              alt=""
+              quality={100}
+              placeholder="blur"
+              style={{
+                objectFit: "cover",
+                zIndex: 1,
+                pointerEvents: "none",
+                mixBlendMode:
+                  theme.appearance === "dark" ? "screen" : "multiply",
+              }}
+            />
+          </foreignObject>
+        </svg>
       </div>
     </ThemeProvider>
   );

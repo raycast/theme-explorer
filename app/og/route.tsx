@@ -30,8 +30,8 @@ const checkIcon = (
     viewBox="0 0 16 16"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
-    width={32}
-    height={32}
+    width={16}
+    height={16}
     x="80"
     y="80"
     alignmentBaseline="middle"
@@ -136,173 +136,188 @@ export async function GET(request: NextRequest) {
             alt=""
           />
 
-          <div
+          <svg
+            viewBox="0 0 750 475"
+            height="475"
+            xmlns="http://www.w3.org/2000/svg"
             style={{
-              position: "absolute",
-              left: "250px",
-              top: "150px",
-              width: "1500px",
-              height: "950px",
-              borderRadius: "24px",
-              border: "1px solid",
-              borderColor: chroma(theme.colors.text).alpha(0.2).css(),
               display: "flex",
-              flexDirection: "column",
-              justifyContent: "flex-start",
-              alignItems: "stretch",
-              overflow: "hidden",
-              flexShrink: 0,
-              backgroundColor: chroma(theme.colors.backgroundPrimary)
-                .alpha(0.85)
-                .css(),
+              border: "none",
+              position: "absolute",
+              transform: "scale(2)",
+              left: "600px",
+              top: "400px",
             }}
           >
-            <header
-              style={{
-                height: "104px",
-                paddingLeft: "32px",
-                paddingRight: "32px",
-                borderStyle: "solid",
-                borderBottomWidth: "1px",
-                borderBottomColor: chroma(theme.colors.text).alpha(0.1).css(),
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "space-between",
-                flexShrink: 0,
-                position: "relative",
-              }}
-            >
+            <foreignObject width="750" height="475" x="0" y="0">
               <div
                 style={{
-                  width: "48px",
-                  height: "48px",
                   borderRadius: "12px",
-                  backgroundColor: chroma(theme.colors.text).alpha(0.1).css(),
-                  color: theme.colors.text,
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                }}
-              >
-                <svg
-                  viewBox="0 0 16 16"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                  width={32}
-                  height={32}
-                >
-                  <path
-                    d="M6.25 4.75L2.75 8M2.75 8L6.25 11.25M2.75 8H13.25"
-                    stroke="currentColor"
-                    strokeWidth="1.5"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  />
-                </svg>
-              </div>
-              <div
-                style={{
-                  width: "100%",
-                  lineHeight: "1",
-                  backgroundColor: "transparent",
-                  border: "none",
-                  fontSize: "32px",
-                  marginLeft: "20px",
-                  color: chroma(theme.colors.text).alpha(0.4).css(),
-                }}
-              >
-                Search for apps and commands...
-              </div>
-              <div
-                style={{
-                  position: "absolute",
-                  top: "100%",
-                  width: "200px",
-                  height: "1px",
-                  backgroundImage: `linear-gradient(to right, rgba(255, 255, 255, 0), ${theme.colors.loader}, rgba(255, 255, 255, 0))`,
-                }}
-              ></div>
-            </header>
-
-            <main
-              style={{
-                display: "flex",
-                flexDirection: "column",
-                flex: 1,
-                overflow: "hidden",
-                paddingTop: "8px",
-              }}
-            >
-              <div
-                style={{
+                  border: "1px solid",
+                  borderColor: chroma(theme.colors.text).alpha(0.2).css(),
                   display: "flex",
                   flexDirection: "column",
-                  padding: "8px 16px",
-                  color: chroma(theme.colors.text).css(),
+                  justifyContent: "flex-start",
+                  alignItems: "stretch",
+                  overflow: "hidden",
+                  flexShrink: 0,
+                  backgroundColor: chroma(theme.colors.backgroundPrimary)
+                    .alpha(0.85)
+                    .css(),
                 }}
               >
-                <div
+                <header
                   style={{
-                    display: "flex",
-                    padding: "16px",
-                    fontSize: "24px",
-                    fontWeight: "bold",
-                    letterSpacing: "0.1px",
-                    color: chroma(theme.colors.text).alpha(0.6).css(),
-                  }}
-                >
-                  List
-                </div>
-                <div
-                  style={{
-                    display: "flex",
-                    alignItems: "center",
-                    height: "80px",
-                    padding: "16px",
-                    borderRadius: "16px",
-                    backgroundColor: chroma(theme.colors.selection)
+                    height: "52px",
+                    paddingLeft: "16px",
+                    paddingRight: "16px",
+                    borderStyle: "solid",
+                    borderBottomWidth: "1px",
+                    borderBottomColor: chroma(theme.colors.text)
                       .alpha(0.1)
                       .css(),
-                  }}
-                >
-                  <div style={{ display: "flex", marginRight: "20px" }}>
-                    {checkIcon}
-                  </div>
-                  <div
-                    style={{
-                      fontSize: "26px",
-                      lineHeight: "1",
-                      color: chroma(theme.colors.text).css(),
-                    }}
-                  >
-                    Primary Text
-                  </div>
-                </div>
-                <div
-                  style={{
                     display: "flex",
                     alignItems: "center",
-                    height: "80px",
-                    padding: "16px",
-                    borderRadius: "16px",
+                    justifyContent: "space-between",
+                    flexShrink: 0,
+                    position: "relative",
                   }}
                 >
-                  <div style={{ display: "flex", marginRight: "20px" }}>
-                    {checkIcon}
+                  <div
+                    style={{
+                      width: "24px",
+                      height: "24px",
+                      borderRadius: "6px",
+                      backgroundColor: chroma(theme.colors.text)
+                        .alpha(0.1)
+                        .css(),
+                      color: theme.colors.text,
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                    }}
+                  >
+                    <svg
+                      viewBox="0 0 16 16"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                      width={16}
+                      height={16}
+                    >
+                      <path
+                        d="M6.25 4.75L2.75 8M2.75 8L6.25 11.25M2.75 8H13.25"
+                        stroke="currentColor"
+                        strokeWidth="1.5"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      />
+                    </svg>
                   </div>
                   <div
                     style={{
-                      fontSize: "26px",
+                      width: "100%",
                       lineHeight: "1",
+                      backgroundColor: "transparent",
+                      border: "none",
+                      fontSize: "16px",
+                      marginLeft: "10px",
+                      color: chroma(theme.colors.text).alpha(0.4).css(),
+                    }}
+                  >
+                    Search for apps and commands...
+                  </div>
+                  <div
+                    style={{
+                      position: "absolute",
+                      top: "100%",
+                      width: "100px",
+                      height: "1px",
+                      backgroundImage: `linear-gradient(to right, rgba(255, 255, 255, 0), ${theme.colors.loader}, rgba(255, 255, 255, 0))`,
+                    }}
+                  ></div>
+                </header>
+
+                <main
+                  style={{
+                    display: "flex",
+                    flexDirection: "column",
+                    flex: 1,
+                    overflow: "hidden",
+                    paddingTop: "4px",
+                  }}
+                >
+                  <div
+                    style={{
+                      display: "flex",
+                      flexDirection: "column",
+                      padding: "4px 8px",
                       color: chroma(theme.colors.text).css(),
                     }}
                   >
-                    Primary Text
+                    <div
+                      style={{
+                        display: "flex",
+                        padding: "8px",
+                        fontSize: "12px",
+                        fontWeight: "bold",
+                        letterSpacing: "0.1px",
+                        color: chroma(theme.colors.text).alpha(0.6).css(),
+                      }}
+                    >
+                      List
+                    </div>
+                    <div
+                      style={{
+                        display: "flex",
+                        alignItems: "center",
+                        height: "40px",
+                        padding: "8px",
+                        borderRadius: "8px",
+                        backgroundColor: chroma(theme.colors.selection)
+                          .alpha(0.1)
+                          .css(),
+                      }}
+                    >
+                      <div style={{ display: "flex", marginRight: "10px" }}>
+                        {checkIcon}
+                      </div>
+                      <div
+                        style={{
+                          fontSize: "13px",
+                          lineHeight: "1",
+                          color: chroma(theme.colors.text).css(),
+                        }}
+                      >
+                        Primary Text
+                      </div>
+                    </div>
+                    <div
+                      style={{
+                        display: "flex",
+                        alignItems: "center",
+                        height: "40px",
+                        padding: "8px",
+                        borderRadius: "8px",
+                      }}
+                    >
+                      <div style={{ display: "flex", marginRight: "10px" }}>
+                        {checkIcon}
+                      </div>
+                      <div
+                        style={{
+                          fontSize: "13px",
+                          lineHeight: "1",
+                          color: chroma(theme.colors.text).css(),
+                        }}
+                      >
+                        Primary Text
+                      </div>
+                    </div>
                   </div>
-                </div>
+                </main>
               </div>
-            </main>
-          </div>
+            </foreignObject>
+          </svg>
         </div>
       ),
       {
