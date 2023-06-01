@@ -1,7 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 /* eslint-disable jsx-a11y/alt-text */
 
-import { Theme } from "@/components/raycast";
+import { Theme } from "@/lib/theme";
 import chroma from "chroma-js";
 import { ImageResponse, NextRequest, NextResponse } from "next/server";
 
@@ -109,12 +109,6 @@ export async function GET(request: NextRequest) {
           decodeURIComponent(searchParams.get("theme") as string)
         ) as Theme)
       : defaultTheme;
-
-    console.log("----");
-    console.log(theme);
-    console.log("----");
-
-    // return NextResponse.json({ hello: "world" });
 
     return new ImageResponse(
       (
@@ -331,7 +325,6 @@ export async function GET(request: NextRequest) {
       }
     );
   } catch (e) {
-    console.log(e);
     return NextResponse.json(e);
   }
 }
