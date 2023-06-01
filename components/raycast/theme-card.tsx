@@ -9,12 +9,15 @@ export function ThemeCard({ theme }: { theme: Theme }) {
   return (
     <button
       key={theme.name}
-      className={`ring ring-inset p-2 rounded-4 ${
+      className={`ring m-2 rounded-4 overflow-hidden ${
         activeTheme.slug === theme.slug ? "ring-white" : "ring-transparent"
       }`}
+      style={{
+        backgroundColor: theme.appearance === "dark" ? "black" : "white",
+      }}
       onClick={() => setActiveTheme(theme)}
     >
-      <Raycast theme={theme} height={200} />
+      <Raycast theme={theme} size="small" disableLoadingAnimation />
     </button>
   );
 }

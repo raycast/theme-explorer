@@ -1,7 +1,13 @@
 import { Theme } from "@/lib/theme";
 import chroma from "chroma-js";
 
-export function RootHeader({ theme }: { theme: Theme }) {
+export function RootHeader({
+  theme,
+  disableLoadingAnimation,
+}: {
+  theme: Theme;
+  disableLoadingAnimation?: boolean;
+}) {
   return (
     <header
       className="h-[56px] px-4 border-b flex items-center gap-2 shrink-0 relative"
@@ -45,13 +51,15 @@ export function RootHeader({ theme }: { theme: Theme }) {
           "--placeholder-color": chroma(theme.colors.text).alpha(0.4).css(),
         }}
       />
-      <div
-        className="absolute top-full w-[200px] h-[1px] "
-        style={{
-          backgroundImage: `linear-gradient(to right, rgba(255, 255, 255, 0), ${theme.colors.loader}, rgba(255, 255, 255, 0))`,
-          animation: "nightRider 2s ease-in-out infinite",
-        }}
-      ></div>
+      {!disableLoadingAnimation && (
+        <div
+          className="absolute top-full w-[200px] h-[1px] "
+          style={{
+            backgroundImage: `linear-gradient(to right, rgba(255, 255, 255, 0), ${theme.colors.loader}, rgba(255, 255, 255, 0))`,
+            animation: "nightRider 2s ease-in-out infinite",
+          }}
+        />
+      )}
     </header>
   );
 }
