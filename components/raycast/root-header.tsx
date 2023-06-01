@@ -38,19 +38,14 @@ export function RootHeader({
           />
         </svg>
       </div>
-      <input
-        type="text"
-        autoComplete="off"
-        autoCorrect="off"
-        autoCapitalize="off"
-        spellCheck="false"
-        placeholder="Search..."
-        className="w-full leading-none bg-transparent border-none outline-none placeholder-[--placeholder-color] text-4"
+      <div
+        className="w-full leading-none bg-transparent border-none outline-none text-4"
         style={{
-          // @ts-ignore
-          "--placeholder-color": chroma(theme.colors.text).alpha(0.4).css(),
+          color: chroma(theme.colors.text).alpha(0.4).css(),
         }}
-      />
+      >
+        Search...
+      </div>
       {!disableLoadingAnimation && (
         <div
           className="absolute top-full w-[200px] h-[1px] "
