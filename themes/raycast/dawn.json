@@ -1,0 +1,21 @@
+{
+  "author": "Raycast",
+  "version": "1",
+  "name": "Dawn",
+  "slug": "",
+  "appearance": "light",
+  "colors": {
+    "backgroundPrimary": "#FFF1F7FF",
+    "backgroundSecondary": "#D0C1FFFF",
+    "text": "#120032FF",
+    "selection": "#602AFFFF",
+    "loader": "#5A00FFFF",
+    "red": "#E14848FF",
+    "orange": "#E5753CFF",
+    "yellow": "#B7B400FF",
+    "green": "#00AC5DFF",
+    "blue": "#4F80FFFF",
+    "purple": "#9454FFFF",
+    "pink": "#D756BFFF"
+  }
+}

@@ -1,9 +1,7 @@
-import { useTheme } from "@/components/raycast";
+import { Theme } from "@/lib/theme";
 import chroma from "chroma-js";
 
-export function Grid() {
-  const theme = useTheme();
-
+export function Grid({ theme }: { theme: Theme }) {
   return (
     <div
       className="py-1 px-2"

@@ -1,10 +1,8 @@
 import { RaycastIcon } from "@/components/icons";
-import { useTheme } from "@/components/raycast";
+import { Theme } from "@/lib/theme";
 import chroma from "chroma-js";
 
-export function RootFooter() {
-  const theme = useTheme();
-
+export function RootFooter({ theme }: { theme: Theme }) {
   return (
     <footer
       className={`shrink-0 h-[40px] px-3 border-t flex items-center justify-between gap-2  z-10 ${

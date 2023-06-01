@@ -1,20 +1,20 @@
 "use client";
-import { Raycast, Theme } from "@/components/raycast";
+import { Raycast } from "@/components/raycast";
 import React from "react";
 import NextLink from "next/link";
 
-export default function Playground({ themes }: { themes: Theme[] }) {
-  const [activeTheme, setActiveTheme] = React.useState(themes[0]);
+export default function Playground() {
+  // const [activeTheme, setActiveTheme] = React.useState(themes[0]);
 
   return (
     <div>
-      <Raycast theme={activeTheme} />
+      <Raycast />
 
-      <div className="flex px-4 gap-4">
+      {/* <div className="flex px-4 gap-4">
         Themes:{" "}
         {themes.map((theme) => (
           <button key={theme.name} onClick={() => setActiveTheme(theme)}>
-            {theme.name}
+            <Raycast theme={theme} height={200} />
           </button>
         ))}
       </div>
@@ -25,8 +25,8 @@ export default function Playground({ themes }: { themes: Theme[] }) {
           <NextLink key={theme.name} href={`/${theme.author}/${theme.slug}`}>
             {theme.name}
           </NextLink>
-        ))}
-      </div>
+        ))} */}
+      {/* </div> */}
     </div>
   );
 }

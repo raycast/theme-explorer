@@ -1,5 +1,5 @@
+import { getThemesByAuthor } from "@/lib/theme";
 import { NextResponse } from "next/server";
-import { getThemesByAuthor } from "@/lib/getThemesByAuthor";
 
 export async function GET(
   request: Request,

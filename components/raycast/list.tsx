@@ -1,10 +1,9 @@
 import { CheckIcon } from "@/components/icons";
-import { useTheme } from "@/components/raycast";
+import { Theme } from "@/lib/theme";
+
 import chroma from "chroma-js";
 
-export function List() {
-  const theme = useTheme();
-
+export function List({ theme }: { theme: Theme }) {
   return (
     <div
       className="py-1 px-2"

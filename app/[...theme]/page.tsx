@@ -1,7 +1,9 @@
 import React from "react";
+import NextLink from "next/link";
 import { Raycast } from "@/components/raycast";
 import { BASE_URL } from "@/lib/url";
-import { getThemesByAuthor } from "@/lib/getThemesByAuthor";
+import { getThemesByAuthor } from "@/lib/theme";
+import { Desktop } from "@/components/desktop";
 
 export async function generateMetadata({
   params,
@@ -41,11 +43,20 @@ export default async function ThemePage({
   const themes = await getThemesByAuthor(author);
   const theme = themes.find((theme) => theme.slug === themeName);
 
+  if (!theme) {
+    return <h1>Theme not found</h1>;
+  }
+
   return (
     <div>
-      {theme && <Raycast theme={theme} />}
+      <Desktop theme={theme}>
+        <Raycast theme={theme} />
+      </Desktop>
       <div className="flex px-4 gap-4">
         {themeName} by {author}
+      </div>
+      <div className="flex px-4">
+        <NextLink href="/">← See all themes</NextLink>
       </div>
     </div>
   );

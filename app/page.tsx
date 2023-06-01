@@ -1,10 +1,14 @@
 import React from "react";
-import Playground from "@/components/playground";
+import { ThemeSwitcher } from "@/components/theme-switcher";
+import { HomepageHero } from "@/components/homepage-hero";
 
-import { getAllThemes } from "@/lib/getAllThemes";
+export default function Home() {
+  return (
+    <div>
+      <HomepageHero />
 
-export default async function Home() {
-  const themes = await getAllThemes();
-
-  return <div>{themes && <Playground themes={themes} />}</div>;
+      {/* @ts-expect-error Async Server Component */}
+      <ThemeSwitcher />
+    </div>
+  );
 }

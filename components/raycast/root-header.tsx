@@ -1,9 +1,7 @@
-import { useTheme } from "@/components/raycast";
+import { Theme } from "@/lib/theme";
 import chroma from "chroma-js";
 
-export function RootHeader() {
-  const theme = useTheme();
-
+export function RootHeader({ theme }: { theme: Theme }) {
   return (
     <header
       className="h-[56px] px-4 border-b flex items-center gap-2 shrink-0 relative"
