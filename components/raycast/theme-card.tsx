@@ -28,7 +28,11 @@ export function ThemeCard({ theme }: { theme: Theme }) {
             backgroundColor: theme.appearance === "dark" ? "black" : "white",
           }}
         >
-          <Raycast theme={theme} size="normal" disableLoadingAnimation />
+          <Raycast
+            theme={theme}
+            size="normal"
+            disableLoadingAnimation={activeTheme.slug !== theme.slug}
+          />
         </div>
       </div>
     </button>
