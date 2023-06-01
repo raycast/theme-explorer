@@ -9,7 +9,7 @@ export function ThemeCard({ theme }: { theme: Theme }) {
   return (
     <button
       key={theme.name}
-      className={`ring ring-inset p-2 rounded-3 ${
+      className={`ring ring-inset p-2 rounded-4 ${
         activeTheme.slug === theme.slug ? "ring-white" : "ring-transparent"
       }`}
       onClick={() => setActiveTheme(theme)}
