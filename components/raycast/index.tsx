@@ -30,7 +30,6 @@ export function Raycast({
     <div style={{ ...windowSize }}>
       <svg
         viewBox="0 0 750 475"
-        // height={height}
         xmlns="http://www.w3.org/2000/svg"
         className="block"
       >
@@ -43,7 +42,7 @@ export function Raycast({
         >
           <div
             id="raycast"
-            className={`w-full h-full rounded-4 backdrop-blur-[72px] border shadow flex flex-col relative overflow-hidden select-none shrink-0`}
+            className={`w-full h-full rounded-4 backdrop-blur-[72px] border shadow flex flex-col relative overflow-hidden select-none shrink-0 text-left`}
             style={Object.assign(
               {
                 zIndex: 2,

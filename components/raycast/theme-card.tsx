@@ -9,15 +9,28 @@ export function ThemeCard({ theme }: { theme: Theme }) {
   return (
     <button
       key={theme.name}
-      className={`ring m-2 rounded-4 overflow-hidden ${
-        activeTheme.slug === theme.slug ? "ring-white" : "ring-transparent"
+      className={`ring-1 m-2 p-3 rounded-4 overflow-hidden w-[342px] h-[214px] shrink-0 ${
+        activeTheme.slug === theme.slug ? "ring-[#56c2dd]" : "ring-slate-800"
       }`}
-      style={{
-        backgroundColor: theme.appearance === "dark" ? "black" : "white",
-      }}
       onClick={() => setActiveTheme(theme)}
     >
-      <Raycast theme={theme} size="small" disableLoadingAnimation />
+      <div
+        className="overflow-hidden"
+        style={{
+          margin: "5px",
+          width: "calc(100% - 10px)",
+          height: "calc(100% - 10px)",
+        }}
+      >
+        <div
+          className="rounded-4"
+          style={{
+            backgroundColor: theme.appearance === "dark" ? "black" : "white",
+          }}
+        >
+          <Raycast theme={theme} size="normal" disableLoadingAnimation />
+        </div>
+      </div>
     </button>
   );
 }
