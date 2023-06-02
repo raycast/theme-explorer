@@ -41,11 +41,18 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
     setActiveTheme(theme);
   };
 
+  const style = Object.fromEntries(
+    Object.entries(activeTheme.colors).map(([key, value]) => [
+      "--" + key,
+      value,
+    ])
+  );
+
   return (
     <ThemeContext.Provider
       value={{ activeTheme, setActiveTheme: handleSetActiveTheme }}
     >
-      {children}
+      <div style={style}>{children}</div>
     </ThemeContext.Provider>
   );
 }

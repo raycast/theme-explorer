@@ -24,19 +24,13 @@ export function RootFooter({ theme }: { theme: Theme }) {
 
       <div className="flex gap-3 items-center">
         <div className="flex gap-3 items-center">
-          <div
-            className=" text-1 font-semibold"
-            style={{
-              color: theme.colors.text,
-            }}
-          >
+          <div className=" text-1 text-[--text] font-semibold">
             Open Command
           </div>
           <div
-            className="w-[24px] h-[24px] rounded-2 flex items-center justify-center bg-white/10 white"
+            className="w-[24px] h-[24px] rounded-2 flex items-center justify-center text-[--text]"
             style={{
               backgroundColor: chroma(theme.colors.text).alpha(0.1).css(),
-              color: theme.colors.text,
             }}
           >
             <svg
@@ -53,7 +47,7 @@ export function RootFooter({ theme }: { theme: Theme }) {
             </svg>
           </div>
         </div>
-        <div className="w-[2px] h-[12px] bg-white/10" />
+        <div className="w-[2px] h-[12px] bg-[--text] opacity-10" />
         <div className="flex gap-3 items-center">
           <div
             className="text-1 font-semibold"
@@ -64,7 +58,7 @@ export function RootFooter({ theme }: { theme: Theme }) {
             Actions
           </div>
           <div
-            className="w-[24px] h-[24px] rounded-2 flex items-center justify-center bg-white/10 white text-1"
+            className="w-[24px] h-[24px] rounded-2 flex items-center justify-center text-1"
             style={{
               backgroundColor: chroma(theme.colors.text).alpha(0.1).css(),
               color: theme.colors.text,
@@ -73,7 +67,7 @@ export function RootFooter({ theme }: { theme: Theme }) {
             ⌘
           </div>
           <div
-            className="w-[24px] h-[24px] rounded-2 flex items-center justify-center bg-white/10 white text-1 -ml-2"
+            className="w-[24px] h-[24px] rounded-2 flex items-center justify-center text-1 -ml-2"
             style={{
               backgroundColor: chroma(theme.colors.text).alpha(0.1).css(),
               color: theme.colors.text,

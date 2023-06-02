@@ -10,13 +10,8 @@ export function ThemeCard({ theme }: { theme: Theme }) {
     <button
       key={theme.name}
       className={`ring-1 p-3 rounded-4 overflow-hidden aspect-[16/9] h-full shrink-0 ${
-        activeTheme.slug === theme.slug
-          ? "ring-[--active-ring]"
-          : "ring-slate-800"
+        activeTheme.slug === theme.slug ? "ring-[--selection]" : "ring-white/20"
       }`}
-      style={
-        { "--active-ring": activeTheme.colors.selection } as React.CSSProperties
-      }
       onClick={() => setActiveTheme(theme)}
     >
       <div
@@ -35,7 +30,6 @@ export function ThemeCard({ theme }: { theme: Theme }) {
         >
           <Raycast
             theme={theme}
-            size="normal"
             disableLoadingAnimation={activeTheme.slug !== theme.slug}
           />
         </div>

@@ -90,7 +90,7 @@ function Trigger({
 
   return (
     <Menubar.Trigger
-      className={`outline-none data-[state=open]:bg-[--active-bg] rounded-1 px-2 h-[25px] ${
+      className={`outline-none cursor-default data-[state=open]:bg-[--active-bg] rounded-1 px-2 h-[25px] ${
         bold ? "font-semibold" : undefined
       }`}
       style={
