@@ -39,14 +39,24 @@ export function Raycast({
       <foreignObject width="750" height="475" x="0" y="0" className="rounded-4">
         <div
           id="raycast"
-          className={`w-full h-full rounded-4 backdrop-blur-[72px] border shadow flex flex-col relative overflow-hidden select-none shrink-0 text-left`}
+          className={`w-full h-full rounded-4 backdrop-blur-[72px] shadow flex flex-col relative overflow-hidden select-none shrink-0 text-left`}
           style={Object.assign(
             {
               zIndex: 2,
-              backgroundColor: chroma(theme.colors.backgroundPrimary)
+
+              backgroundImage: `linear-gradient(to bottom, ${chroma(
+                theme.colors.backgroundPrimary
+              )
                 .alpha(0.6)
-                .css(),
-              borderColor: chroma(theme.colors.text).alpha(0.2).css(),
+                .css()} 0%, ${chroma(
+                theme.colors.backgroundSecondary ||
+                  theme.colors.backgroundPrimary
+              )
+                .alpha(0.6)
+                .css()} 70%)`,
+              boxShadow: `inset 0 0 0 1px ${chroma(theme.colors.text)
+                .alpha(0.2)
+                .css()}`,
             },
             ...Object.entries(theme.colors).map(([key, value]) => ({
               ["--" + key]: value,

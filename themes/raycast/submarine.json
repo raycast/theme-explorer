@@ -1,0 +1,21 @@
+{
+  "author": "Raycast",
+  "version": "1",
+  "name": "Submarine",
+  "slug": "",
+  "appearance": "dark",
+  "colors": {
+    "backgroundPrimary": "#001068",
+    "backgroundSecondary": "#00685E",
+    "text": "#EAFBFF",
+    "selection": "#00FFEA",
+    "loader": "#D6AEFF",
+    "red": "#F87E7E",
+    "orange": "#FFB765",
+    "yellow": "#FEFF7F",
+    "green": "#7EECAE",
+    "blue": "#72BAFB",
+    "purple": "#CE9DFA",
+    "pink": "#FFA2D4"
+  }
+}

@@ -1,20 +1,21 @@
 {
-  "author": "raycast",
+  "author": "Raycast",
   "version": "1",
   "name": "One Dark Pro",
+  "slug": "",
   "appearance": "dark",
   "colors": {
-    "backgroundPrimary": "#21252B",
-    "backgroundSecondary": "#21252B",
-    "text": "#FFFFFF",
-    "selection": "#808FA7",
-    "loader": "#61AFEF",
-    "red": "#E06C75",
-    "orange": "#E5C07B",
-    "yellow": "#E5D67B",
-    "green": "#95BE77",
-    "blue": "#61AFEF",
-    "purple": "#BF75D6",
-    "pink": "#D675A7"
+    "backgroundPrimary": "#21252BFF",
+    "backgroundSecondary": "#21252BFF",
+    "text": "#FFFFFFFF",
+    "selection": "#808FA7FF",
+    "loader": "#61AFEFFF",
+    "red": "#E06C75FF",
+    "orange": "#E5C07BFF",
+    "yellow": "#E5D67BFF",
+    "green": "#95BE77FF",
+    "blue": "#61AFEFFF",
+    "purple": "#BF75D6FF",
+    "pink": "#D675A7FF"
   }
 }

@@ -109,9 +109,7 @@ function Trigger({
 
 function Item({ children }: { children: React.ReactNode }) {
   return (
-    <Menubar.Item
-      className={`rounded-1 px-2 outline-none data-[highlighted]:bg-[#4D79DA] data-[highlighted]:text-white`}
-    >
+    <Menubar.Item className="rounded-1 px-2 outline-none data-[highlighted]:bg-[#4D79DA] data-[highlighted]:text-white cursor-default">
       {children}
     </Menubar.Item>
   );
