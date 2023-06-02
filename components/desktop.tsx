@@ -1,6 +1,7 @@
 import chroma from "chroma-js";
 import React from "react";
 import { Theme } from "@/lib/theme";
+import { MenuBar } from "@/components/menu-bar";
 
 export function Desktop({
   children,
@@ -25,7 +26,7 @@ export function Desktop({
 
   return (
     <div
-      className="min-h-[65vh] max-h-[675px] w-full px-6 overflow-hidden flex items-center md:justify-center relative"
+      className="flex-1 w-full p-6 tall:py-0 overflow-hidden flex tall:items-center md:justify-center relative desktop:p-0"
       style={{
         transition: "all 0.3s ease",
         backgroundColor: backgroundPrimary1,
@@ -40,6 +41,7 @@ export function Desktop({
         `,
       }}
     >
+      <MenuBar />
       {children}
     </div>
   );

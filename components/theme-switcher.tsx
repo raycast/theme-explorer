@@ -6,12 +6,10 @@ export async function ThemeSwitcher() {
   const themes = await getAllThemes();
 
   return (
-    <div>
-      <div className="flex p-6 gap-4 items-center overflow-auto h-[35vh] min-h-[240px] max-h-[340px]">
-        {themes.map((theme) => (
-          <ThemeCard key={theme.name} theme={theme} />
-        ))}
-      </div>
+    <div className="flex px-6 py-5 gap-4 items-center overflow-auto h-[245px]">
+      {themes.map((theme) => (
+        <ThemeCard key={theme.name} theme={theme} />
+      ))}
     </div>
   );
 }

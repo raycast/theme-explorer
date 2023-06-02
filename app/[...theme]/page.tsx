@@ -48,7 +48,7 @@ export default async function ThemePage({
   }
 
   return (
-    <div>
+    <>
       <Desktop theme={theme}>
         <Raycast theme={theme} />
       </Desktop>
@@ -58,6 +58,6 @@ export default async function ThemePage({
       <div className="flex px-4">
         <NextLink href="/">← See all themes</NextLink>
       </div>
-    </div>
+    </>
   );
 }
