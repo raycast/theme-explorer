@@ -1,7 +1,5 @@
-"use client";
 import chroma from "chroma-js";
 import React from "react";
-import { useTheme } from "@/components/raycast-theme-provider";
 import { Theme } from "@/lib/theme";
 
 export function Desktop({
@@ -27,8 +25,7 @@ export function Desktop({
 
   return (
     <div
-      className="aspect-[16/9] min-h-[600px] max-h-[675px] w-full flex items-center md:justify-center relative p-[48px] 
-      2xl:w-[1280px] 2xl:mx-auto 2xl:rounded-4 2xl:my-[48px]"
+      className="min-h-[65vh] max-h-[675px] w-full px-6 overflow-hidden flex items-center md:justify-center relative"
       style={{
         transition: "all 0.3s ease",
         backgroundColor: backgroundPrimary1,

@@ -7,7 +7,7 @@ export async function ThemeSwitcher() {
 
   return (
     <div>
-      <div className="flex my-[48px] px-[48px] gap-4 overflow-auto">
+      <div className="flex p-6 gap-4 items-center overflow-auto h-[35vh] min-h-[240px]">
         {themes.map((theme) => (
           <ThemeCard key={theme.name} theme={theme} />
         ))}

@@ -9,7 +9,8 @@ export function ThemeCard({ theme }: { theme: Theme }) {
   return (
     <button
       key={theme.name}
-      className={`ring-1 m-2 p-3 rounded-4 overflow-hidden w-[342px] h-[214px] shrink-0 ${
+      // w-[342px] h-[214px]
+      className={`ring-1 p-3 rounded-4 overflow-hidden aspect-[16/9] h-full shrink-0 ${
         activeTheme.slug === theme.slug ? "ring-[#56c2dd]" : "ring-slate-800"
       }`}
       onClick={() => setActiveTheme(theme)}
