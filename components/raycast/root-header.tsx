@@ -16,9 +16,10 @@ export function RootHeader({
       }}
     >
       <div
-        className="w-[24px] h-[24px] rounded-2 flex items-center justify-center text-[--text]"
+        className="w-[24px] h-[24px] rounded-2 flex items-center justify-center"
         style={{
           backgroundColor: chroma(theme.colors.text).alpha(0.1).css(),
+          color: theme.colors.text,
         }}
       >
         <svg

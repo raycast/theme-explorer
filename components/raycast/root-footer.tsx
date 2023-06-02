@@ -24,13 +24,19 @@ export function RootFooter({ theme }: { theme: Theme }) {
 
       <div className="flex gap-3 items-center">
         <div className="flex gap-3 items-center">
-          <div className=" text-1 text-[--text] font-semibold">
+          <div
+            className=" text-1 font-semibold"
+            style={{
+              color: theme.colors.text,
+            }}
+          >
             Open Command
           </div>
           <div
-            className="w-[24px] h-[24px] rounded-2 flex items-center justify-center text-[--text]"
+            className="w-[24px] h-[24px] rounded-2 flex items-center justify-center"
             style={{
               backgroundColor: chroma(theme.colors.text).alpha(0.1).css(),
+              color: theme.colors.text,
             }}
           >
             <svg
@@ -47,7 +53,12 @@ export function RootFooter({ theme }: { theme: Theme }) {
             </svg>
           </div>
         </div>
-        <div className="w-[2px] h-[12px] bg-[--text] opacity-10" />
+        <div
+          className="w-[2px] h-[12px]"
+          style={{
+            backgroundColor: chroma(theme.colors.text).alpha(0.1).css(),
+          }}
+        />
         <div className="flex gap-3 items-center">
           <div
             className="text-1 font-semibold"
