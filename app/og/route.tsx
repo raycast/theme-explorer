@@ -99,9 +99,6 @@ export async function GET(request: NextRequest) {
     const inter500Data = await inter500;
     const inter600Data = await inter600;
 
-    const bgLightData: any = await bgLight;
-    const bgDarkData: any = await bgDark;
-
     const { searchParams } = new URL(request.url);
 
     const theme = searchParams.has("theme")
@@ -109,6 +106,20 @@ export async function GET(request: NextRequest) {
           decodeURIComponent(searchParams.get("theme") as string)
         ) as Theme)
       : defaultTheme;
+
+    const loader1 = chroma(theme.colors.loader).alpha(0.7).css();
+    const loader2 = chroma(theme.colors.loader).alpha(0.5).css();
+    const backgroundPrimary1 = chroma(theme.colors.backgroundPrimary)
+      .alpha(0.7)
+      .css();
+    const backgroundPrimary2 = chroma(theme.colors.backgroundPrimary)
+      .alpha(0.5)
+      .css();
+    const backgroundPrimary3 = chroma(theme.colors.backgroundPrimary)
+      .alpha(0.25)
+      .css();
+    const selection1 = chroma(theme.colors.selection).alpha(0.7).css();
+    const selection2 = chroma(theme.colors.selection).alpha(0.5).css();
 
     return new ImageResponse(
       (
@@ -118,18 +129,19 @@ export async function GET(request: NextRequest) {
             position: "relative",
             width: "100%",
             height: "100%",
+            backgroundColor: theme.appearance === "dark" ? "#000" : "#fff",
+            backgroundImage: `linear-gradient(to bottom, ${selection1}, ${selection2} 50%)`,
+            // backgroundImage: `
+            // radial-gradient(at 40% 20%, ${backgroundPrimary1}, transparent 50%),
+            // radial-gradient(at 80% 0%, ${loader1} 0px, transparent 50%),
+            // radial-gradient(at 0% 50%, ${selection1} 0px, transparent 50%),
+            // radial-gradient(at 80% 50%, ${backgroundPrimary2} 0px, transparent 50%),
+            // radial-gradient(at 0% 100%, ${loader2} 0px, transparent 50%),
+            // radial-gradient(at 80% 100%, ${selection2} 0px, transparent 50%),
+            // radial-gradient(at 0% 0%, ${backgroundPrimary3} 0px, transparent 50%)
+            // `,
           }}
         >
-          <img
-            src={theme.appearance === "dark" ? bgDarkData : bgLightData}
-            style={{
-              position: "absolute",
-              width: "100%",
-              height: "100%",
-            }}
-            alt=""
-          />
-
           <svg
             viewBox="0 0 750 475"
             height="475"
@@ -138,9 +150,9 @@ export async function GET(request: NextRequest) {
               display: "flex",
               border: "none",
               position: "absolute",
-              transform: "scale(2)",
-              left: "600px",
-              top: "400px",
+              transform: "scale(2.5)",
+              left: "700px",
+              top: "500px",
             }}
           >
             <foreignObject width="750" height="475" x="0" y="0">
@@ -224,7 +236,7 @@ export async function GET(request: NextRequest) {
                     style={{
                       position: "absolute",
                       top: "100%",
-                      width: "100px",
+                      width: "200px",
                       height: "1px",
                       backgroundImage: `linear-gradient(to right, rgba(255, 255, 255, 0), ${theme.colors.loader}, rgba(255, 255, 255, 0))`,
                     }}
