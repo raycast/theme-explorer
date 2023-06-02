@@ -1,0 +1,21 @@
+{
+  "author": "peduarte",
+  "version": "1",
+  "name": "Desert Light",
+  "slug": "",
+  "appearance": "light",
+  "colors": {
+    "backgroundPrimary": "#FFFAF1FF",
+    "backgroundSecondary": "#FFD4C1FF",
+    "text": "#120032FF",
+    "selection": "#FF4D00FF",
+    "loader": "#FF8C00FF",
+    "red": "#E14848FF",
+    "orange": "#E5753CFF",
+    "yellow": "#B7B400FF",
+    "green": "#00AC5DFF",
+    "blue": "#4F80FFFF",
+    "purple": "#9454FFFF",
+    "pink": "#D756BFFF"
+  }
+}
