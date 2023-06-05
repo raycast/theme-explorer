@@ -24,17 +24,23 @@ const defaultTheme: Theme = {
   },
 };
 
-type ThemeContextType = {
+type RaycastThemeContextType = {
   activeTheme: Theme;
   setActiveTheme: (theme: Theme) => void;
 };
 
-export const ThemeContext = React.createContext<ThemeContextType>({
-  activeTheme: defaultTheme,
-  setActiveTheme: () => {},
-});
+export const RaycastThemeContext = React.createContext<RaycastThemeContextType>(
+  {
+    activeTheme: defaultTheme,
+    setActiveTheme: () => {},
+  }
+);
 
-export function ThemeProvider({ children }: { children: React.ReactNode }) {
+export function RaycastThemeProvider({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   const [activeTheme, setActiveTheme] = React.useState<Theme>(defaultTheme);
 
   const handleSetActiveTheme = (theme: Theme) => {
@@ -49,16 +55,24 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
   );
 
   return (
-    <ThemeContext.Provider
+    <RaycastThemeContext.Provider
       value={{ activeTheme, setActiveTheme: handleSetActiveTheme }}
     >
-      <div style={style}>{children}</div>
-    </ThemeContext.Provider>
+      <div
+        style={
+          {
+            ...style,
+          } as React.CSSProperties
+        }
+      >
+        {children}
+      </div>
+    </RaycastThemeContext.Provider>
   );
 }
 
-export function useTheme() {
-  const { activeTheme, setActiveTheme } = React.useContext(ThemeContext);
+export function useRaycastTheme() {
+  const { activeTheme, setActiveTheme } = React.useContext(RaycastThemeContext);
 
   return { activeTheme, setActiveTheme };
 }

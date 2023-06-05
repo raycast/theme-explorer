@@ -1,5 +1,4 @@
 import { MenuBar } from "@/components/menu-bar";
-import { ThemeSwitcher } from "@/components/theme-switcher";
 
 export function Desktop({ children }: { children?: React.ReactNode }) {
   const loader1 = "rgba(var(--loader), 0.7)";
@@ -14,7 +13,7 @@ export function Desktop({ children }: { children?: React.ReactNode }) {
 
   return (
     <div
-      className="flex flex-col tall:items-center md:justify-center flex-1 w-full h-full min-h-[800px] relative"
+      className="flex flex-col desktop:items-center md:justify-center flex-1 p-7 w-full relative overflow-hidden"
       style={{
         transition: "all 0.3s ease",
         backgroundColor: backgroundPrimary1,
@@ -31,14 +30,7 @@ export function Desktop({ children }: { children?: React.ReactNode }) {
     >
       <MenuBar />
 
-      <div className="flex-1 flex items-center p-6 tall:py-0 desktop:p-0">
-        {children}
-      </div>
-
-      <div className="bg-white/10 backdrop-blur-[12px] overflow-auto w-full ">
-        {/* @ts-expect-error Async Server Component */}
-        <ThemeSwitcher />
-      </div>
+      {children}
     </div>
   );
 }

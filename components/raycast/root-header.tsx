@@ -1,5 +1,5 @@
 "use client";
-import { useTheme } from "@/components/raycast-theme-provider";
+import { useRaycastTheme } from "@/components/raycast-theme-provider";
 
 export function RootHeader({
   text,
@@ -10,7 +10,7 @@ export function RootHeader({
   disableLoadingAnimation?: boolean;
   loadingAnimationType?: "animated" | "static";
 }) {
-  const { activeTheme } = useTheme();
+  const { activeTheme } = useRaycastTheme();
 
   return (
     <header

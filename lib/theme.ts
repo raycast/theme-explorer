@@ -31,9 +31,14 @@ const readFileAsync = promisify(readFile);
 
 export async function getAllThemes(): Promise<Theme[]> {
   const allThemePaths = await glob(`${themesDir}/**/*.json`);
+  const sortedThemePaths = allThemePaths.sort((a, b) => {
+    const aFileName = basename(a);
+    const bFileName = basename(b);
+    return aFileName.localeCompare(bFileName);
+  });
 
   const themes = await Promise.all(
-    allThemePaths.map(async (filePath) => {
+    sortedThemePaths.map(async (filePath) => {
       const fileName = basename(filePath);
       const data = await readFileAsync(filePath);
       const jsonData = JSON.parse(data.toString());

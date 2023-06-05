@@ -2,10 +2,10 @@
 import React from "react";
 import * as Menubar from "@radix-ui/react-menubar";
 import { RaycastIcon } from "@/components/icons";
-import { useTheme } from "@/components/raycast-theme-provider";
+import { useRaycastTheme } from "@/components/raycast-theme-provider";
 
 export function MenuBar() {
-  const { activeTheme } = useTheme();
+  const { activeTheme } = useRaycastTheme();
 
   return (
     <Menubar.Root
@@ -61,7 +61,7 @@ export function getCurrentDate(): string {
 }
 
 function Content({ children }: { children: React.ReactNode }) {
-  const { activeTheme } = useTheme();
+  const { activeTheme } = useRaycastTheme();
 
   return (
     <Menubar.Portal>
@@ -86,7 +86,7 @@ function Trigger({
   children: React.ReactNode;
   bold?: boolean;
 }) {
-  const { activeTheme } = useTheme();
+  const { activeTheme } = useRaycastTheme();
 
   return (
     <Menubar.Trigger

@@ -45,6 +45,5 @@ export function Raycast({
         </div>
       </foreignObject>
     </svg>
-    // </div>
   );
 }

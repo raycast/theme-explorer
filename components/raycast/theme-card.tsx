@@ -1,24 +1,29 @@
 "use client";
 import { Raycast } from "@/components/raycast";
-import { useTheme } from "@/components/raycast-theme-provider";
+import { useRaycastTheme } from "@/components/raycast-theme-provider";
 import { Theme } from "@/lib/theme";
 
-export function ThemeCard({ theme }: { theme: Theme }) {
-  const { activeTheme, setActiveTheme } = useTheme();
+export function ThemeCard({ theme: raycastTheme }: { theme: Theme }) {
+  const { activeTheme, setActiveTheme } = useRaycastTheme();
 
   const style = Object.fromEntries(
-    Object.entries(theme.colors).map(([key, value]) => ["--" + key, value])
+    Object.entries(raycastTheme.colors).map(([key, value]) => [
+      "--" + key,
+      value,
+    ])
   );
 
   return (
     <button
-      key={theme.name}
+      key={raycastTheme.name}
       className={`ring-2 p-0 rounded-4 overflow-hidden aspect-[16/9] h-full shrink-0 ${
-        activeTheme.slug === theme.slug
+        activeTheme.slug === raycastTheme.slug
           ? "ring-[rgb(var(--selection))]"
           : "ring-white/0"
       }`}
-      onClick={() => setActiveTheme(theme)}
+      onClick={() => {
+        setActiveTheme(raycastTheme);
+      }}
       style={style}
     >
       <div
@@ -32,12 +37,13 @@ export function ThemeCard({ theme }: { theme: Theme }) {
         <div
           className="rounded-4"
           style={{
-            backgroundColor: theme.appearance === "dark" ? "black" : "white",
+            backgroundColor:
+              raycastTheme.appearance === "dark" ? "black" : "white",
           }}
         >
           <Raycast
-            text={`${theme.name} by ${theme.author}`}
-            disableLoadingAnimation={activeTheme.slug !== theme.slug}
+            text={`${raycastTheme.name} by ${raycastTheme.author}`}
+            disableLoadingAnimation={activeTheme.slug !== raycastTheme.slug}
             loadingAnimationType="static"
           />
         </div>
