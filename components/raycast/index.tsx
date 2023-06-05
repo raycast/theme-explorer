@@ -1,4 +1,3 @@
-"use client";
 import { List } from "@/components/raycast/list";
 import { Grid } from "@/components/raycast/grid";
 import { RootFooter } from "@/components/raycast/root-footer";
@@ -8,11 +7,11 @@ import React from "react";
 import { Theme } from "@/lib/theme";
 
 export function Raycast({
-  theme,
   disableLoadingAnimation,
+  loadingAnimationType = "animated",
 }: {
-  theme: Theme;
   disableLoadingAnimation?: boolean;
+  loadingAnimationType?: "animated" | "static";
 }) {
   return (
     <svg
@@ -26,32 +25,22 @@ export function Raycast({
           className={`w-full h-full rounded-4 backdrop-blur-[72px] shadow flex flex-col relative select-none shrink-0 text-left`}
           style={{
             zIndex: 2,
-
-            backgroundImage: `linear-gradient(to bottom, ${chroma(
-              theme.colors.backgroundPrimary
-            )
-              .alpha(0.6)
-              .css()} 0%, ${chroma(
-              theme.colors.backgroundSecondary || theme.colors.backgroundPrimary
-            )
-              .alpha(0.6)
-              .css()} 70%)`,
-            boxShadow: `inset 0 0 0 1px ${chroma(theme.colors.text)
-              .alpha(0.2)
-              .css()}`,
+            backgroundColor: "rgba(var(--backgroundPrimary), 0.6)",
+            backgroundImage: `linear-gradient(to bottom, rgba(var(--backgroundPrimary), 0.6) 0%, rgba(var(--backgroundSecondary), 0.6) 70%)`,
+            boxShadow: `inset 0 0 0 1px rgba(var(--text), 0.2)`,
           }}
         >
           <RootHeader
-            theme={theme}
             disableLoadingAnimation={disableLoadingAnimation}
+            loadingAnimationType={loadingAnimationType}
           />
 
           <main className="flex-1 overflow-hidden py-1">
-            <List theme={theme} />
-            <Grid theme={theme} />
+            <List />
+            <Grid />
           </main>
 
-          <RootFooter theme={theme} />
+          <RootFooter />
         </div>
       </foreignObject>
     </svg>

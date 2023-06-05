@@ -4,17 +4,17 @@
   "name": "Red",
   "appearance": "light",
   "colors": {
-    "backgroundPrimary": "#FAFAFA",
-    "backgroundSecondary": "#E4E4E4",
-    "text": "#ff0000",
-    "selection": "#ff0000",
-    "loader": "#ff0000",
-    "red": "#E24343",
-    "orange": "#E2612A",
-    "yellow": "#CAC235",
-    "green": "#56A156",
-    "blue": "#1485BA",
-    "purple": "#642EA4",
-    "pink": "#A42EA2"
+    "backgroundPrimary": "250, 250, 250",
+    "backgroundSecondary": "228, 228, 228",
+    "text": "255, 0, 0",
+    "selection": "255, 0, 0",
+    "loader": "255, 0, 0",
+    "red": "226, 67, 67",
+    "orange": "226, 97, 42",
+    "yellow": "202, 194, 53",
+    "green": "86, 161, 86",
+    "blue": "20, 133, 186",
+    "purple": "100, 46, 164",
+    "pink": "164, 46, 164"
   }
 }

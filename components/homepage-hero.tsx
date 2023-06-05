@@ -7,7 +7,7 @@ export function HomepageHero() {
   const { activeTheme } = useTheme();
 
   return (
-    <Desktop theme={activeTheme}>
+    <Desktop>
       <Raycast theme={activeTheme} />
     </Desktop>
   );

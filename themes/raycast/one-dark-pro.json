@@ -5,17 +5,17 @@
   "slug": "",
   "appearance": "dark",
   "colors": {
-    "backgroundPrimary": "#21252BFF",
-    "backgroundSecondary": "#21252BFF",
-    "text": "#FFFFFFFF",
-    "selection": "#808FA7FF",
-    "loader": "#61AFEFFF",
-    "red": "#E06C75FF",
-    "orange": "#E5C07BFF",
-    "yellow": "#E5D67BFF",
-    "green": "#95BE77FF",
-    "blue": "#61AFEFFF",
-    "purple": "#BF75D6FF",
-    "pink": "#D675A7FF"
+    "backgroundPrimary": "33, 37, 43",
+    "backgroundSecondary": "33, 37, 43",
+    "text": "255, 255, 255",
+    "selection": "128, 143, 167",
+    "loader": "97, 175, 239",
+    "red": "224, 108, 117",
+    "orange": "229, 192, 123",
+    "yellow": "229, 214, 123",
+    "green": "149, 190, 119",
+    "blue": "97, 175, 239",
+    "purple": "191, 117, 214",
+    "pink": "214, 117, 167"
   }
 }

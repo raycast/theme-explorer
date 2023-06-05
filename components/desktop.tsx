@@ -1,28 +1,15 @@
-import chroma from "chroma-js";
-import React from "react";
-import { Theme } from "@/lib/theme";
 import { MenuBar } from "@/components/menu-bar";
 
-export function Desktop({
-  children,
-  theme,
-}: {
-  children?: React.ReactNode;
-  theme: Theme;
-}) {
-  const loader1 = chroma(theme.colors.loader).alpha(0.7).css();
-  const loader2 = chroma(theme.colors.loader).alpha(0.5).css();
-  const backgroundPrimary1 = chroma(theme.colors.backgroundPrimary)
-    .alpha(0.7)
-    .css();
-  const backgroundPrimary2 = chroma(theme.colors.backgroundPrimary)
-    .alpha(0.5)
-    .css();
-  const backgroundPrimary3 = chroma(theme.colors.backgroundPrimary)
-    .alpha(0.25)
-    .css();
-  const selection1 = chroma(theme.colors.selection).alpha(0.7).css();
-  const selection2 = chroma(theme.colors.selection).alpha(0.5).css();
+export function Desktop({ children }: { children?: React.ReactNode }) {
+  const loader1 = "rgba(var(--loader), 0.7)";
+  const loader2 = "rgba(var(--loader), 0.5)";
+
+  const backgroundPrimary1 = "rgba(var(--backgroundPrimary), 0.7)";
+  const backgroundPrimary2 = "rgba(var(--backgroundPrimary), 0.5)";
+  const backgroundPrimary3 = "rgba(var(--backgroundPrimary), 0.25)";
+
+  const selection1 = "rgba(var(--selection), 0.7)";
+  const selection2 = "rgba(var(--selection), 0.5)";
 
   return (
     <div

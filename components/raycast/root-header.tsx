@@ -1,25 +1,20 @@
-import { Theme } from "@/lib/theme";
-import chroma from "chroma-js";
-
 export function RootHeader({
-  theme,
   disableLoadingAnimation,
+  loadingAnimationType,
 }: {
-  theme: Theme;
   disableLoadingAnimation?: boolean;
+  loadingAnimationType?: "animated" | "static";
 }) {
   return (
     <header
       className="h-[56px] px-4 border-b flex items-center gap-2 shrink-0 relative"
-      style={{
-        borderColor: chroma(theme.colors.text).alpha(0.1).css(),
-      }}
+      style={{ borderColor: "rgba(var(--text), 0.1)" }}
     >
       <div
         className="w-[24px] h-[24px] rounded-2 flex items-center justify-center"
         style={{
-          backgroundColor: chroma(theme.colors.text).alpha(0.1).css(),
-          color: theme.colors.text,
+          backgroundColor: "rgba(var(--text), 0.1)",
+          color: "rgb(var(--text))",
         }}
       >
         <svg
@@ -40,18 +35,20 @@ export function RootHeader({
       </div>
       <div
         className="w-full leading-none bg-transparent border-none outline-none text-4"
-        style={{
-          color: chroma(theme.colors.text).alpha(0.4).css(),
-        }}
+        style={{ color: "rgba(var(--text), 0.4)" }}
       >
         Search...
       </div>
+
       {!disableLoadingAnimation && (
         <div
           className="absolute top-full w-[200px] h-[1px] "
           style={{
-            backgroundImage: `linear-gradient(to right, rgba(255, 255, 255, 0), ${theme.colors.loader}, rgba(255, 255, 255, 0))`,
-            animation: "nightRider 2s ease-in-out infinite",
+            backgroundImage: `linear-gradient(to right, rgba(255, 255, 255, 0), rgb(var(--loader)), rgba(255, 255, 255, 0))`,
+            animation:
+              loadingAnimationType === "animated"
+                ? "nightRider 2s ease-in-out infinite"
+                : undefined,
           }}
         />
       )}

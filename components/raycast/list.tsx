@@ -1,24 +1,25 @@
 import { CheckIcon } from "@/components/icons";
-import { Theme } from "@/lib/theme";
 
-import chroma from "chroma-js";
-
-export function List({ theme }: { theme: Theme }) {
+export function List() {
   return (
     <div
       className="py-1 px-2"
-      style={{ color: chroma(theme.colors.text).css() }}
+      style={{
+        color: "rgb(var(--text))",
+      }}
     >
       <div
         className="p-2 text-1 leading-none font-medium tracking-[0.1px]"
-        style={{ color: chroma(theme.colors.text).alpha(0.6).css() }}
+        style={{
+          color: "rgba(var(--text), 0.6)",
+        }}
       >
         List
       </div>
       <div
         className="flex items-center gap-3 h-[40px] px-2 rounded-3"
         style={{
-          backgroundColor: chroma(theme.colors.selection).alpha(0.1).css(),
+          backgroundColor: "rgba(var(--selection), 0.1)",
         }}
       >
         <div>

@@ -1,24 +1,23 @@
 import { RaycastIcon } from "@/components/icons";
-import { Theme } from "@/lib/theme";
-import chroma from "chroma-js";
 
-export function RootFooter({ theme }: { theme: Theme }) {
+export function RootFooter() {
   return (
     <footer
-      className={`shrink-0 h-[40px] px-3 border-t flex items-center justify-between gap-2  z-10 ${
-        theme.appearance === "dark" ? "bg-black/10" : "bg-white/10"
-      }`}
+      className={`shrink-0 h-[40px] px-3 border-t flex items-center justify-between gap-2  z-10 `}
       style={{
-        borderColor: chroma(theme.colors.text).alpha(0.1).css(),
+        borderColor: "rgba(var(--text), 0.1)",
       }}
     >
       <div
         className="flex gap-3 items-center text-2"
         style={{
-          color: chroma(theme.colors.text).alpha(0.6).css(),
+          color: "rgba(var(--text), 0.6)",
         }}
       >
-        <RaycastIcon mode={theme.appearance} size={20} />
+        <RaycastIcon
+          // mode={theme.appearance}
+          size={20}
+        />
         <div>Theme Explorer</div>
       </div>
 
@@ -26,17 +25,15 @@ export function RootFooter({ theme }: { theme: Theme }) {
         <div className="flex gap-3 items-center">
           <div
             className=" text-1 font-semibold"
-            style={{
-              color: theme.colors.text,
-            }}
+            style={{ color: "rgb(var(--text))" }}
           >
             Open Command
           </div>
           <div
             className="w-[24px] h-[24px] rounded-2 flex items-center justify-center"
             style={{
-              backgroundColor: chroma(theme.colors.text).alpha(0.1).css(),
-              color: theme.colors.text,
+              backgroundColor: "rgba(var(--text), 0.1)",
+              color: "rgb(var(--text))",
             }}
           >
             <svg
@@ -55,24 +52,20 @@ export function RootFooter({ theme }: { theme: Theme }) {
         </div>
         <div
           className="w-[2px] h-[12px]"
-          style={{
-            backgroundColor: chroma(theme.colors.text).alpha(0.1).css(),
-          }}
+          style={{ backgroundColor: "rgba(var(--text), 0.1)" }}
         />
         <div className="flex gap-3 items-center">
           <div
             className="text-1 font-semibold"
-            style={{
-              color: chroma(theme.colors.text).alpha(0.6).css(),
-            }}
+            style={{ color: "rgba(var(--text), 0.6)" }}
           >
             Actions
           </div>
           <div
             className="w-[24px] h-[24px] rounded-2 flex items-center justify-center text-1"
             style={{
-              backgroundColor: chroma(theme.colors.text).alpha(0.1).css(),
-              color: theme.colors.text,
+              backgroundColor: "rgba(var(--text), 0.1)",
+              color: "rgb(var(--text))",
             }}
           >
             ⌘
@@ -80,8 +73,8 @@ export function RootFooter({ theme }: { theme: Theme }) {
           <div
             className="w-[24px] h-[24px] rounded-2 flex items-center justify-center text-1 -ml-2"
             style={{
-              backgroundColor: chroma(theme.colors.text).alpha(0.1).css(),
-              color: theme.colors.text,
+              backgroundColor: "rgba(var(--text), 0.1)",
+              color: "rgb(var(--text))",
             }}
           >
             K

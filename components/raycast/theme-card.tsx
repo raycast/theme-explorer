@@ -6,13 +6,20 @@ import { Theme } from "@/lib/theme";
 export function ThemeCard({ theme }: { theme: Theme }) {
   const { activeTheme, setActiveTheme } = useTheme();
 
+  const style = Object.fromEntries(
+    Object.entries(theme.colors).map(([key, value]) => ["--" + key, value])
+  );
+
   return (
     <button
       key={theme.name}
       className={`ring-1 p-3 rounded-4 overflow-hidden aspect-[16/9] h-full shrink-0 ${
-        activeTheme.slug === theme.slug ? "ring-[--selection]" : "ring-white/20"
+        activeTheme.slug === theme.slug
+          ? "ring-[rgb(var(--selection))]"
+          : "ring-white/20"
       }`}
       onClick={() => setActiveTheme(theme)}
+      style={style}
     >
       <div
         className="overflow-hidden"
@@ -29,8 +36,8 @@ export function ThemeCard({ theme }: { theme: Theme }) {
           }}
         >
           <Raycast
-            theme={theme}
             disableLoadingAnimation={activeTheme.slug !== theme.slug}
+            loadingAnimationType="static"
           />
         </div>
       </div>

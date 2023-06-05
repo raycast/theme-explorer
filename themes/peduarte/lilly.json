@@ -4,17 +4,17 @@
   "name": "Lilly",
   "appearance": "dark",
   "colors": {
-    "backgroundPrimary": "#622159",
-    "backgroundSecondary": "#282A36",
-    "text": "#F8F8F2",
-    "selection": "#93edf9",
-    "loader": "#faf20e",
-    "red": "#FF5555",
-    "orange": "#FFB86C",
-    "yellow": "#F1FA8C",
-    "green": "#50FA7B",
-    "blue": "#8BE9FD",
-    "purple": "#BD93F9",
-    "pink": "#FF79C6"
+    "backgroundPrimary": "98, 33, 89",
+    "backgroundSecondary": "40, 42, 54",
+    "text": "248, 248, 242",
+    "selection": "147, 237, 249",
+    "loader": "250, 242, 14",
+    "red": "255, 85, 85",
+    "orange": "255, 184, 108",
+    "yellow": "241, 250, 140",
+    "green": "80, 250, 123",
+    "blue": "139, 233, 253",
+    "purple": "189, 147, 249",
+    "pink": "255, 121, 198"
   }
 }

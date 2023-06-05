@@ -9,14 +9,14 @@ export function MenuBar() {
 
   return (
     <Menubar.Root
-      className={`hidden desktop:flex items-center justify-between h-[37px] px-[16px] py-[4px] backdrop-blur-[72px] w-full absolute top-0 left-0 text-2 ${
+      className={`hidden desktop:flex items-center justify-between h-[25px] px-[16px] py-[4px] backdrop-blur-[72px] w-full absolute top-0 left-0 text-2 ${
         activeTheme.appearance === "dark"
           ? "bg-black/30 text-white"
           : "bg-white/30 text-black"
       }`}
     >
       <div className="flex items-center gap-[8px]">
-        <RaycastIcon size={16} />
+        <RaycastIcon mode={activeTheme.appearance} size={16} />
 
         <Menubar.Menu>
           <Trigger bold>Raycast</Trigger>
