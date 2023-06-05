@@ -49,8 +49,8 @@ export default async function ThemePage({
 
   return (
     <>
-      <Desktop theme={theme}>
-        <Raycast theme={theme} />
+      <Desktop>
+        <Raycast />
       </Desktop>
       <div className="flex px-4 gap-4">
         {themeName} by {author}
