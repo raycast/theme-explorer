@@ -13,10 +13,10 @@ export function ThemeCard({ theme }: { theme: Theme }) {
   return (
     <button
       key={theme.name}
-      className={`ring-1 p-3 rounded-4 overflow-hidden aspect-[16/9] h-full shrink-0 ${
+      className={`ring-2 p-0 rounded-4 overflow-hidden aspect-[16/9] h-full shrink-0 ${
         activeTheme.slug === theme.slug
           ? "ring-[rgb(var(--selection))]"
-          : "ring-white/20"
+          : "ring-white/0"
       }`}
       onClick={() => setActiveTheme(theme)}
       style={style}
@@ -24,9 +24,9 @@ export function ThemeCard({ theme }: { theme: Theme }) {
       <div
         className="overflow-hidden"
         style={{
-          margin: "5px",
-          width: "calc(100% - 10px)",
-          height: "calc(100% - 10px)",
+          // margin: "5px",
+          width: "calc(100%)",
+          height: "calc(100%)",
         }}
       >
         <div
@@ -36,6 +36,7 @@ export function ThemeCard({ theme }: { theme: Theme }) {
           }}
         >
           <Raycast
+            text={`${theme.name} by ${theme.author}`}
             disableLoadingAnimation={activeTheme.slug !== theme.slug}
             loadingAnimationType="static"
           />

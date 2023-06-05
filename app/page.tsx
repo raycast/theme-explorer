@@ -1,14 +1,15 @@
 import React from "react";
-import { ThemeSwitcher } from "@/components/theme-switcher";
-import { HomepageHero } from "@/components/homepage-hero";
+import { Desktop } from "@/components/desktop";
+import { Raycast } from "@/components/raycast";
 
 export default function Home() {
   return (
     <>
-      <HomepageHero />
+      <Desktop>
+        <Raycast />
+      </Desktop>
 
-      {/* @ts-expect-error Async Server Component */}
-      <ThemeSwitcher />
+      {/* <ThemeSwitcher /> */}
     </>
   );
 }
