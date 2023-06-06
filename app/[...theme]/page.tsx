@@ -37,7 +37,7 @@ export async function generateStaticParams() {
   const themes = await getAllThemes();
 
   return themes.map((theme) => ({
-    theme: [theme.author, theme.name],
+    theme: theme.slug.split("/"),
   }));
 }
 
