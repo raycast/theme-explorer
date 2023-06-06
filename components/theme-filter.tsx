@@ -17,7 +17,7 @@ export function ThemeFilter({ themes }: { themes: Theme[] }) {
 
   const lastVisitedDarkTheme = dark[dark.length - 1];
   const lastVisitedLightTheme = light[light.length - 1];
-  console.log(lastVisitedDarkTheme, lastVisitedLightTheme);
+
   return (
     <div>
       <button
