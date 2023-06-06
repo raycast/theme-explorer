@@ -1,5 +1,5 @@
 import { PageWithThemeMode } from "@/components/page-with-theme-mode";
-import { getThemeBySlug } from "@/lib/theme";
+import { getAllThemes, getThemeBySlug } from "@/lib/theme";
 
 export default async function ThemePageLayout({
   children,
@@ -10,7 +10,8 @@ export default async function ThemePageLayout({
 }) {
   const [author, themeName] = params.theme;
   const slug = `${author}/${themeName}`;
-  const theme = await getThemeBySlug(slug);
+  const themes = await getAllThemes();
+  const theme = themes.find((theme) => theme.slug === slug);
 
   if (!theme) {
     return <h1>Theme not found</h1>;
