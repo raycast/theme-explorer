@@ -23,8 +23,10 @@ export default async function RootLayout({
     <html lang="en">
       <body className={`${inter.className}`}>
         <Providers themes={themes}>
-          <div className="flex flex-col h-screen">
-            <div className="flex flex-col flex-1">{children}</div>
+          <div className="flex flex-col h-[100dvh]">
+            <div className="flex flex-col flex-1 overflow-hidden">
+              {children}
+            </div>
             <div className="flex justify-between pt-5 px-5 bg-[--bg]">
               <ThemeFilter themes={themes} />
               <button className="rounded-2 border h-[30px] inline-flex px-3 items-center text-3">
