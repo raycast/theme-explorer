@@ -5,9 +5,7 @@ import { useTheme } from "@wits/next-themes";
 import React from "react";
 
 export function ThemeFilter({ themes }: { themes: Theme[] }) {
-  const [mounted, setMounted] = React.useState(false);
-
-  const { resolvedTheme, setTheme } = useTheme();
+  const { setTheme } = useTheme();
   const { setActiveTheme } = useRaycastTheme();
 
   const lightThemes = themes.filter(
@@ -17,27 +15,11 @@ export function ThemeFilter({ themes }: { themes: Theme[] }) {
     (rayTheme) => rayTheme.appearance === "dark"
   );
 
-  // useEffect only runs on the client, so now we can safely show the UI
-  React.useEffect(() => {
-    if (resolvedTheme === "dark") {
-      setActiveTheme(darkThemes[0]);
-    } else {
-      setActiveTheme(lightThemes[0]);
-    }
-
-    setMounted(true);
-  }, [resolvedTheme]);
-
-  if (!mounted) {
-    return null;
-  }
-
   return (
     <div>
       <button
-        className={`rounded-2 border h-[30px] inline-flex px-3 items-center text-3 ${
-          resolvedTheme === "dark" ? "bg-white/40" : ""
-        }`}
+        data-theme-toggle="dark"
+        className={`rounded-2 border h-[30px] inline-flex px-3 items-center text-3`}
         onClick={() => {
           setTheme("dark");
           setActiveTheme(darkThemes[0]);
@@ -46,9 +28,8 @@ export function ThemeFilter({ themes }: { themes: Theme[] }) {
         Dark
       </button>
       <button
-        className={`rounded-2 border h-[30px] inline-flex px-3 items-center text-3 ${
-          resolvedTheme === "light" ? "bg-black/40" : ""
-        }`}
+        className={`rounded-2 border h-[30px] inline-flex px-3 items-center text-3 `}
+        data-theme-toggle="light"
         onClick={() => {
           setTheme("light");
           setActiveTheme(lightThemes[0]);

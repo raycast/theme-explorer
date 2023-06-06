@@ -1,17 +1,10 @@
-"use client";
-import { useRaycastTheme } from "@/components/raycast-theme-provider";
-
 export function RootHeader({
-  text,
   disableLoadingAnimation,
   loadingAnimationType,
 }: {
-  text?: string;
   disableLoadingAnimation?: boolean;
   loadingAnimationType?: "animated" | "static";
 }) {
-  const { activeTheme } = useRaycastTheme();
-
   return (
     <header
       className="h-[56px] px-4 border-b flex items-center gap-2 shrink-0 relative"
@@ -44,7 +37,7 @@ export function RootHeader({
         className="w-full leading-none bg-transparent border-none outline-none text-4"
         style={{ color: "rgba(var(--text), 0.4)" }}
       >
-        {text || `${activeTheme.name} by ${activeTheme.author}` || "Search..."}
+        Search...
       </div>
 
       {!disableLoadingAnimation && (

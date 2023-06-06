@@ -4,6 +4,7 @@ import { Raycast } from "@/components/raycast";
 import { BASE_URL } from "@/lib/url";
 import { getThemesByAuthor } from "@/lib/theme";
 import { Desktop } from "@/components/desktop";
+import { RaycastThemeProvider } from "@/components/raycast-theme-provider";
 
 export async function generateMetadata({
   params,
@@ -48,7 +49,7 @@ export default async function ThemePage({
   }
 
   return (
-    <>
+    <RaycastThemeProvider initialTheme={theme}>
       <Desktop>
         <Raycast />
       </Desktop>
@@ -58,6 +59,6 @@ export default async function ThemePage({
       <div className="flex px-4">
         <NextLink href="/">← See all themes</NextLink>
       </div>
-    </>
+    </RaycastThemeProvider>
   );
 }

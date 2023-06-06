@@ -2,14 +2,11 @@ import { List } from "@/components/raycast/list";
 import { Grid } from "@/components/raycast/grid";
 import { RootFooter } from "@/components/raycast/root-footer";
 import { RootHeader } from "@/components/raycast/root-header";
-import React from "react";
 
 export function Raycast({
-  text,
   disableLoadingAnimation,
   loadingAnimationType = "animated",
 }: {
-  text?: string;
   disableLoadingAnimation?: boolean;
   loadingAnimationType?: "animated" | "static";
 }) {
@@ -31,7 +28,6 @@ export function Raycast({
           }}
         >
           <RootHeader
-            text={text}
             disableLoadingAnimation={disableLoadingAnimation}
             loadingAnimationType={loadingAnimationType}
           />

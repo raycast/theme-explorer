@@ -16,3 +16,16 @@ body {
     transform: translateX(-100%);
   }
 }
+
+.dark [data-hide-on-theme="dark"],
+.light [data-hide-on-theme="light"] {
+  display: none;
+}
+
+.dark [data-theme-toggle="dark"] {
+  @apply bg-red-500;
+}
+
+.light [data-theme-toggle="light"] {
+  @apply bg-red-500;
+}
