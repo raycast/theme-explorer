@@ -1,5 +1,5 @@
 "use client";
-import { NavigationHistoryProvider } from "@/components/navigation-events";
+import { LastVisitedThemeProvider } from "@/components/navigation-history";
 import { Theme } from "@/lib/theme";
 import { ThemeProvider } from "next-themes";
 
@@ -16,9 +16,9 @@ export function Providers({
       defaultTheme="dark"
       disableTransitionOnChange
     >
-      <NavigationHistoryProvider themes={themes}>
+      <LastVisitedThemeProvider themes={themes}>
         {children}
-      </NavigationHistoryProvider>
+      </LastVisitedThemeProvider>
     </ThemeProvider>
   );
 }
