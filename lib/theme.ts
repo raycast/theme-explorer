@@ -2,7 +2,6 @@ import { readFile } from "fs";
 import { basename, join } from "path";
 import { glob } from "glob";
 import { promisify } from "util";
-import { cache } from "react";
 
 export type Theme = {
   author: string;
@@ -30,13 +29,14 @@ const themesDir = join(process.cwd(), "themes");
 
 const readFileAsync = promisify(readFile);
 
-export const getAllThemes = cache(async () => {
+export async function getAllThemes(): Promise<Theme[]> {
   const allThemePaths = await glob(`${themesDir}/**/*.json`);
   const sortedThemePaths = allThemePaths.sort((a, b) => {
     const aFileName = basename(a);
     const bFileName = basename(b);
     return aFileName.localeCompare(bFileName);
   });
+
   const themes = await Promise.all(
     sortedThemePaths.map(async (filePath) => {
       const fileName = basename(filePath);
@@ -50,33 +50,9 @@ export const getAllThemes = cache(async () => {
       return { ...themeData, slug };
     })
   );
+
   return themes;
-});
-
-// export async function getAllThemes(): Promise<Theme[]> {
-//   const allThemePaths = await glob(`${themesDir}/**/*.json`);
-//   const sortedThemePaths = allThemePaths.sort((a, b) => {
-//     const aFileName = basename(a);
-//     const bFileName = basename(b);
-//     return aFileName.localeCompare(bFileName);
-//   });
-
-//   const themes = await Promise.all(
-//     sortedThemePaths.map(async (filePath) => {
-//       const fileName = basename(filePath);
-//       const data = await readFileAsync(filePath);
-//       const themeData = JSON.parse(data.toString());
-//       const parentDirName = basename(filePath.replace(fileName, ""));
-//       const slug = `${parentDirName}/${fileName.replace(
-//         ".json",
-//         ""
-//       )}`.toLowerCase();
-//       return { ...themeData, slug };
-//     })
-//   );
-
-//   return themes;
-// }
+}
 
 export async function getThemesByAuthor(author: string): Promise<Theme[]> {
   const allThemePaths = await glob(`${themesDir}/${author}/*.json`);
