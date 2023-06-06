@@ -1,12 +1,12 @@
 "use client";
-import { useRaycastTheme } from "@/components/raycast-theme-provider";
-import { Theme } from "@/lib/theme";
-import { useTheme } from "@wits/next-themes";
 import React from "react";
+import { Theme } from "@/lib/theme";
+import { useRouter } from "next/navigation";
+import { useNavigationHistory } from "@/components/navigation-events";
 
 export function ThemeFilter({ themes }: { themes: Theme[] }) {
-  const { setTheme } = useTheme();
-  const { setActiveTheme } = useRaycastTheme();
+  const { push } = useRouter();
+  const { light, dark } = useNavigationHistory();
 
   const lightThemes = themes.filter(
     (rayTheme) => rayTheme.appearance === "light"
@@ -15,24 +15,25 @@ export function ThemeFilter({ themes }: { themes: Theme[] }) {
     (rayTheme) => rayTheme.appearance === "dark"
   );
 
+  const lastVisitedDarkTheme = dark[dark.length - 1];
+  const lastVisitedLightTheme = light[light.length - 1];
+  console.log(lastVisitedDarkTheme, lastVisitedLightTheme);
   return (
     <div>
       <button
         data-theme-toggle="dark"
-        className={`rounded-2 border h-[30px] inline-flex px-3 items-center text-3`}
+        className={`rounded-2 rounded-tr-none rounded-br-none border border-black/20 dark:border-white/20 h-[30px] inline-flex px-3 items-center text-3`}
         onClick={() => {
-          setTheme("dark");
-          setActiveTheme(darkThemes[0]);
+          push(lastVisitedDarkTheme || darkThemes[0].slug);
         }}
       >
         Dark
       </button>
       <button
-        className={`rounded-2 border h-[30px] inline-flex px-3 items-center text-3 `}
+        className={`rounded-2 rounded-tl-none rounded-bl-none border border-l-0 border-black/20 dark:border-white/20 h-[30px] inline-flex px-3 items-center text-3 `}
         data-theme-toggle="light"
         onClick={() => {
-          setTheme("light");
-          setActiveTheme(lightThemes[0]);
+          push(lastVisitedLightTheme || lightThemes[0].slug);
         }}
       >
         Light

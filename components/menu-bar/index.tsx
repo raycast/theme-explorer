@@ -2,21 +2,13 @@
 import React from "react";
 import * as Menubar from "@radix-ui/react-menubar";
 import { RaycastIcon } from "@/components/icons";
-import { useRaycastTheme } from "@/components/raycast-theme-provider";
 
 export function MenuBar() {
-  const { activeTheme } = useRaycastTheme();
-
   return (
-    <Menubar.Root
-      className={`hidden desktop:flex items-center justify-between h-[25px] px-[16px] py-[4px] backdrop-blur-[72px] w-full absolute top-0 left-0 text-2 ${
-        activeTheme.appearance === "dark"
-          ? "bg-black/30 text-white"
-          : "bg-white/30 text-black"
-      }`}
-    >
+    <Menubar.Root className="hidden desktop:flex items-center justify-between h-[25px] px-[16px] py-[4px] backdrop-blur-[72px] w-full absolute top-0 left-0 text-2 text-black dark:text-white dark:bg-black/30 bg-white/30">
       <div className="flex items-center gap-[8px]">
-        <RaycastIcon mode={activeTheme.appearance} size={16} />
+        <RaycastIcon data-hide-on-theme="light" size={16} />
+        <RaycastIcon data-hide-on-theme="dark" mode="light" size={16} />
 
         <Menubar.Menu>
           <Trigger bold>Raycast</Trigger>
@@ -61,17 +53,11 @@ export function getCurrentDate(): string {
 }
 
 function Content({ children }: { children: React.ReactNode }) {
-  const { activeTheme } = useRaycastTheme();
-
   return (
     <Menubar.Portal>
       <Menubar.Content
         sideOffset={8}
-        className={`rounded-2 p-1 min-w-[200px] backdrop-blur-[6px] text-2 leading-[22px] shadow-[0px_10px_38px_-10px_rgba(22,_23,_24,_0.35),_0px_10px_20px_-15px_rgba(22,_23,_24,_0.2)] ${
-          activeTheme.appearance === "dark"
-            ? "bg-white/50 text-black"
-            : "bg-black/50 text-white"
-        }`}
+        className={`rounded-2 p-1 min-w-[200px] backdrop-blur-[6px] text-2 leading-[22px] shadow-[0px_10px_38px_-10px_rgba(22,_23,_24,_0.35),_0px_10px_20px_-15px_rgba(22,_23,_24,_0.2)] text-black dark:text-white bg-black/50 dark:bg-white/50`}
       >
         {children}
       </Menubar.Content>
@@ -86,21 +72,11 @@ function Trigger({
   children: React.ReactNode;
   bold?: boolean;
 }) {
-  const { activeTheme } = useRaycastTheme();
-
   return (
     <Menubar.Trigger
-      className={`outline-none cursor-default data-[state=open]:bg-[--active-bg] rounded-1 px-2 h-[25px] ${
+      className={`outline-none cursor-default data-[state=open]:bg-white/10 dark:data-[state=open]:black/10 rounded-1 px-2 h-[25px] ${
         bold ? "font-semibold" : undefined
       }`}
-      style={
-        {
-          "--active-bg":
-            activeTheme.appearance === "dark"
-              ? "rgba(255, 255, 255, 0.1)"
-              : "rgba(0, 0, 0, 0.1)",
-        } as React.CSSProperties
-      }
     >
       {children}
     </Menubar.Trigger>

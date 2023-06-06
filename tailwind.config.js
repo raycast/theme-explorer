@@ -39,8 +39,8 @@ module.exports = {
         "ray-border": "hsla(270,2%,56%,.2)",
       },
       screens: {
-        tall: { raw: "(min-height: 800px)" },
-        desktop: { raw: "(min-height: 800px) and (min-width: 960px)" },
+        tall: { raw: "(min-height: 840px)" },
+        desktop: { raw: "(min-height: 840px) and (min-width: 960px)" },
       },
     },
   },

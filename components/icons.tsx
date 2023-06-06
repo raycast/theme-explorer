@@ -1,6 +1,7 @@
 export function RaycastIcon({
   mode = "dark",
   size = 20,
+  ...props
 }: {
   mode?: "dark" | "light";
   size?: number;
@@ -13,6 +14,7 @@ export function RaycastIcon({
         xmlns="http://www.w3.org/2000/svg"
         width={size}
         height={size}
+        {...props}
       >
         <path
           fillRule="evenodd"
@@ -30,6 +32,7 @@ export function RaycastIcon({
         xmlns="http://www.w3.org/2000/svg"
         width={size}
         height={size}
+        {...props}
       >
         <path
           fillRule="evenodd"

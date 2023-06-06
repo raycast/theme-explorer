@@ -7,7 +7,7 @@ export function ThemeSwitcher({ themes }: { themes: Theme[] }) {
     <>
       <div
         data-hide-on-theme="light"
-        className="flex px-5 py-5 gap-5 items-center overflow-auto h-[245px] shrink-0"
+        className="flex px-5 py-5 gap-5 items-center overflow-x-auto snap-x snap-mandatory h-[245px] shrink-0"
       >
         {themes
           .filter((rayTheme) => rayTheme.appearance === "dark")
@@ -17,7 +17,7 @@ export function ThemeSwitcher({ themes }: { themes: Theme[] }) {
       </div>
       <div
         data-hide-on-theme="dark"
-        className="flex px-5 py-5 gap-5 items-center overflow-auto h-[245px] shrink-0"
+        className="flex px-5 py-5 gap-5 items-center overflow-x-auto snap-x snap-mandatory h-[245px] shrink-0"
       >
         {themes
           .filter((rayTheme) => rayTheme.appearance === "light")

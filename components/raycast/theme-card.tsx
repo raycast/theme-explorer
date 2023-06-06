@@ -1,10 +1,14 @@
 "use client";
 import { Raycast } from "@/components/raycast";
-import { useRaycastTheme } from "@/components/raycast-theme-provider";
 import { Theme } from "@/lib/theme";
+import { useParams, useRouter } from "next/navigation";
+import React from "react";
 
 export function ThemeCard({ theme: raycastTheme }: { theme: Theme }) {
-  const { activeTheme, setActiveTheme } = useRaycastTheme();
+  const { push } = useRouter();
+  const params = useParams();
+  const slug = params.theme;
+  const ref = React.useRef<HTMLButtonElement>(null);
 
   const style = Object.fromEntries(
     Object.entries(raycastTheme.colors).map(([key, value]) => [
@@ -13,32 +17,36 @@ export function ThemeCard({ theme: raycastTheme }: { theme: Theme }) {
     ])
   );
 
+  React.useEffect(() => {
+    if (slug === raycastTheme.slug) {
+      setTimeout(() => {
+        ref.current?.scrollIntoView({
+          behavior: "smooth",
+          block: "center",
+          inline: "center",
+        });
+      }, 1);
+    }
+  }, [slug]);
+
   return (
     <button
-      key={raycastTheme.name}
-      className={`flex flex-col ring-2 ring-inset p-3 gap-3 rounded-4 overflow-hidden h-full aspect-[16/9] shrink-0 ${
-        activeTheme.slug === raycastTheme.slug
+      ref={ref}
+      key={raycastTheme.slug}
+      className={`snap-always snap-center flex flex-col ring-2 ring-inset p-3 gap-3 rounded-4 overflow-hidden h-full aspect-[16/9] shrink-0 ${
+        slug === raycastTheme.slug
           ? "ring-[rgb(var(--selection))]"
           : "ring-[rgba(0,0,0,0.2)] dark:ring-[rgba(255,255,255,0.2)]"
       }`}
       onClick={() => {
-        setActiveTheme(raycastTheme);
+        push(raycastTheme.slug);
       }}
       style={style}
     >
-      <div
-        className="overflow-hidden rounded-3 flex-1 w-full"
-        style={
-          {
-            // margin: "4px",
-            // width: "calc(100% - 0px)",
-            // height: "calc(100% - 0px)",
-          }
-        }
-      >
+      <div className="overflow-hidden rounded-3 flex-1 w-full">
         <div className="rounded-3">
           <Raycast
-            disableLoadingAnimation={activeTheme.slug !== raycastTheme.slug}
+            disableLoadingAnimation={slug !== raycastTheme.slug}
             loadingAnimationType="static"
           />
         </div>

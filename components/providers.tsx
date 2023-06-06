@@ -1,14 +1,24 @@
 "use client";
-import { ThemeProvider } from "@wits/next-themes";
+import { NavigationHistoryProvider } from "@/components/navigation-events";
+import { Theme } from "@/lib/theme";
+import { ThemeProvider } from "next-themes";
 
-export function Providers({ children }: { children: React.ReactNode }) {
+export function Providers({
+  children,
+  themes,
+}: {
+  children: React.ReactNode;
+  themes: Theme[];
+}) {
   return (
     <ThemeProvider
       attribute="class"
       defaultTheme="dark"
       disableTransitionOnChange
     >
-      {children}
+      <NavigationHistoryProvider themes={themes}>
+        {children}
+      </NavigationHistoryProvider>
     </ThemeProvider>
   );
 }

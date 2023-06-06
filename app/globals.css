@@ -23,9 +23,9 @@ body {
 }
 
 .dark [data-theme-toggle="dark"] {
-  @apply bg-red-500;
+  @apply bg-white/10;
 }
 
 .light [data-theme-toggle="light"] {
-  @apply bg-red-500;
+  @apply bg-black/10;
 }

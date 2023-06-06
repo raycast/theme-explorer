@@ -1,0 +1,20 @@
+{
+  "author": "Raycast",
+  "version": "1",
+  "name": "Cobalt 2",
+  "appearance": "dark",
+  "colors": {
+    "backgroundPrimary": "6, 78, 130",
+    "backgroundSecondary": "0, 31, 56",
+    "text": "255, 254, 250",
+    "selection": "255, 198, 0",
+    "loader": "255, 198, 0",
+    "red": "255, 87, 87",
+    "orange": "255, 157, 0",
+    "yellow": "255, 198, 0",
+    "green": "172, 244, 165",
+    "blue": "104, 188, 251",
+    "purple": "164, 150, 255",
+    "pink": "255, 115, 190"
+  }
+}
