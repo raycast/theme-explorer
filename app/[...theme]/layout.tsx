@@ -1,5 +1,5 @@
 import { PageWithThemeMode } from "@/components/page-with-theme-mode";
-import { getAllThemes, getThemeBySlug } from "@/lib/theme";
+import { getAllThemes } from "@/lib/theme";
 
 export default async function ThemePageLayout({
   children,

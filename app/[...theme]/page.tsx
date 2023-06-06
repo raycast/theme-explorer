@@ -1,7 +1,7 @@
 import React from "react";
 import { Raycast } from "@/components/raycast";
 import { BASE_URL } from "@/lib/url";
-import { getAllThemes, getThemeBySlug } from "@/lib/theme";
+import { getAllThemes } from "@/lib/theme";
 import { Desktop } from "@/components/desktop";
 
 export async function generateMetadata({
@@ -12,7 +12,8 @@ export async function generateMetadata({
   const [author, themeName] = params.theme;
 
   const slug = `${author}/${themeName}`;
-  const theme = await getThemeBySlug(slug);
+  const themes = await getAllThemes();
+  const theme = themes.find((theme) => theme.slug === slug);
 
   const encodedTheme = encodeURIComponent(JSON.stringify(theme));
 
