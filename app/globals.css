@@ -1,10 +1,6 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-body {
-}
-
 @keyframes nightRider {
   0%,
   100% {
@@ -14,6 +10,34 @@ body {
   50% {
     left: 102%;
     transform: translateX(-100%);
+  }
+}
+
+body {
+  .dark & {
+    background-image: radial-gradient(
+        43.48% 62.9% at 50% 31.28%,
+        rgba(255, 255, 255, 0.2) 0%,
+        rgba(255, 255, 255, 0) 100%
+      ),
+      linear-gradient(0deg, #0d0d0d, #0d0d0d);
+  }
+  .light & {
+    background-image: radial-gradient(
+      43.48% 62.9% at 50% 31.28%,
+      rgba(0, 0, 0, 0.2) 0%,
+      rgba(0, 0, 0, 0) 100%
+    );
+  }
+}
+
+[data-desktop] {
+  .dark & {
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.33),
+      0px 9px 29px 10px rgba(10, 10, 10, 0.09);
+  }
+  .light & {
+    box-shadow: 0px 9px 29px 10px rgba(10, 10, 10, 0.09);
   }
 }
 

@@ -2,7 +2,6 @@
 /* eslint-disable jsx-a11y/alt-text */
 
 import { Theme } from "@/lib/theme";
-import chroma from "chroma-js";
 import { ImageResponse, NextRequest, NextResponse } from "next/server";
 
 export const runtime = "edge";
@@ -18,12 +17,12 @@ const inter600 = fetch(
 ).then((res) => res.arrayBuffer());
 
 const bgLight = fetch(
-  new URL("../../public/bg-light.jpg", import.meta.url)
+  new URL("../../public/bg-light.jpeg", import.meta.url)
 ).then((res) => res.arrayBuffer());
 
-const bgDark = fetch(new URL("../../public/bg-dark.jpg", import.meta.url)).then(
-  (res) => res.arrayBuffer()
-);
+const bgDark = fetch(
+  new URL("../../public/bg-dark.jpeg", import.meta.url)
+).then((res) => res.arrayBuffer());
 
 const checkIcon = (
   <svg
@@ -107,19 +106,9 @@ export async function GET(request: NextRequest) {
         ) as Theme)
       : defaultTheme;
 
-    const loader1 = chroma(theme.colors.loader).alpha(0.7).css();
-    const loader2 = chroma(theme.colors.loader).alpha(0.5).css();
-    const backgroundPrimary1 = chroma(theme.colors.backgroundPrimary)
-      .alpha(0.7)
-      .css();
-    const backgroundPrimary2 = chroma(theme.colors.backgroundPrimary)
-      .alpha(0.5)
-      .css();
-    const backgroundPrimary3 = chroma(theme.colors.backgroundPrimary)
-      .alpha(0.25)
-      .css();
-    const selection1 = chroma(theme.colors.selection).alpha(0.7).css();
-    const selection2 = chroma(theme.colors.selection).alpha(0.5).css();
+    const style = Object.fromEntries(
+      Object.entries(theme.colors).map(([key, value]) => ["--" + key, value])
+    );
 
     return new ImageResponse(
       (
@@ -129,17 +118,7 @@ export async function GET(request: NextRequest) {
             position: "relative",
             width: "100%",
             height: "100%",
-            backgroundColor: theme.appearance === "dark" ? "#000" : "#fff",
-            backgroundImage: `linear-gradient(to bottom, ${selection1}, ${selection2} 50%)`,
-            // backgroundImage: `
-            // radial-gradient(at 40% 20%, ${backgroundPrimary1}, transparent 50%),
-            // radial-gradient(at 80% 0%, ${loader1} 0px, transparent 50%),
-            // radial-gradient(at 0% 50%, ${selection1} 0px, transparent 50%),
-            // radial-gradient(at 80% 50%, ${backgroundPrimary2} 0px, transparent 50%),
-            // radial-gradient(at 0% 100%, ${loader2} 0px, transparent 50%),
-            // radial-gradient(at 80% 100%, ${selection2} 0px, transparent 50%),
-            // radial-gradient(at 0% 0%, ${backgroundPrimary3} 0px, transparent 50%)
-            // `,
+            ...style,
           }}
         >
           <svg
@@ -160,16 +139,14 @@ export async function GET(request: NextRequest) {
                 style={{
                   borderRadius: "12px",
                   border: "1px solid",
-                  borderColor: chroma(theme.colors.text).alpha(0.2).css(),
+                  borderColor: "rgba(var(--text), 0.2)",
                   display: "flex",
                   flexDirection: "column",
                   justifyContent: "flex-start",
                   alignItems: "stretch",
                   overflow: "hidden",
                   flexShrink: 0,
-                  backgroundColor: chroma(theme.colors.backgroundPrimary)
-                    .alpha(0.85)
-                    .css(),
+                  backgroundColor: "rgba(var(--backgroundPrimary), 0.85)",
                 }}
               >
                 <header
@@ -179,9 +156,7 @@ export async function GET(request: NextRequest) {
                     paddingRight: "16px",
                     borderStyle: "solid",
                     borderBottomWidth: "1px",
-                    borderBottomColor: chroma(theme.colors.text)
-                      .alpha(0.1)
-                      .css(),
+                    borderBottomColor: "rgba(var(--text), 0.1)",
                     display: "flex",
                     alignItems: "center",
                     justifyContent: "space-between",
@@ -194,9 +169,7 @@ export async function GET(request: NextRequest) {
                       width: "24px",
                       height: "24px",
                       borderRadius: "6px",
-                      backgroundColor: chroma(theme.colors.text)
-                        .alpha(0.1)
-                        .css(),
+                      backgroundColor: "rgba(var(--text), 0.1)",
                       color: theme.colors.text,
                       display: "flex",
                       alignItems: "center",
@@ -227,7 +200,7 @@ export async function GET(request: NextRequest) {
                       border: "none",
                       fontSize: "16px",
                       marginLeft: "10px",
-                      color: chroma(theme.colors.text).alpha(0.4).css(),
+                      color: "rgba(var(--text), 0.4)",
                     }}
                   >
                     Search for apps and commands...
@@ -257,7 +230,7 @@ export async function GET(request: NextRequest) {
                       display: "flex",
                       flexDirection: "column",
                       padding: "4px 8px",
-                      color: chroma(theme.colors.text).css(),
+                      color: "rgba(var(--text), 1)",
                     }}
                   >
                     <div
@@ -267,7 +240,7 @@ export async function GET(request: NextRequest) {
                         fontSize: "12px",
                         fontWeight: "bold",
                         letterSpacing: "0.1px",
-                        color: chroma(theme.colors.text).alpha(0.6).css(),
+                        color: "rgba(var(--text), 0.6)",
                       }}
                     >
                       List
@@ -279,9 +252,7 @@ export async function GET(request: NextRequest) {
                         height: "40px",
                         padding: "8px",
                         borderRadius: "8px",
-                        backgroundColor: chroma(theme.colors.selection)
-                          .alpha(0.1)
-                          .css(),
+                        backgroundColor: "rgba(var(--selection), 0.1)",
                       }}
                     >
                       <div style={{ display: "flex", marginRight: "10px" }}>
@@ -291,7 +262,7 @@ export async function GET(request: NextRequest) {
                         style={{
                           fontSize: "13px",
                           lineHeight: "1",
-                          color: chroma(theme.colors.text).css(),
+                          color: "rgba(var(--text), 1)",
                         }}
                       >
                         Primary Text
@@ -313,7 +284,7 @@ export async function GET(request: NextRequest) {
                         style={{
                           fontSize: "13px",
                           lineHeight: "1",
-                          color: chroma(theme.colors.text).css(),
+                          color: "rgba(var(--text), 1)",
                         }}
                       >
                         Primary Text

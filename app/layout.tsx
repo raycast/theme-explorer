@@ -24,10 +24,9 @@ export default async function RootLayout({
       <body className={`${inter.className}`}>
         <Providers themes={themes}>
           <div className="flex flex-col h-[100dvh]">
-            <div className="flex flex-col flex-1 overflow-hidden">
-              {children}
-            </div>
-            <div className="flex justify-between pt-5 px-5 bg-[--bg]">
+            <div className="flex flex-col flex-1">{children}</div>
+
+            <div className="flex justify-between pt-5 px-4 w-full max-w-screen-2xl mx-auto">
               <ThemeFilter themes={themes} />
               <button className="rounded-2 border h-[30px] inline-flex px-3 items-center text-3">
                 Add to Raycast
