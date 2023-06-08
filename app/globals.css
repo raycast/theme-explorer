@@ -23,8 +23,16 @@
   }
 }
 
+@keyframes slideUp {
+  0% {
+    transform: translateY(30px);
+  }
+  100% {
+    transform: translateY(0%);
+  }
+}
+
 body {
-  transition: background-image 0.5s ease;
   .dark & {
     background-image: radial-gradient(
       43.48% 62.9% at 50% 31.28%,
@@ -67,12 +75,33 @@ body {
   @apply bg-black/10;
 }
 
-[data-desktop] [data-raycast] {
+[data-desktop] {
+  will-change: opacity;
   animation: fadeIn 500ms ease-in;
+}
+
+[data-theme-controls] {
+  opacity: 0;
+  will-change: opacity;
+  animation: fadeIn 500ms 500ms ease-in forwards;
+}
+
+[data-theme-switcher] {
+  opacity: 0;
+  will-change: transform;
+  animation: fadeIn 500ms 1000ms ease-in-out forwards,
+    slideUp 500ms 1000ms ease-in-out forwards;
+}
+
+[data-desktop] [data-raycast] {
+  opacity: 0;
+  will-change: opacity;
+  animation: fadeIn 500ms ease-in forwards;
 }
 
 [data-wallpaper] {
   opacity: 0;
+  will-change: opacity;
   animation: fadeIn 1000ms 400ms ease-in forwards;
 }
 

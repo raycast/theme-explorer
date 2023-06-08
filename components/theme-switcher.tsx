@@ -14,7 +14,10 @@ export function ThemeSwitcher({ themes }: { themes: Theme[] }) {
   }
 
   return (
-    <div className="flex px-5 pb-5 gap-5 items-center overflow-x-auto snap-x snap-mandatory h-[245px] shrink-0">
+    <div
+      data-theme-switcher
+      className="flex px-5 pb-5 gap-5 items-center overflow-x-auto snap-x snap-mandatory h-[245px] shrink-0"
+    >
       {themes
         .filter((rayTheme) => rayTheme.appearance === activeTheme.appearance)
         .map((rayTheme) => (
