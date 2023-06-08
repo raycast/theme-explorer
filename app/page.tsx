@@ -1,10 +1,17 @@
+import { Desktop } from "@/components/desktop";
+import { PageWithThemeMode } from "@/components/page-with-theme-mode";
+import { Raycast } from "@/components/raycast";
 import { getAllThemes } from "@/lib/theme";
-import { redirect } from "next/navigation";
 
 export default async function Home() {
   const themes = await getAllThemes();
-  const darkThemes = themes.filter(
-    (rayTheme) => rayTheme.appearance === "dark"
+  const defaultTheme = themes.filter((theme) => theme.appearance === "dark")[0];
+
+  return (
+    <PageWithThemeMode theme={defaultTheme}>
+      <Desktop>
+        <Raycast />
+      </Desktop>
+    </PageWithThemeMode>
   );
-  redirect(darkThemes[0].slug);
 }

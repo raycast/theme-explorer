@@ -7,7 +7,7 @@ export function ThemeControls({ themes }: { themes: Theme[] }) {
   const { activeTheme } = useRaycastTheme();
 
   return (
-    <div className="flex justify-between px-4 w-full max-w-screen-2xl mx-auto">
+    <div className="flex justify-between px-4 w-full max-w-screen-2xl mx-auto h-[30px]">
       {activeTheme && (
         <>
           <ThemeFilter themes={themes} />

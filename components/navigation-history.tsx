@@ -2,46 +2,31 @@
 
 import React from "react";
 import { Theme } from "@/lib/theme";
-import { useParams } from "next/navigation";
 
 type LastVisitedThemeContextType = {
-  light: string;
-  dark: string;
+  previousActiveTheme: Theme | undefined;
+  setPreviousActiveTheme: (theme: Theme | undefined) => void;
 };
 
 export const LastVisitedThemeContext =
   React.createContext<LastVisitedThemeContextType>({
-    light: "",
-    dark: "",
+    previousActiveTheme: undefined,
+    setPreviousActiveTheme: () => {},
   });
 
 export function LastVisitedThemeProvider({
   children,
-  themes,
 }: {
   children: React.ReactNode;
   themes: Theme[];
 }) {
-  const [lightHistory, setLightHistory] = React.useState<string>("");
-  const [darkHistory, setDarkHistory] = React.useState<string>("");
-
-  const params = useParams();
-  const slug = params.theme;
-
-  React.useEffect(() => {
-    const isDark =
-      themes.find((theme) => theme.slug === slug)?.appearance === "dark";
-
-    if (isDark) {
-      setDarkHistory(slug);
-    } else {
-      setLightHistory(slug);
-    }
-  }, [slug]);
+  const [previousActiveTheme, setPreviousActiveTheme] = React.useState<
+    Theme | undefined
+  >(undefined);
 
   return (
     <LastVisitedThemeContext.Provider
-      value={{ light: lightHistory, dark: darkHistory }}
+      value={{ previousActiveTheme, setPreviousActiveTheme }}
     >
       {children}
     </LastVisitedThemeContext.Provider>
@@ -49,6 +34,8 @@ export function LastVisitedThemeProvider({
 }
 
 export function useLastVisitedTheme() {
-  const { light, dark } = React.useContext(LastVisitedThemeContext);
-  return { light, dark };
+  const { previousActiveTheme, setPreviousActiveTheme } = React.useContext(
+    LastVisitedThemeContext
+  );
+  return { previousActiveTheme, setPreviousActiveTheme };
 }
