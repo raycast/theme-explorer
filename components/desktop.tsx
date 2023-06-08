@@ -10,8 +10,8 @@ export function Desktop({ children }: { children?: React.ReactNode }) {
 
   if (!activeTheme) {
     return (
-      <div className="flex flex-1 h-full w-full max-w-screen-2xl 2xl:rounded-b-4 rounded-t-0 mx-auto border border-black/10 border-t-0 bg-neutral-600">
-        <div className="flex flex-col md:items-center md:justify-center flex-1 p-7 relative overflow-hidden rounded-inherit">
+      <div className="flex flex-1 h-full w-full ">
+        <div className="flex flex-col md:items-center desktop:justify-center flex-1 p-5 relative overflow-hidden">
           {children}
         </div>
       </div>
@@ -23,7 +23,7 @@ export function Desktop({ children }: { children?: React.ReactNode }) {
       className="flex flex-1 h-full w-full max-w-screen-2xl 2xl:rounded-b-4 rounded-t-0 mx-auto border border-black/20 border-t-0 dark:border-white/20"
       data-desktop
     >
-      <div className="flex flex-col md:items-center md:justify-center flex-1 p-7 relative overflow-hidden bg-white dark:bg-black  rounded-inherit">
+      <div className="flex flex-col md:items-center desktop:justify-center flex-1 p-5 relative overflow-hidden bg-white dark:bg-black rounded-inherit">
         <MenuBar />
 
         <div className="relative" style={{ zIndex: 1 }}>
@@ -31,7 +31,7 @@ export function Desktop({ children }: { children?: React.ReactNode }) {
         </div>
 
         <Image
-          className="object-cover"
+          className="object-cover select-none pointer-events-none"
           data-hide-on-theme="light"
           src={darkWallpaper}
           fill
@@ -40,7 +40,7 @@ export function Desktop({ children }: { children?: React.ReactNode }) {
           alt=""
         />
         <Image
-          className="object-cover"
+          className="object-cover select-none pointer-events-none"
           data-hide-on-theme="dark"
           src={lightWallpaper}
           fill

@@ -9,23 +9,12 @@ export function ThemeSwitcher({ themes }: { themes: Theme[] }) {
 
   if (!activeTheme) {
     return (
-      <div
-        data-hide-on-theme="dark"
-        className="flex px-5 py-5 gap-5 items-center overflow-x-auto snap-x snap-mandatory h-[245px] shrink-0"
-      >
-        <ThemeCard />
-        <ThemeCard />
-        <ThemeCard />
-        <ThemeCard />
-        <ThemeCard />
-        <ThemeCard />
-        <ThemeCard />
-      </div>
+      <div className="flex px-5 pb-5 gap-5 items-center overflow-x-auto snap-x snap-mandatory h-[245px] shrink-0"></div>
     );
   }
 
   return (
-    <div className="flex px-5 py-5 gap-5 items-center overflow-x-auto snap-x snap-mandatory h-[245px] shrink-0">
+    <div className="flex px-5 pb-5 gap-5 items-center overflow-x-auto snap-x snap-mandatory h-[245px] shrink-0">
       {themes
         .filter((rayTheme) => rayTheme.appearance === activeTheme.appearance)
         .map((rayTheme) => (

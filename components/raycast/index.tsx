@@ -16,19 +16,13 @@ export function Raycast({
 
   if (!activeTheme) {
     return (
-      <div
-        className={`w-[750px] h-[475px] rounded-4 backdrop-blur-[72px] shadow flex flex-col relative select-none shrink-0 text-left bg-neutral-700`}
-        style={{
-          zIndex: 2,
-          boxShadow: `inset 0 0 0 1px black`,
-        }}
-      ></div>
+      <div className="w-[750px] h-[475px] rounded-4 srink-0 bg-neutral-400 animate-pulse"></div>
     );
   }
 
   return (
     <div
-      id="raycast"
+      data-raycast
       className={`w-[750px] h-[475px] rounded-4 backdrop-blur-[72px] shadow flex flex-col relative select-none shrink-0 text-left`}
       style={{
         zIndex: 2,

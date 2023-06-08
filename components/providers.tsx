@@ -11,7 +11,7 @@ export function Providers({
   themes: Theme[];
 }) {
   return (
-    <RaycastThemeProvider themes={themes}>
+    <RaycastThemeProvider>
       <LastVisitedThemeProvider themes={themes}>
         {children}
       </LastVisitedThemeProvider>

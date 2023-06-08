@@ -14,7 +14,9 @@ export function PageWithThemeMode({
   const { setActiveTheme } = useRaycastTheme();
 
   React.useEffect(() => {
-    setActiveTheme(theme);
+    setTimeout(() => {
+      setActiveTheme(theme);
+    }, 1500);
   }, []);
 
   return <>{children}</>;

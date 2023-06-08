@@ -40,7 +40,7 @@ body {
     );
   }
   :not(.dark):not(.light) & {
-    @apply bg-neutral-500;
+    @apply bg-gradient-to-tl from-neutral-400 to-neutral-500;
   }
 }
 
@@ -67,7 +67,20 @@ body {
   @apply bg-black/10;
 }
 
-#raycast,
-[data-desktop] {
+/* [data-desktop] {
   animation: fadeIn 1s ease-out;
+} */
+
+[data-raycast] {
+  animation: fadeIn 1s ease-out;
+}
+
+#rect {
+  animation: draw 2s linear forwards;
+}
+
+@keyframes draw {
+  to {
+    stroke-dashoffset: 0;
+  }
 }
