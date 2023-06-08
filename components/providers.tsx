@@ -1,7 +1,7 @@
 "use client";
 import { LastVisitedThemeProvider } from "@/components/navigation-history";
+import { RaycastThemeProvider } from "@/components/raycast-theme-provider";
 import { Theme } from "@/lib/theme";
-import { ThemeProvider } from "next-themes";
 
 export function Providers({
   children,
@@ -11,14 +11,10 @@ export function Providers({
   themes: Theme[];
 }) {
   return (
-    <ThemeProvider
-      attribute="class"
-      defaultTheme="dark"
-      disableTransitionOnChange
-    >
+    <RaycastThemeProvider themes={themes}>
       <LastVisitedThemeProvider themes={themes}>
         {children}
       </LastVisitedThemeProvider>
-    </ThemeProvider>
+    </RaycastThemeProvider>
   );
 }

@@ -33,30 +33,9 @@ export async function generateMetadata({
   };
 }
 
-export async function generateStaticParams() {
-  const themes = await getAllThemes();
-
-  return themes.map((theme) => ({
-    theme: theme.slug.split("/"),
-  }));
-}
-
-export default async function ThemePage({
-  params,
-}: {
-  params: { theme: [author: string, theme: string] };
-}) {
-  const [author, themeName] = params.theme;
-  const slug = `${author}/${themeName}`;
-  const themes = await getAllThemes();
-  const theme = themes.find((theme) => theme.slug === slug);
-
-  if (!theme) {
-    return <h1>Theme not found</h1>;
-  }
-
+export default function ThemePage() {
   return (
-    <Desktop theme={theme}>
+    <Desktop>
       <Raycast />
     </Desktop>
   );

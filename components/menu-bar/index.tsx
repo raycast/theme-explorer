@@ -2,13 +2,19 @@
 import React from "react";
 import * as Menubar from "@radix-ui/react-menubar";
 import { RaycastIcon } from "@/components/icons";
+import { useRaycastTheme } from "@/components/raycast-theme-provider";
 
 export function MenuBar() {
+  const { activeTheme } = useRaycastTheme();
+
+  if (!activeTheme) {
+    return null;
+  }
+
   return (
     <Menubar.Root className="hidden desktop:flex items-center justify-between h-[37px] px-[16px] py-[4px] backdrop-blur-[72px] w-full absolute z-10 top-0 left-0 text-2 text-black dark:text-white dark:bg-black/30 bg-white/30">
       <div className="flex items-center gap-[8px]">
-        <RaycastIcon data-hide-on-theme="light" size={16} />
-        <RaycastIcon data-hide-on-theme="dark" mode="light" size={16} />
+        <RaycastIcon mode={activeTheme.appearance} size={16} />
 
         <Menubar.Menu>
           <Trigger bold>Theme Explorer</Trigger>

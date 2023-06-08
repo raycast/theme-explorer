@@ -1,6 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
 @keyframes nightRider {
   0%,
   100% {
@@ -10,6 +11,15 @@
   50% {
     left: 102%;
     transform: translateX(-100%);
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
   }
 }
 
@@ -28,6 +38,9 @@ body {
       rgba(0, 0, 0, 0.2) 0%,
       rgba(0, 0, 0, 0) 100%
     );
+  }
+  :not(.dark):not(.light) & {
+    @apply bg-neutral-500;
   }
 }
 
@@ -52,4 +65,9 @@ body {
 
 .light [data-theme-toggle="light"] {
   @apply bg-black/10;
+}
+
+#raycast,
+[data-desktop] {
+  animation: fadeIn 1s ease-out;
 }

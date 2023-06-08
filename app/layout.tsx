@@ -4,6 +4,7 @@ import { ThemeSwitcher } from "@/components/theme-switcher";
 import { getAllThemes } from "@/lib/theme";
 import { ThemeFilter } from "@/components/theme-filter";
 import "./globals.css";
+import { ThemeControls } from "@/components/theme-controls";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -26,13 +27,8 @@ export default async function RootLayout({
           <div className="flex flex-col h-[100dvh]">
             <div className="flex flex-col flex-1">{children}</div>
 
-            <div className="flex justify-between pt-5 px-4 w-full max-w-screen-2xl mx-auto">
-              <ThemeFilter themes={themes} />
-              <button className="rounded-2 border h-[30px] inline-flex px-3 items-center text-3">
-                Add to Raycast
-              </button>
-              <div></div>
-            </div>
+            <ThemeControls themes={themes} />
+
             <ThemeSwitcher themes={themes} />
           </div>
         </Providers>

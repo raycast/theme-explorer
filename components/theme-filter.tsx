@@ -1,11 +1,11 @@
 "use client";
 import React from "react";
 import { Theme } from "@/lib/theme";
-import { useRouter } from "next/navigation";
 import { useLastVisitedTheme } from "@/components/navigation-history";
+import { useRaycastTheme } from "@/components/raycast-theme-provider";
 
 export function ThemeFilter({ themes }: { themes: Theme[] }) {
-  const { push } = useRouter();
+  const { setActiveTheme } = useRaycastTheme();
   const { light, dark } = useLastVisitedTheme();
 
   const lightThemes = themes.filter(
@@ -21,7 +21,7 @@ export function ThemeFilter({ themes }: { themes: Theme[] }) {
         data-theme-toggle="dark"
         className={`rounded-2 rounded-tr-none rounded-br-none border border-black/20 dark:border-white/20 h-[30px] inline-flex px-3 items-center text-3`}
         onClick={() => {
-          push(dark || darkThemes[0].slug);
+          setActiveTheme(darkThemes[0]);
         }}
       >
         Dark
@@ -30,7 +30,7 @@ export function ThemeFilter({ themes }: { themes: Theme[] }) {
         className={`rounded-2 rounded-tl-none rounded-bl-none border border-l-0 border-black/20 dark:border-white/20 h-[30px] inline-flex px-3 items-center text-3 `}
         data-theme-toggle="light"
         onClick={() => {
-          push(light || lightThemes[0].slug);
+          setActiveTheme(lightThemes[0]);
         }}
       >
         Light

@@ -1,7 +1,7 @@
 "use client";
 
+import { useRaycastTheme } from "@/components/raycast-theme-provider";
 import { Theme } from "@/lib/theme";
-import { useTheme } from "next-themes";
 import React from "react";
 
 export function PageWithThemeMode({
@@ -11,13 +11,11 @@ export function PageWithThemeMode({
   children: React.ReactNode;
   theme: Theme;
 }) {
-  const { resolvedTheme, setTheme } = useTheme();
+  const { setActiveTheme } = useRaycastTheme();
 
   React.useEffect(() => {
-    if (resolvedTheme !== theme.appearance) {
-      setTheme(theme.appearance);
-    }
-  }, [resolvedTheme]);
+    setActiveTheme(theme);
+  }, []);
 
   return <>{children}</>;
 }
