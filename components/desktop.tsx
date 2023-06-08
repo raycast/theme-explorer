@@ -31,11 +31,18 @@ export function Desktop({ children }: { children?: React.ReactNode }) {
         </div>
 
         <Image
-          data-wallpaper
+          data-wallpaper="dark"
           className="object-cover select-none pointer-events-none"
-          src={
-            activeTheme.appearance === "dark" ? darkWallpaper : lightWallpaper
-          }
+          src={darkWallpaper}
+          fill
+          placeholder="blur"
+          quality={100}
+          alt=""
+        />
+        <Image
+          data-wallpaper="light"
+          className="object-cover select-none pointer-events-none"
+          src={lightWallpaper}
           fill
           placeholder="blur"
           quality={100}

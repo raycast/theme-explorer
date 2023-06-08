@@ -75,3 +75,10 @@ body {
   opacity: 0;
   animation: fadeIn 1000ms 400ms ease-in forwards;
 }
+
+.light [data-wallpaper="dark"] {
+  opacity: 0 !important;
+}
+.dark [data-wallpaper="light"] {
+  opacity: 0 !important;
+}
