@@ -67,9 +67,6 @@ body {
   @apply bg-black/10;
 }
 
-[data-desktop] {
-}
-
 [data-desktop] [data-raycast] {
   animation: fadeIn 500ms ease-in;
 }

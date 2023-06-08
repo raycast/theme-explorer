@@ -15,19 +15,17 @@ export function ThemeCard({ theme: raycastTheme }: { theme?: Theme }) {
     ])
   );
 
+  const isActiveTheme = activeTheme && activeTheme?.slug === raycastTheme?.slug;
+
   React.useEffect(() => {
     if (isActiveTheme) {
-      setTimeout(() => {
-        ref.current?.scrollIntoView({
-          behavior: "smooth",
-          block: "center",
-          inline: "center",
-        });
-      }, 1);
+      ref.current?.scrollIntoView({
+        behavior: "smooth",
+        block: "center",
+        inline: "center",
+      });
     }
-  }, [activeTheme]);
-
-  const isActiveTheme = activeTheme && activeTheme?.slug === raycastTheme?.slug;
+  }, [isActiveTheme, activeTheme]);
 
   return (
     <button

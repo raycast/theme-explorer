@@ -15,14 +15,12 @@ export const RaycastThemeContext = React.createContext<RaycastThemeContextType>(
 );
 
 export function RaycastThemeProvider({
-  initialTheme,
   children,
 }: {
-  initialTheme?: Theme;
   children: React.ReactNode;
 }) {
   const [activeTheme, setActiveTheme] = React.useState<Theme | undefined>(
-    initialTheme
+    undefined
   );
 
   const handleSetActiveTheme = (theme: Theme) => {
@@ -38,15 +36,32 @@ export function RaycastThemeProvider({
       document.documentElement.classList.add(activeTheme.appearance);
       document.documentElement.style.colorScheme = activeTheme.appearance;
       handleURLChange(activeTheme.slug);
+
+      // Object.entries(activeTheme?.colors || {}).map(([key, value]) => {
+      //   try {
+      //     CSS.registerProperty({
+      //       name: "--" + key,
+      //       syntax: "<color>",
+      //       initialValue: "0",
+      //       inherits: true,
+      //     });
+      //   } catch (e) {}
+      //   return [];
+      // });
     }
   }, [activeTheme]);
 
-  const style = Object.fromEntries(
-    Object.entries(activeTheme?.colors || {}).map(([key, value]) => [
-      "--" + key,
-      value,
-    ])
+  const colorVariables = Object.entries(activeTheme?.colors || {}).reduce(
+    (result, [key, value]) => {
+      result[`--${key}`] = value;
+      return result;
+    },
+    {} as Record<string, string>
   );
+
+  // const colorTransitionValue = Object.entries(activeTheme?.colors || {})
+  //   .map(([key, value]) => `--${key} 0.2s ease-in-out`)
+  //   .join(", ");
 
   return (
     <RaycastThemeContext.Provider
@@ -57,7 +72,8 @@ export function RaycastThemeProvider({
     >
       <div
         style={{
-          ...style,
+          ...colorVariables,
+          // transition: colorTransitionValue,
         }}
       >
         {children}
@@ -68,6 +84,5 @@ export function RaycastThemeProvider({
 
 export function useRaycastTheme() {
   const { activeTheme, setActiveTheme } = React.useContext(RaycastThemeContext);
-
   return { activeTheme, setActiveTheme };
 }
