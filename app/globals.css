@@ -74,6 +74,35 @@
   }
 }
 
+[data-loader] svg {
+  animation: flicker 2000ms linear;
+}
+
+@keyframes flicker {
+  0%,
+  29% {
+    opacity: 1;
+  }
+  30%,
+  39% {
+    opacity: 0.3;
+  }
+  40%,
+  69% {
+    opacity: 1;
+  }
+  70%,
+  74% {
+    opacity: 0.7;
+  }
+  75% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
 [data-desktop] {
   .dark & {
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.33),
