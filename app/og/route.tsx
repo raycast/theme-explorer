@@ -113,7 +113,7 @@ export async function GET(request: NextRequest) {
                   alignItems: "stretch",
                   overflow: "hidden",
                   flexShrink: 0,
-                  backgroundColor: `rgba(${theme.colors.backgroundPrimary}, 0.85)`,
+                  backgroundColor: `rgba(${theme.colors.backgroundPrimary}, 0.90)`,
                 }}
               >
                 <header

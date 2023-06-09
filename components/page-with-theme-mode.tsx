@@ -16,7 +16,7 @@ export function PageWithThemeMode({
   React.useEffect(() => {
     setTimeout(() => {
       setActiveTheme(theme);
-    }, 1500);
+    }, 2000);
   }, []);
 
   return <>{children}</>;
