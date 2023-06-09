@@ -50,6 +50,8 @@ export async function GET(request: NextRequest) {
     const interData = await inter;
     const inter500Data = await inter500;
     const inter600Data = await inter600;
+    const bgLightData: any = await bgLight;
+    const bgDarkData: any = await bgDark;
 
     const { searchParams } = new URL(request.url);
 
@@ -73,6 +75,19 @@ export async function GET(request: NextRequest) {
             height: "100%",
           }}
         >
+          <img
+            src={theme.appearance === "dark" ? bgDarkData : bgLightData}
+            style={{
+              position: "absolute",
+              bottom: 0,
+              left: "-30%",
+              width: "150%",
+              height: "150%",
+              objectFit: "cover",
+              objectPosition: "bottom center",
+            }}
+            alt=""
+          />
           <svg
             viewBox="0 0 750 475"
             height="475"
