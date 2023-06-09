@@ -15,9 +15,7 @@ export function Raycast({
   const { activeTheme } = useRaycastTheme();
 
   if (!activeTheme) {
-    return (
-      <div className="w-[750px] h-[475px] rounded-4 srink-0 bg-neutral-400 animate-pulse"></div>
-    );
+    return null;
   }
 
   return (

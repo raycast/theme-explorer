@@ -9,13 +9,7 @@ export function Desktop({ children }: { children?: React.ReactNode }) {
   const { activeTheme } = useRaycastTheme();
 
   if (!activeTheme) {
-    return (
-      <div className="flex flex-1 h-full w-full ">
-        <div className="flex flex-col md:items-center desktop:justify-center flex-1 p-5 relative overflow-hidden">
-          {children}
-        </div>
-      </div>
-    );
+    return null;
   }
 
   return (

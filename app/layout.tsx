@@ -5,6 +5,7 @@ import { getAllThemes } from "@/lib/theme";
 import { ThemeFilter } from "@/components/theme-filter";
 import "./globals.css";
 import { ThemeControls } from "@/components/theme-controls";
+import { Loader } from "@/components/loader";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -31,6 +32,7 @@ export default async function RootLayout({
             <ThemeControls themes={themes} />
             <ThemeSwitcher themes={themes} />
           </div>
+          <Loader />
         </Providers>
       </body>
     </html>
