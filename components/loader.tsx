@@ -6,7 +6,7 @@ export function Loader() {
       data-loader
       className="flex items-center justify-center bg-neutral-900 text-white"
     >
-      <div className="flex flex-col items-center gap-[82px]">
+      <div className="flex flex-col items-center gap-[68px]">
         <RaycastIcon size={96} />
 
         <div className="w-[193px] h-[4px] rounded-full bg-white/20 overflow-hidden">
