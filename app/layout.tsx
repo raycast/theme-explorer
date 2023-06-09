@@ -2,7 +2,6 @@ import { Inter } from "next/font/google";
 import { Providers } from "@/components/providers";
 import { ThemeSwitcher } from "@/components/theme-switcher";
 import { getAllThemes } from "@/lib/theme";
-import { ThemeFilter } from "@/components/theme-filter";
 import "./globals.css";
 import { ThemeControls } from "@/components/theme-controls";
 import { Loader } from "@/components/loader";
