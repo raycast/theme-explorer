@@ -36,7 +36,7 @@
   position: fixed;
   z-index: 1000;
   inset: 0;
-  transition: opacity 500ms ease-in-out;
+  transition: opacity 500ms 250ms ease-in-out;
   will-change: opacity;
 
   :not(.dark &):not(.light &) {
@@ -50,7 +50,7 @@
 [data-loader-progress] {
   transform: scaleX(0);
   transform-origin: left;
-  animation: load 1800ms linear forwards;
+  animation: load 2000ms linear forwards;
 }
 
 @keyframes load {

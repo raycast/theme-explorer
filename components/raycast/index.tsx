@@ -21,7 +21,7 @@ export function Raycast({
   return (
     <div
       data-raycast
-      className={`w-[750px] h-[475px] rounded-4 backdrop-blur-[72px] shadow flex flex-col relative select-none shrink-0 text-left`}
+      className={`w-[750px] h-[475px] rounded-4 backdrop-blur-[72px] shadow flex flex-col relative select-none shrink-0 text-left overflow-hidden`}
       style={{
         zIndex: 2,
         backgroundColor: "rgba(var(--backgroundPrimary), 0.6)",
@@ -39,7 +39,7 @@ export function Raycast({
         <Grid />
       </main>
 
-      <RootFooter />
+      <RootFooter mode={activeTheme.appearance} />
     </div>
   );
 }

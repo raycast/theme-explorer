@@ -1,9 +1,9 @@
 import { RaycastIcon } from "@/components/icons";
 
-export function RootFooter() {
+export function RootFooter({ mode }: { mode: "dark" | "light" }) {
   return (
     <footer
-      className={`shrink-0 h-[40px] px-3 border-t flex items-center justify-between gap-2  z-10 `}
+      className="shrink-0 h-[40px] px-3 border-t flex items-center justify-between gap-2 z-10 bg-white/20 dark:bg-white/5"
       style={{
         borderColor: "rgba(var(--text), 0.1)",
       }}
@@ -14,10 +14,7 @@ export function RootFooter() {
           color: "rgba(var(--text), 0.6)",
         }}
       >
-        <RaycastIcon
-          // mode={theme.appearance}
-          size={20}
-        />
+        <RaycastIcon mode={mode} size={20} />
         <div>Theme Explorer</div>
       </div>
 
