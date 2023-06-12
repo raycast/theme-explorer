@@ -1,51 +1,91 @@
 "use client";
 import React from "react";
 import * as Menubar from "@radix-ui/react-menubar";
+import * as Dialog from "@radix-ui/react-dialog";
 import { AppleIcon, RaycastIcon } from "@/components/icons";
 import { useRaycastTheme } from "@/components/raycast-theme-provider";
 
 export function MenuBar() {
   const { activeTheme } = useRaycastTheme();
+  const [showAbout, setShoutAbout] = React.useState(false);
 
   if (!activeTheme) {
     return null;
   }
 
   return (
-    <Menubar.Root className="hidden desktop:flex items-center justify-between h-[37px] px-[16px] py-[4px] backdrop-blur-[72px] w-full absolute z-10 top-0 left-0 text-2 text-black dark:text-white dark:bg-black/30 bg-white/30">
-      <div className="flex items-center gap-[8px]">
-        <AppleIcon />
+    <Dialog.Root open={showAbout} onOpenChange={setShoutAbout}>
+      <Menubar.Root className="hidden desktop:flex items-center justify-between h-[37px] px-[16px] py-[4px] backdrop-blur-[72px] w-full absolute z-10 top-0 left-0 text-2 text-black dark:text-white dark:bg-black/30 bg-white/30 select-none">
+        <div className="flex items-center gap-[8px]">
+          <AppleIcon />
 
-        <Menubar.Menu>
-          <Trigger bold>Theme Explorer</Trigger>
-          <Content>
-            <Item>About</Item>
-            <Item>Download</Item>
-            <Item>Documentation</Item>
-          </Content>
-        </Menubar.Menu>
-        <Menubar.Menu>
-          <Trigger>Social</Trigger>
-          <Content>
-            <Item>Slack</Item>
-            <Item>Twitter</Item>
-            <Item>Mastodon</Item>
-            <Item>GitHub</Item>
-          </Content>
-        </Menubar.Menu>
-        <Menubar.Menu>
-          <Trigger>Help</Trigger>
-          <Content>
-            <Item>Uploading a Theme</Item>
-            <Item>Installing a Theme</Item>
-          </Content>
-        </Menubar.Menu>
-      </div>
-      <div className="flex items-center gap-4">
-        <RaycastIcon mode={activeTheme.appearance} size={16} />
-        <div>{getCurrentDate()}</div>
-      </div>
-    </Menubar.Root>
+          <Menubar.Menu>
+            <Trigger bold>Theme Explorer</Trigger>
+            <Content>
+              <Item onSelect={() => setShoutAbout(true)}>About</Item>
+              <Item>Download</Item>
+              <Item>Documentation</Item>
+            </Content>
+          </Menubar.Menu>
+          <Menubar.Menu>
+            <Trigger>Social</Trigger>
+            <Content>
+              <Item>Slack</Item>
+              <Item>Twitter</Item>
+              <Item>Mastodon</Item>
+              <Item>GitHub</Item>
+            </Content>
+          </Menubar.Menu>
+          <Menubar.Menu>
+            <Trigger>Help</Trigger>
+            <Content>
+              <Item>Uploading a Theme</Item>
+              <Item>Installing a Theme</Item>
+            </Content>
+          </Menubar.Menu>
+        </div>
+        <div className="flex items-center gap-4">
+          <RaycastIcon mode={activeTheme.appearance} size={16} />
+          <div>{getCurrentDate()}</div>
+        </div>
+      </Menubar.Root>
+      <Dialog.Content
+        className="absolute z-20 left-1/2 top-1/2 w-[300px] dark:bg-black/60 backdrop-blur-[72px] outline-none py-6 pb-5 px-5 rounded-2 text-black/60 dark:text-white/60"
+        style={{ transform: "translate(-50%, -50%)" }}
+      >
+        <Dialog.Close
+          aria-label="Close About"
+          className="w-[12px] h-[12px] bg-[#DD7265] outline-none cursor-auto rounded-full absolute top-4 left-4"
+        >
+          <span aria-hidden hidden>
+            Close
+          </span>
+        </Dialog.Close>
+        <div className="text-center flex flex-col gap-1 mb-5">
+          <p className="text-3 font-semibold">Theme Explorer</p>
+          <p className="text-3">v1.0.0</p>
+        </div>
+        <div className="flex flex-col gap-2 mb-5">
+          <div className="text-black dark:text-white flex justify-between">
+            Add to Raycast <Shortcut keys={["⌘", "⏎"]} />
+          </div>
+          <div className="text-black dark:text-white flex justify-between">
+            Add to Raycast <Shortcut keys={["⌘", "⏎"]} />
+          </div>
+          <div className="text-black dark:text-white flex justify-between">
+            Add to Raycast <Shortcut keys={["⌘", "⏎"]} />
+          </div>
+          <div className="text-black dark:text-white flex justify-between">
+            Add to Raycast <Shortcut keys={["⌘", "⏎"]} />
+          </div>
+        </div>
+        <p className="text-4 my-3 font-semibold">Adding your own theme</p>
+        <p className="text-3 mb-3">
+          Export your theme as a JSON config from Theme Studio.
+        </p>
+        <p className="text-3 mb-3">Upload it to the theme explorer repo.</p>
+      </Dialog.Content>
+    </Dialog.Root>
   );
 }
 
@@ -90,10 +130,32 @@ function Trigger({
   );
 }
 
-function Item({ children }: { children: React.ReactNode }) {
+const Item = React.forwardRef<
+  HTMLDivElement,
+  { children: React.ReactNode; asChild?: boolean; onSelect?: () => void }
+>(({ children, ...props }, ref) => (
+  <Menubar.Item
+    {...props}
+    ref={ref}
+    className="rounded-1 px-2 outline-none data-[highlighted]:bg-[#4D79DA] data-[highlighted]:text-white cursor-default"
+  >
+    {children}
+  </Menubar.Item>
+));
+
+Item.displayName = "MenubarItem";
+
+function Shortcut({ keys }: { keys: string[] }) {
   return (
-    <Menubar.Item className="rounded-1 px-2 outline-none data-[highlighted]:bg-[#4D79DA] data-[highlighted]:text-white cursor-default">
-      {children}
-    </Menubar.Item>
+    <div className="inline-flex gap-1">
+      {keys.map((key) => (
+        <kbd
+          key={key}
+          className="bg-black/10 dark:bg-white/10 text-2 text-black text-white/60 h-[20px] w-[24px] rounded-1 items-center justify-center flex"
+        >
+          {key}
+        </kbd>
+      ))}
+    </div>
   );
 }
