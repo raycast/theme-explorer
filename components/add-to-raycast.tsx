@@ -2,9 +2,16 @@
 import React from "react";
 import { ChevronDownIcon, PlusIcon } from "@/components/icons";
 import * as DropdownMenu from "@radix-ui/react-dropdown-menu";
+import { isTouchDevice } from "@/lib/isTouchDevice";
 
 export function AddToRaycast() {
-  return (
+  const [isTouch, setIsTouch] = React.useState<boolean | null>(null);
+
+  React.useEffect(() => {
+    setIsTouch(isTouchDevice());
+  }, [isTouch, setIsTouch]);
+
+  return !isTouch ? (
     <span className="inline-flex items-center text-3 font-medium">
       <Button className="flex-1 rounded-tl-2 rounded-bl-2">
         <PlusIcon size={16} /> Add to Raycast
@@ -31,7 +38,7 @@ export function AddToRaycast() {
         </DropdownMenu.Portal>
       </DropdownMenu.Root>
     </span>
-  );
+  ) : null;
 }
 
 type ButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement> & {
