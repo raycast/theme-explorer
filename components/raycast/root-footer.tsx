@@ -1,6 +1,6 @@
 import { RaycastIcon } from "@/components/icons";
 
-export function RootFooter({ mode }: { mode: "dark" | "light" }) {
+export function RootFooter({ mode = "dark" }: { mode?: "dark" | "light" }) {
   return (
     <footer
       className="shrink-0 h-[40px] px-3 border-t flex items-center justify-between gap-2 z-10 bg-white/20 dark:bg-white/5"

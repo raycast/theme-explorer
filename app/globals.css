@@ -80,14 +80,14 @@
 
 @keyframes flicker {
   0%,
-  29% {
+  24% {
     opacity: 1;
   }
-  30%,
-  39% {
-    opacity: 0.3;
+  25%,
+  29% {
+    opacity: 0.5;
   }
-  40%,
+  30%,
   69% {
     opacity: 1;
   }

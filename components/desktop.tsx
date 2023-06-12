@@ -1,17 +1,9 @@
-"use client";
 import { MenuBar } from "@/components/menu-bar";
 import Image from "next/image";
 import lightWallpaper from "@/public/bg-light.jpeg";
 import darkWallpaper from "@/public/bg-dark.jpeg";
-import { useRaycastTheme } from "@/components/raycast-theme-provider";
 
 export function Desktop({ children }: { children?: React.ReactNode }) {
-  const { activeTheme } = useRaycastTheme();
-
-  if (!activeTheme) {
-    return null;
-  }
-
   return (
     <div
       data-desktop

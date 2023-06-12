@@ -27,8 +27,13 @@ export function RaycastThemeProvider({
     setActiveTheme(theme);
   };
 
-  const handleURLChange = (slug: string) =>
-    window.history.pushState({}, "", `/${slug}`);
+  const handleTitleChange = (title: string) => {
+    return (document.title = title);
+  };
+
+  const handleURLChange = (slug: string) => {
+    return window.history.pushState({}, "", `/${slug}`);
+  };
 
   React.useEffect(() => {
     if (activeTheme) {
@@ -36,32 +41,9 @@ export function RaycastThemeProvider({
       document.documentElement.classList.add(activeTheme.appearance);
       document.documentElement.style.colorScheme = activeTheme.appearance;
       handleURLChange(activeTheme.slug);
-
-      // Object.entries(activeTheme?.colors || {}).map(([key, value]) => {
-      //   try {
-      //     CSS.registerProperty({
-      //       name: "--" + key,
-      //       syntax: "<color>",
-      //       initialValue: "0",
-      //       inherits: true,
-      //     });
-      //   } catch (e) {}
-      //   return [];
-      // });
+      handleTitleChange(`${activeTheme.name} by ${activeTheme.author}`);
     }
   }, [activeTheme]);
-
-  const colorVariables = Object.entries(activeTheme?.colors || {}).reduce(
-    (result, [key, value]) => {
-      result[`--${key}`] = value;
-      return result;
-    },
-    {} as Record<string, string>
-  );
-
-  // const colorTransitionValue = Object.entries(activeTheme?.colors || {})
-  //   .map(([key, value]) => `--${key} 0.2s ease-in-out`)
-  //   .join(", ");
 
   return (
     <RaycastThemeContext.Provider
@@ -70,14 +52,7 @@ export function RaycastThemeProvider({
         setActiveTheme: handleSetActiveTheme,
       }}
     >
-      <div
-        style={{
-          ...colorVariables,
-          // transition: colorTransitionValue,
-        }}
-      >
-        {children}
-      </div>
+      {children}
     </RaycastThemeContext.Provider>
   );
 }

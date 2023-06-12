@@ -4,25 +4,34 @@ import { Grid } from "@/components/raycast/grid";
 import { RootFooter } from "@/components/raycast/root-footer";
 import { RootHeader } from "@/components/raycast/root-header";
 import { useRaycastTheme } from "@/components/raycast-theme-provider";
+import { Theme } from "@/lib/theme";
 
 export function Raycast({
+  theme: forcedTheme,
   disableLoadingAnimation,
   loadingAnimationType = "animated",
 }: {
+  theme?: Theme;
   disableLoadingAnimation?: boolean;
   loadingAnimationType?: "animated" | "static";
 }) {
   const { activeTheme } = useRaycastTheme();
 
-  if (!activeTheme) {
-    return null;
-  }
+  const theme = forcedTheme || activeTheme;
+
+  const style = Object.fromEntries(
+    Object.entries(theme?.colors || {}).map(([key, value]) => [
+      "--" + key,
+      value,
+    ])
+  );
 
   return (
     <div
       data-raycast
       className={`w-[750px] h-[475px] rounded-4 backdrop-blur-[72px] shadow flex flex-col relative select-none shrink-0 text-left overflow-hidden`}
       style={{
+        ...style,
         zIndex: 2,
         backgroundColor: "rgba(var(--backgroundPrimary), 0.6)",
         backgroundImage: `linear-gradient(to bottom, rgba(var(--backgroundPrimary), 0.6) 0%, rgba(var(--backgroundSecondary), 0.6) 70%)`,
@@ -39,7 +48,7 @@ export function Raycast({
         <Grid />
       </main>
 
-      <RootFooter mode={activeTheme.appearance} />
+      <RootFooter mode={theme?.appearance} />
     </div>
   );
 }
