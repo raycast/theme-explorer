@@ -24,10 +24,8 @@ export default async function RootLayout({
     <html lang="en">
       <body className={`${inter.className} overflow-hidden`}>
         <Providers themes={themes}>
-          <div className="flex flex-col gap-5 h-[100dvh]">
-            <div className="flex flex-col flex-1 overflow-hidden">
-              {children}
-            </div>
+          <div className="flex flex-col h-[100dvh]">
+            <div className="flex flex-col flex-1">{children}</div>
             <ThemeControls themes={themes} />
             <ThemeSwitcher themes={themes} />
           </div>

@@ -7,19 +7,13 @@ import { useRaycastTheme } from "@/components/raycast-theme-provider";
 export function ThemeSwitcher({ themes }: { themes: Theme[] }) {
   const { activeTheme } = useRaycastTheme();
 
-  if (!activeTheme) {
-    return (
-      <div className="flex px-5 pb-5 gap-5 items-center overflow-x-auto snap-x snap-mandatory h-[245px] shrink-0"></div>
-    );
-  }
-
   return (
     <div
       data-theme-switcher
-      className="flex px-5 pb-5 gap-5 items-center overflow-x-auto snap-x snap-mandatory h-[245px] shrink-0"
+      className="flex p-5 gap-5 box-content items-center overflow-x-auto snap-x snap-mandatory h-[214px] shrink-0"
     >
       {themes
-        .filter((rayTheme) => rayTheme.appearance === activeTheme.appearance)
+        .filter((rayTheme) => rayTheme.appearance === activeTheme?.appearance)
         .map((rayTheme) => (
           <ThemeCard key={rayTheme.name} theme={rayTheme} />
         ))}

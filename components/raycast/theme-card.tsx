@@ -23,10 +23,10 @@ export function ThemeCard({ theme: raycastTheme }: { theme?: Theme }) {
   return (
     <button
       ref={ref}
-      className={`snap-always snap-center flex flex-col ring-2 ring-inset p-3 gap-3 rounded-4 overflow-hidden h-full aspect-[16/9] shrink-0 ${
+      className={`snap-always snap-center flex flex-col ring-2 ring-inset p-3 gap-3 rounded-5 overflow-hidden h-full aspect-[16/9] shrink-0 outline-none ${
         isActiveTheme
-          ? "ring-black dark:ring-white"
-          : "ring-[rgba(0,0,0,0.2)] dark:ring-[rgba(255,255,255,0.2)]"
+          ? "ring-black dark:ring-white shadow-[0px_0px_4px_rgba(0,0,0,0.26)] dark:shadow[0px_0px_4px_rgba(255,255,255,0.26)]"
+          : "ring-[rgba(0,0,0,0.2)] dark:ring-[rgba(255,255,255,0.2)] focus:ring-[rgba(0,0,0,0.4)] focus:dark:ring-[rgba(255,255,255,0.4)]"
       }`}
       onClick={() => {
         raycastTheme ? setActiveTheme(raycastTheme) : {};

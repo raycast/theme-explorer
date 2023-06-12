@@ -83,3 +83,123 @@ export const AppleIcon = ({ size = 20 }: { size?: number }) => {
     </svg>
   );
 };
+
+export const PlusIcon = ({ size = 20 }: { size?: number }) => {
+  return (
+    <svg
+      viewBox="0 0 16 16"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      width={size}
+      height={size}
+    >
+      <path
+        d="M8 14.25a6.25 6.25 0 1 0 0-12.5 6.25 6.25 0 0 0 0 12.5ZM10.75 8H8M5.25 8H8m0 0V5.25M8 8v2.75"
+        stroke="currentColor"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      ></path>
+    </svg>
+  );
+};
+
+export const ChevronDownIcon = ({ size = 20 }: { size?: number }) => {
+  return (
+    <svg
+      viewBox="0 0 16 16"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      width={size}
+      height={size}
+    >
+      <path
+        d="M12.25 5.75 8 10.25l-4.25-4.5"
+        stroke="currentColor"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      ></path>
+    </svg>
+  );
+};
+
+export const ChevronLeftIcon = ({ size = 20 }: { size?: number }) => {
+  return (
+    <svg
+      viewBox="0 0 16 16"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      width={size}
+      height={size}
+    >
+      <path
+        d="M10.25 12.25 5.75 8l4.5-4.25"
+        stroke="currentColor"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      ></path>
+    </svg>
+  );
+};
+
+export const ChevronRightIcon = ({ size = 20 }: { size?: number }) => {
+  return (
+    <svg
+      viewBox="0 0 16 16"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      width={size}
+      height={size}
+    >
+      <path
+        d="M5.75 3.75 10.25 8l-4.5 4.25"
+        stroke="currentColor"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      ></path>
+    </svg>
+  );
+};
+
+export const SunIcon = ({ size = 20 }: { size?: number }) => {
+  return (
+    <svg
+      viewBox="0 0 16 16"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      width={size}
+      height={size}
+    >
+      <path
+        d="m3.58 3.58 1.944 1.945m4.95 4.95 1.945 1.944M1.749 8H4.5m7 0h2.75M3.58 12.42l1.945-1.945m4.95-4.95 1.944-1.944M8 14.25V11.5m0-7V1.75M11.25 8a3.25 3.25 0 1 1-6.5 0 3.25 3.25 0 0 1 6.5 0Z"
+        stroke="currentColor"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      ></path>
+    </svg>
+  );
+};
+
+export const MoonIcon = ({ size = 20 }: { size?: number }) => {
+  return (
+    <svg
+      viewBox="0 0 16 16"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      width={size}
+      height={size}
+    >
+      <path
+        d="M14.25 8.665a5.06 5.06 0 0 1-2.374.585c-2.724 0-4.933-2.127-4.933-4.75a4.61 4.61 0 0 1 .909-2.748C4.467 1.84 1.75 4.604 1.75 8c0 3.452 2.806 6.25 6.268 6.25 3.236 0 5.9-2.446 6.232-5.585Z"
+        stroke="currentColor"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      ></path>
+    </svg>
+  );
+};
