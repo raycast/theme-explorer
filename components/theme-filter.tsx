@@ -59,6 +59,8 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
       disabled:dark:bg-white/10
       hover:bg-black/10 
       dark:hover:bg-white/5
+      dark:text-white/60
+      disabled:dark:text-white
         disabled:z-10
         shadow-[inset_0px_0px_0px_1px_rgba(0,0,0,0.1)] 
         disabled:shadow-[inset_0px_0px_0px_1px_#797979] 

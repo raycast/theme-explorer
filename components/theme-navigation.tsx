@@ -102,13 +102,18 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
       {...props}
       ref={ref}
       className={`h-[30px] flex items-center gap-2 px-4 outline-none relative
-      bg-black/5
-      dark:bg-transparent
-      disabled:bg-transparent
-      disabled:dark:bg-white/10
+      bg-transparent
+      disabled:bg-black/5
+      
+      dark:bg-white/10
+      disabled:dark:bg-transparent
+      
       hover:bg-black/10 
       dark:hover:bg-white/5
-        disabled:z-10
+
+      disabled:dark:text-white/60
+      
+      disabled:z-10
         shadow-[inset_0px_0px_0px_1px_rgba(0,0,0,0.1)] 
         disabled:shadow-[inset_0px_0px_0px_1px_#797979] 
         focus:shadow-[inset_0px_0px_0px_1px_#737373,0px_0px_0px_1px_#737373] 
