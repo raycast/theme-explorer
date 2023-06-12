@@ -4,17 +4,17 @@
   "name": "One Dark Pro",
   "appearance": "dark",
   "colors": {
-    "backgroundPrimary": "33, 37, 43",
-    "backgroundSecondary": "33, 37, 43",
-    "text": "255, 255, 255",
-    "selection": "128, 143, 167",
-    "loader": "97, 175, 239",
-    "red": "224, 108, 117",
-    "orange": "229, 192, 123",
-    "yellow": "229, 214, 123",
-    "green": "149, 190, 119",
-    "blue": "97, 175, 239",
-    "purple": "191, 117, 214",
-    "pink": "214, 117, 167"
+    "backgroundPrimary": "#21252B",
+    "backgroundSecondary": "#21252B",
+    "text": "#FFFFFF",
+    "selection": "#808FA7",
+    "loader": "#61AFEF",
+    "red": "#E06C75",
+    "orange": "#E5C07B",
+    "yellow": "#E5D66D",
+    "green": "#95BE70",
+    "blue": "#61AFEF",
+    "purple": "#BF79BF",
+    "pink": "#D675AF"
   }
 }

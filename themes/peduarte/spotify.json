@@ -4,17 +4,17 @@
   "name": "Spotify",
   "appearance": "dark",
   "colors": {
-    "backgroundPrimary": "18, 18, 18",
-    "backgroundSecondary": "18, 18, 18",
-    "text": "255, 255, 255",
-    "selection": "0, 255, 90",
-    "loader": "40, 255, 116",
-    "red": "245, 10, 10",
-    "orange": "245, 96, 10",
-    "yellow": "224, 162, 0",
-    "green": "7, 186, 101",
-    "blue": "10, 127, 245",
-    "purple": "71, 10, 245",
-    "pink": "245, 10, 163"
+    "backgroundPrimary": "#121212",
+    "backgroundSecondary": "#121212",
+    "text": "#FFFFFF",
+    "selection": "#00FF5A",
+    "loader": "#28FF74",
+    "red": "#F50A0A",
+    "orange": "#F5600A",
+    "yellow": "#E0A200",
+    "green": "#07BA65",
+    "blue": "#0A7FF5",
+    "purple": "#470AF5",
+    "pink": "#F50AA3"
   }
 }

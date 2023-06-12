@@ -135,3 +135,7 @@ body {
 .dark [data-wallpaper="light"] {
   opacity: 0 !important;
 }
+
+[data-raycast] {
+  transition: all 200ms ease-in-out;
+}

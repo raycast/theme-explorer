@@ -6,17 +6,8 @@ export function RootHeader({
   loadingAnimationType?: "animated" | "static";
 }) {
   return (
-    <header
-      className="h-[56px] px-4 border-b flex items-center gap-2 shrink-0 relative"
-      style={{ borderColor: "rgba(var(--text), 0.1)" }}
-    >
-      <div
-        className="w-[24px] h-[24px] rounded-2 flex items-center justify-center"
-        style={{
-          backgroundColor: "rgba(var(--text), 0.1)",
-          color: "rgb(var(--text))",
-        }}
-      >
+    <header className="h-[56px] px-4 border-b border-[--border-100] flex items-center gap-2 shrink-0 relative">
+      <div className="w-[24px] h-[24px] rounded-2 flex items-center justify-center text-[--text] bg-[--text-100]">
         <svg
           viewBox="0 0 16 16"
           fill="none"
@@ -33,10 +24,7 @@ export function RootHeader({
           />
         </svg>
       </div>
-      <div
-        className="w-full leading-none bg-transparent border-none outline-none text-4"
-        style={{ color: "rgba(var(--text), 0.4)" }}
-      >
+      <div className="w-full leading-none bg-transparent border-none outline-none text-4 text-[--text-400]">
         Search...
       </div>
 
@@ -44,7 +32,7 @@ export function RootHeader({
         <div
           className="absolute top-full w-[200px] h-[1px] "
           style={{
-            backgroundImage: `linear-gradient(to right, rgba(255, 255, 255, 0), rgb(var(--loader)), rgba(255, 255, 255, 0))`,
+            backgroundImage: `linear-gradient(to right, rgba(255, 255, 255, 0), var(--loader), rgba(255, 255, 255, 0))`,
             animation:
               loadingAnimationType === "animated"
                 ? "nightRider 2s ease-in-out infinite"

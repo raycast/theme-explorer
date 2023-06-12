@@ -2,37 +2,16 @@ import { RaycastIcon } from "@/components/icons";
 
 export function RootFooter({ mode = "dark" }: { mode?: "dark" | "light" }) {
   return (
-    <footer
-      className="shrink-0 h-[40px] px-3 border-t flex items-center justify-between gap-2 z-10 bg-white/20 dark:bg-white/5"
-      style={{
-        borderColor: "rgba(var(--text), 0.1)",
-      }}
-    >
-      <div
-        className="flex gap-3 items-center text-2"
-        style={{
-          color: "rgba(var(--text), 0.6)",
-        }}
-      >
+    <footer className="shrink-0 h-[40px] px-3 border-t border-[--text-100] flex items-center justify-between gap-2 z-10 bg-white/20 dark:bg-white/5">
+      <div className="flex gap-3 items-center text-2 text-[--text-600]">
         <RaycastIcon mode={mode} size={20} />
         <div>Theme Explorer</div>
       </div>
 
       <div className="flex gap-3 items-center">
         <div className="flex gap-3 items-center">
-          <div
-            className=" text-1 font-semibold"
-            style={{ color: "rgb(var(--text))" }}
-          >
-            Open Command
-          </div>
-          <div
-            className="w-[24px] h-[24px] rounded-2 flex items-center justify-center"
-            style={{
-              backgroundColor: "rgba(var(--text), 0.1)",
-              color: "rgb(var(--text))",
-            }}
-          >
+          <div className="text-1 text-[--text] font-semibold">Open Command</div>
+          <div className="w-[24px] h-[24px] rounded-2 flex items-center justify-center bg-[--text-100] text-[--text]">
             <svg
               width="12"
               height="9"
@@ -47,33 +26,13 @@ export function RootFooter({ mode = "dark" }: { mode?: "dark" | "light" }) {
             </svg>
           </div>
         </div>
-        <div
-          className="w-[2px] h-[12px]"
-          style={{ backgroundColor: "rgba(var(--text), 0.1)" }}
-        />
+        <div className="w-[2px] h-[12px] bg-[--text-100]" />
         <div className="flex gap-3 items-center">
-          <div
-            className="text-1 font-semibold"
-            style={{ color: "rgba(var(--text), 0.6)" }}
-          >
-            Actions
-          </div>
-          <div
-            className="w-[24px] h-[24px] rounded-2 flex items-center justify-center text-1"
-            style={{
-              backgroundColor: "rgba(var(--text), 0.1)",
-              color: "rgb(var(--text))",
-            }}
-          >
+          <div className="text-1 font-semibold text-[--text-600]">Actions</div>
+          <div className="w-[24px] h-[24px] rounded-2 flex items-center justify-center text-1 bg-[--text-100] text-[--text]">
             ⌘
           </div>
-          <div
-            className="w-[24px] h-[24px] rounded-2 flex items-center justify-center text-1 -ml-2"
-            style={{
-              backgroundColor: "rgba(var(--text), 0.1)",
-              color: "rgb(var(--text))",
-            }}
-          >
+          <div className="w-[24px] h-[24px] rounded-2 flex items-center justify-center text-1 bg-[--text-100] text-[--text] -ml-2">
             K
           </div>
         </div>

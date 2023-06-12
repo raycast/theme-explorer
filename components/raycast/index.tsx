@@ -19,12 +19,57 @@ export function Raycast({
 
   const theme = forcedTheme || activeTheme;
 
-  const style = Object.fromEntries(
-    Object.entries(theme?.colors || {}).map(([key, value]) => [
-      "--" + key,
-      value,
-    ])
-  );
+  const alpha = {
+    "0": "00",
+    "5": "0D",
+    "10": "1A",
+    "15": "26",
+    "20": "33",
+    "25": "40",
+    "30": "4D",
+    "35": "59",
+    "40": "66",
+    "45": "73",
+    "50": "80",
+    "55": "8C",
+    "60": "99",
+    "65": "A6",
+    "70": "B3",
+    "75": "BF",
+    "80": "CC",
+    "85": "D9",
+    "90": "E6",
+    "95": "F2",
+    "100": "FF",
+  };
+
+  const style = {
+    "--backgroundPrimary": `${theme?.colors.backgroundPrimary}${alpha["60"]}`,
+    "--backgroundSecondary": `${theme?.colors.backgroundSecondary}${alpha["60"]}`,
+    "--border-100": `${theme?.colors.text}${alpha["10"]}`,
+    "--border-200": `${theme?.colors.text}${alpha["20"]}`,
+    "--text": `${theme?.colors.text}`,
+    "--text-100": `${theme?.colors.text}${alpha["10"]}`,
+    "--text-400": `${theme?.colors.text}${alpha["40"]}`,
+    "--text-600": `${theme?.colors.text}${alpha["60"]}`,
+    "--loader": `${theme?.colors.loader}`,
+    "--selection": `${theme?.colors.selection}`,
+    "--selection-100": `${theme?.colors.selection}${alpha["10"]}`,
+    "--green": `${theme?.colors.green}`,
+    "--green-100": `${theme?.colors.green}${alpha["15"]}`,
+    "--yellow": `${theme?.colors.yellow}`,
+    "--yellow-100": `${theme?.colors.yellow}${alpha["15"]}`,
+    "--red": `${theme?.colors.red}`,
+    "--red-100": `${theme?.colors.red}${alpha["15"]}`,
+    "--orange": `${theme?.colors.orange}`,
+    "--orange-100": `${theme?.colors.orange}${alpha["15"]}`,
+    "--blue": `${theme?.colors.blue}`,
+    "--blue-100": `${theme?.colors.blue}${alpha["15"]}`,
+    "--purple": `${theme?.colors.purple}`,
+    "--purple-100": `${theme?.colors.purple}${alpha["15"]}`,
+    "--pink": `${theme?.colors.pink}`,
+    "--pink-100": `${theme?.colors.pink}${alpha["15"]}`,
+  };
 
   return (
     <div
@@ -33,9 +78,9 @@ export function Raycast({
       style={{
         ...style,
         zIndex: 2,
-        backgroundColor: "rgba(var(--backgroundPrimary), 0.6)",
-        backgroundImage: `linear-gradient(to bottom, rgba(var(--backgroundPrimary), 0.6) 0%, rgba(var(--backgroundSecondary), 0.6) 70%)`,
-        boxShadow: `inset 0 0 0 1px rgba(var(--text), 0.2)`,
+        backgroundColor: "var(--backgroundPrimary)",
+        backgroundImage: `linear-gradient(to bottom, var(--backgroundPrimary) 0%, var(--backgroundSecondary) 70%)`,
+        boxShadow: `inset 0 0 0 1px var(--border-200)`,
       }}
     >
       <RootHeader

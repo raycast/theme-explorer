@@ -4,17 +4,17 @@
   "name": "Submarine",
   "appearance": "dark",
   "colors": {
-    "backgroundPrimary": "0, 16, 104",
-    "backgroundSecondary": "0, 104, 94",
-    "text": "234, 251, 255",
-    "selection": "0, 255, 234",
-    "loader": "214, 174, 255",
-    "red": "248, 126, 126",
-    "orange": "255, 183, 101",
-    "yellow": "254, 255, 127",
-    "green": "126, 236, 174",
-    "blue": "114, 186, 251",
-    "purple": "206, 157, 250",
-    "pink": "255, 162, 212"
+    "backgroundPrimary": "#001068",
+    "backgroundSecondary": "#00685E",
+    "text": "#EAFCFF",
+    "selection": "#00FFEA",
+    "loader": "#D6AEFF",
+    "red": "#F87E7E",
+    "orange": "#FFB765",
+    "yellow": "#FEFF7F",
+    "green": "#7EECAC",
+    "blue": "#72BAFB",
+    "purple": "#CE9DFA",
+    "pink": "#FFA2D4"
   }
 }

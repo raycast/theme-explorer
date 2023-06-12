@@ -4,17 +4,17 @@
   "name": "Dracula",
   "appearance": "dark",
   "colors": {
-    "backgroundPrimary": "40, 42, 54",
-    "backgroundSecondary": "40, 42, 54",
-    "text": "248, 248, 242",
-    "selection": "189, 147, 249",
-    "loader": "189, 147, 249",
-    "red": "255, 85, 85",
-    "orange": "255, 184, 108",
-    "yellow": "241, 250, 140",
-    "green": "80, 250, 123",
-    "blue": "139, 233, 253",
-    "purple": "189, 147, 249",
-    "pink": "255, 121, 198"
+    "backgroundPrimary": "#282A36",
+    "backgroundSecondary": "#282A36",
+    "text": "#F8F8F2",
+    "selection": "#BD93F9",
+    "loader": "#BD93F9",
+    "red": "#FF5555",
+    "orange": "#FFB86C",
+    "yellow": "#F1FA8C",
+    "green": "#50FA7B",
+    "blue": "#8BE9FD",
+    "purple": "#BD93F9",
+    "pink": "#FF79C6"
   }
 }
