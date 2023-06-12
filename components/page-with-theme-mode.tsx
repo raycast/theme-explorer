@@ -1,5 +1,4 @@
 "use client";
-
 import { useRaycastTheme } from "@/components/raycast-theme-provider";
 import { Theme } from "@/lib/theme";
 import React from "react";

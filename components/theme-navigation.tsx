@@ -26,6 +26,10 @@ export function ThemeNavigation({ themes }: { themes: Theme[] }) {
 
   React.useEffect(() => {
     const handleKeyDown = (event: KeyboardEvent) => {
+      if (document.activeElement?.closest("[data-radix-menubar-content]")) {
+        return;
+      }
+
       if (event.key === "ArrowLeft") {
         setActiveTheme(
           isDarkThemeActive

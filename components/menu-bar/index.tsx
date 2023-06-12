@@ -7,14 +7,13 @@ import { useRaycastTheme } from "@/components/raycast-theme-provider";
 
 export function MenuBar() {
   const { activeTheme } = useRaycastTheme();
-  const [showAbout, setShoutAbout] = React.useState(false);
 
   if (!activeTheme) {
     return null;
   }
 
   return (
-    <Dialog.Root open={showAbout} onOpenChange={setShoutAbout}>
+    <Dialog.Root modal={false}>
       <Menubar.Root className="hidden desktop:flex items-center justify-between h-[37px] px-[16px] py-[4px] backdrop-blur-[72px] w-full absolute z-10 top-0 left-0 text-2 text-black dark:text-white dark:bg-black/30 bg-white/30 select-none">
         <div className="flex items-center gap-[8px]">
           <AppleIcon />
@@ -22,7 +21,9 @@ export function MenuBar() {
           <Menubar.Menu>
             <Trigger bold>Theme Explorer</Trigger>
             <Content>
-              <Item onSelect={() => setShoutAbout(true)}>About</Item>
+              <Dialog.Trigger asChild>
+                <Item>About</Item>
+              </Dialog.Trigger>
               <Item>Download</Item>
               <Item>Documentation</Item>
             </Content>
@@ -52,6 +53,7 @@ export function MenuBar() {
       <Dialog.Content
         className="absolute z-20 left-1/2 top-1/2 w-[300px] dark:bg-black/60 backdrop-blur-[72px] outline-none py-6 pb-5 px-5 rounded-2 text-black/60 dark:text-white/60"
         style={{ transform: "translate(-50%, -50%)" }}
+        onInteractOutside={(e) => e.preventDefault()}
       >
         <Dialog.Close
           aria-label="Close About"
@@ -130,18 +132,17 @@ function Trigger({
   );
 }
 
-const Item = React.forwardRef<
-  HTMLDivElement,
-  { children: React.ReactNode; asChild?: boolean; onSelect?: () => void }
->(({ children, ...props }, ref) => (
-  <Menubar.Item
-    {...props}
-    ref={ref}
-    className="rounded-1 px-2 outline-none data-[highlighted]:bg-[#4D79DA] data-[highlighted]:text-white cursor-default"
-  >
-    {children}
-  </Menubar.Item>
-));
+const Item = React.forwardRef<HTMLDivElement, { children: React.ReactNode }>(
+  ({ children, ...props }, ref) => (
+    <Menubar.Item
+      {...props}
+      ref={ref}
+      className="rounded-1 px-2 outline-none data-[highlighted]:bg-[#4D79DA] data-[highlighted]:text-white cursor-default"
+    >
+      {children}
+    </Menubar.Item>
+  )
+);
 
 Item.displayName = "MenubarItem";
 
