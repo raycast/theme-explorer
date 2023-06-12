@@ -125,6 +125,10 @@ body {
   @apply bg-black/10;
 }
 
+[data-wallpaper] {
+  transition: opacity 200ms ease-in-out;
+}
+
 .light [data-wallpaper="dark"] {
   opacity: 0 !important;
 }
