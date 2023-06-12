@@ -58,7 +58,7 @@ export function ThemeNavigation({ themes }: { themes: Theme[] }) {
   ]);
 
   return (
-    <span className="inline-flex items-center text-3 font-medium">
+    <span className="inline-flex items-center text-3 font-medium shadow-[0px_0px_29px_10px_rgba(0,0,0,0.06)] dark:shadow-[0px_0px_29px_10px_rgba(255,255,255,.06)] rounded-2">
       <Button
         disabled={isDarkThemeActive ? !previousDarkTheme : !previousLightTheme}
         className={`rounded-tl-2 rounded-bl-2`}
@@ -102,23 +102,23 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
       {...props}
       ref={ref}
       className={`h-[30px] flex items-center gap-2 px-4 outline-none relative
-      bg-transparent
-      disabled:bg-black/5
+      bg-white/10
+      hover:bg-white/50 
       
-      dark:bg-white/10
-      disabled:dark:bg-transparent
+      disabled:text-black/40
+      disabled:dark:text-white/40
       
-      hover:bg-black/10 
-      dark:hover:bg-white/5
+      dark:bg-black/10
+      dark:hover:bg-black/50 
 
-      disabled:dark:text-white/60
-      
-      disabled:z-10
-        shadow-[inset_0px_0px_0px_1px_rgba(0,0,0,0.1)] 
-        disabled:shadow-[inset_0px_0px_0px_1px_#797979] 
+      disabled:pointer-events-none
+
+        shadow-[inset_0px_0px_0px_1px_#737373] 
+        disabled:shadow-[inset_0px_0px_0px_1px_rgba(0,0,0,0.2)] 
         focus:shadow-[inset_0px_0px_0px_1px_#737373,0px_0px_0px_1px_#737373] 
-        dark:shadow-[inset_0px_0px_0px_1px_#252525] 
-        dark:disabled:shadow-[inset_0px_0px_0px_1px_#3B3B3B] 
+
+        dark:shadow-[inset_0px_0px_0px_1px_#484848] 
+        disabled:dark:shadow-[inset_0px_0px_0px_1px_rgba(255,255,255,0.1)] 
         dark:focus:shadow-[inset_0px_0px_0px_1px_#484848,0px_0px_0px_1px_#484848] 
         ${className}`}
     >

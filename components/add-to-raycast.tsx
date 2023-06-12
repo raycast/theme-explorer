@@ -12,7 +12,7 @@ export function AddToRaycast() {
   }, [isTouch, setIsTouch]);
 
   return !isTouch ? (
-    <span className="inline-flex items-center text-3 font-medium">
+    <span className="inline-flex items-center text-3 font-medium shadow-[0px_0px_29px_10px_rgba(0,0,0,0.03)] dark:shadow-[0px_0px_29px_10px_rgba(255,255,255,.06)] rounded-2">
       <Button className="flex-1 rounded-tl-2 rounded-bl-2">
         <PlusIcon size={16} /> Add to Raycast
       </Button>
@@ -56,7 +56,7 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
         dark:bg-black/10
         hover:bg-white/50 
         dark:hover:bg-black/50 
-        shadow-[inset_0px_0px_0px_1px_#737373] 
+        shadow-[inset_0px_0px_0px_1px_#737373,0px_0px_29px_10px_rgba(0,0,0,0.06)] 
         focus:shadow-[inset_0px_0px_0px_1px_#737373,0px_0px_0px_1px_#737373] 
         dark:shadow-[inset_0px_0px_0px_1px_#484848] 
         dark:focus:shadow-[inset_0px_0px_0px_1px_#484848,0px_0px_0px_1px_#484848] 

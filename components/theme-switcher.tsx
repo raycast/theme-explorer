@@ -8,15 +8,14 @@ export function ThemeSwitcher({ themes }: { themes: Theme[] }) {
   const { activeTheme } = useRaycastTheme();
 
   return (
-    <div
-      data-theme-switcher
-      className="flex p-5 gap-5 box-content items-center overflow-x-auto snap-x snap-mandatory h-[214px] shrink-0"
-    >
+    <div className="flex py-5 gap-5 box-content items-center overflow-x-auto snap-x snap-mandatory h-[214px] shrink-0">
+      <div aria-hidden />
       {themes
         .filter((rayTheme) => rayTheme.appearance === activeTheme?.appearance)
         .map((rayTheme) => (
           <ThemeCard key={rayTheme.name} theme={rayTheme} />
         ))}
+      <div aria-hidden />
     </div>
   );
 }
