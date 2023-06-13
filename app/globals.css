@@ -85,13 +85,13 @@ body {
   width: 100vw;
   transition: opacity 500ms 250ms ease-in-out;
   will-change: opacity;
-
-  :not(.dark &):not(.light &) {
-    opacity: 1;
-  }
-
-  opacity: 0;
+  opacity: 1;
   pointer-events: none;
+
+  .dark &,
+  .light & {
+    opacity: 0;
+  }
 }
 
 [data-loader-progress] {

@@ -23,7 +23,7 @@ export function ThemeCard({ theme: raycastTheme }: { theme?: Theme }) {
   return (
     <button
       ref={ref}
-      className={`snap-always snap-center flex flex-col ring-1 ring-inset p-3 gap-3 rounded-5 overflow-hidden h-full aspect-[16/9] shrink-0 outline-none transition-shadow ${
+      className={`snap-always snap-center flex flex-col ring-1 ring-inset p-4 gap-3 rounded-5 overflow-hidden h-full aspect-[1.58/1] shrink-0 outline-none transition-shadow ${
         isActiveTheme
           ? "ring-black/60 dark:ring-white/60 shadow-[0px_0px_29px_10px_rgba(0,0,0,0.06)] dark:shadow-[0px_0px_29px_10px_rgba(255,255,255,.06)]"
           : "ring-[rgba(0,0,0,0.2)] dark:ring-[rgba(255,255,255,0.2)] focus:ring-[rgba(0,0,0,0.4)] focus:dark:ring-[rgba(255,255,255,0.4)]"
@@ -32,13 +32,15 @@ export function ThemeCard({ theme: raycastTheme }: { theme?: Theme }) {
         raycastTheme ? setActiveTheme(raycastTheme) : {};
       }}
     >
-      <div className="overflow-hidden rounded-3 flex-1 w-full">
-        <div className="rounded-3">
-          <Raycast
-            theme={raycastTheme}
-            disableLoadingAnimation={!isActiveTheme}
-            loadingAnimationType="static"
-          />
+      <div className="overflow-hidden rounded-4 flex-1 w-full">
+        <div className="rounded-3 h-full w-full bg-black/10 dark:bg-white/10 relative">
+          <div className="absolute left-2 top-2">
+            <Raycast
+              theme={raycastTheme}
+              disableLoadingAnimation={!isActiveTheme}
+              thumbnail
+            />
+          </div>
         </div>
       </div>
       <div className="text-2">

@@ -10,19 +10,19 @@ import { alpha } from "@/lib/alpha";
 export function Raycast({
   theme: forcedTheme,
   disableLoadingAnimation,
-  loadingAnimationType = "animated",
+  thumbnail,
 }: {
   theme?: Theme;
   disableLoadingAnimation?: boolean;
-  loadingAnimationType?: "animated" | "static";
+  thumbnail?: boolean;
 }) {
   const { activeTheme } = useRaycastTheme();
 
   const theme = forcedTheme || activeTheme;
 
   const style = {
-    "--backgroundPrimary": `${theme?.colors.background}${alpha["60"]}`,
-    "--backgroundSecondary": `${theme?.colors.backgroundSecondary}${alpha["60"]}`,
+    "--backgroundPrimary": `${theme?.colors.background}${alpha["100"]}`,
+    "--backgroundSecondary": `${theme?.colors.backgroundSecondary}${alpha["100"]}`,
     "--border-100": `${theme?.colors.text}${alpha["10"]}`,
     "--border-200": `${theme?.colors.text}${alpha["20"]}`,
     "--text": `${theme?.colors.text}`,
@@ -51,18 +51,19 @@ export function Raycast({
   return (
     <div
       data-raycast
-      className={`w-[750px] h-[475px] rounded-4 backdrop-blur-[72px] shadow flex flex-col relative select-none shrink-0 text-left overflow-hidden`}
+      className={`w-[750px] h-[475px] rounded-4 shadow flex flex-col relative select-none shrink-0 text-left overflow-hidden`}
       style={{
         ...style,
         zIndex: 2,
         backgroundColor: "var(--backgroundPrimary)",
         backgroundImage: `linear-gradient(to bottom, var(--backgroundPrimary) 0%, var(--backgroundSecondary) 70%)`,
         boxShadow: `inset 0 0 0 1px var(--border-200)`,
+        backdropFilter: !thumbnail ? `blur(72px)` : undefined,
       }}
     >
       <RootHeader
         disableLoadingAnimation={disableLoadingAnimation}
-        loadingAnimationType={loadingAnimationType}
+        loadingAnimationType={thumbnail ? "static" : "animated"}
       />
 
       <main className="flex-1 overflow-hidden py-1">
