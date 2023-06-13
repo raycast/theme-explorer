@@ -17,13 +17,29 @@ const inter600 = fetch(
   new URL(`../../assets/Inter-SemiBold.woff`, import.meta.url)
 ).then((res) => res.arrayBuffer());
 
+const gridImage1 = fetch(
+  new URL(`../../public/grid-1.jpg`, import.meta.url)
+).then((res) => res.arrayBuffer());
+const gridImage2 = fetch(
+  new URL(`../../public/grid-2.jpg`, import.meta.url)
+).then((res) => res.arrayBuffer());
+const gridImage3 = fetch(
+  new URL(`../../public/grid-3.jpg`, import.meta.url)
+).then((res) => res.arrayBuffer());
+const gridImage4 = fetch(
+  new URL(`../../public/grid-4.jpg`, import.meta.url)
+).then((res) => res.arrayBuffer());
+const gridImage5 = fetch(
+  new URL(`../../public/grid-5.jpg`, import.meta.url)
+).then((res) => res.arrayBuffer());
+
 const checkIcon = (
   <svg
     viewBox="0 0 16 16"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
-    width={16}
-    height={16}
+    width={20}
+    height={20}
     x="80"
     y="80"
     alignmentBaseline="middle"
@@ -43,6 +59,11 @@ export async function GET(request: NextRequest) {
     const interData = await inter;
     const inter500Data = await inter500;
     const inter600Data = await inter600;
+    const gridImage1Data: any = await gridImage1;
+    const gridImage2Data: any = await gridImage2;
+    const gridImage3Data: any = await gridImage3;
+    const gridImage4Data: any = await gridImage4;
+    const gridImage5Data: any = await gridImage5;
 
     const { searchParams } = new URL(request.url);
 
@@ -88,6 +109,22 @@ export async function GET(request: NextRequest) {
       pink100: `${theme.colors.pink}${alpha["15"]}`,
     };
 
+    const tagStyle = {
+      display: "flex",
+      alignItems: "center",
+      borderRadius: 4,
+      padding: "3px 8px 4px",
+      fontSize: "13px",
+    };
+
+    const gridCellStyle = {
+      width: 138,
+      height: 138,
+      borderRadius: 8,
+      overflow: "hidden",
+      display: "flex",
+    };
+
     return new ImageResponse(
       (
         <div
@@ -98,7 +135,6 @@ export async function GET(request: NextRequest) {
             width: "100%",
             height: "100%",
             alignItems: "flex-start",
-            // justifyContent: "center",
             overflow: "hidden",
 
             backgroundColor: tokens.backgroundPrimary,
@@ -113,7 +149,7 @@ export async function GET(request: NextRequest) {
               color: tokens.text,
               fontSize: 40,
               fontWeight: 600,
-              marginTop: 50,
+              marginTop: 60,
             }}
           >
             {theme.name}
@@ -125,7 +161,7 @@ export async function GET(request: NextRequest) {
               margin: "0 auto",
               color: tokens.text,
               fontSize: 24,
-              marginBottom: 50,
+              marginBottom: 60,
             }}
           >
             by {theme.author}
@@ -144,10 +180,6 @@ export async function GET(request: NextRequest) {
               flexShrink: 0,
               backgroundColor: tokens.backgroundPrimary600,
               margin: "0 auto",
-              // position: "absolute",
-              // top: "250px",
-              // left: "0%",
-              // transform: "translateX(-50%) ",
               transform: "scale(1.25)",
               transformOrigin: "top",
 
@@ -219,7 +251,8 @@ export async function GET(request: NextRequest) {
                 style={{
                   position: "absolute",
                   top: "100%",
-                  width: "200px",
+                  left: "35%",
+                  width: "30%",
                   height: "1px",
                   backgroundImage: `linear-gradient(to right, rgba(255, 255, 255, 0), ${tokens.loader}, rgba(255, 255, 255, 0))`,
                 }}
@@ -259,6 +292,7 @@ export async function GET(request: NextRequest) {
                   style={{
                     display: "flex",
                     alignItems: "center",
+                    justifyContent: "space-between",
                     height: "40px",
                     padding: "8px",
                     borderRadius: "8px",
@@ -278,11 +312,41 @@ export async function GET(request: NextRequest) {
                   >
                     Primary Text
                   </div>
+                  <div style={{ display: "flex", gap: 8 }}>
+                    <span
+                      style={{
+                        ...tagStyle,
+                        color: tokens.red,
+                        backgroundColor: tokens.red100,
+                      }}
+                    >
+                      Red
+                    </span>
+                    <span
+                      style={{
+                        ...tagStyle,
+                        color: tokens.orange,
+                        backgroundColor: tokens.orange100,
+                      }}
+                    >
+                      Orange
+                    </span>
+                    <span
+                      style={{
+                        ...tagStyle,
+                        color: tokens.blue,
+                        backgroundColor: tokens.blue100,
+                      }}
+                    >
+                      Blue
+                    </span>
+                  </div>
                 </div>
 
                 <div
                   style={{
                     display: "flex",
+                    justifyContent: "space-between",
                     alignItems: "center",
                     height: "40px",
                     padding: "8px",
@@ -295,16 +359,104 @@ export async function GET(request: NextRequest) {
                   <div
                     style={{
                       fontSize: "13px",
-                      lineHeight: 1,
                       color: tokens.text600,
+                      flex: 1,
                     }}
                   >
                     Secondary Text
+                  </div>
+                  <div style={{ display: "flex", gap: 8 }}>
+                    <span
+                      style={{
+                        ...tagStyle,
+                        color: tokens.green,
+                        backgroundColor: tokens.green100,
+                      }}
+                    >
+                      Green
+                    </span>
+                    <span
+                      style={{
+                        ...tagStyle,
+                        color: tokens.yellow,
+                        backgroundColor: tokens.yellow100,
+                      }}
+                    >
+                      Yellow
+                    </span>
+                    <span
+                      style={{
+                        ...tagStyle,
+                        color: tokens.purple,
+                        backgroundColor: tokens.purple100,
+                      }}
+                    >
+                      Purple
+                    </span>
+                    <span
+                      style={{
+                        ...tagStyle,
+                        color: tokens.pink,
+                        backgroundColor: tokens.pink100,
+                      }}
+                    >
+                      Pink
+                    </span>
+                  </div>
+                </div>
+              </div>
+
+              <div
+                style={{
+                  display: "flex",
+                  flexDirection: "column",
+                  padding: "4px 8px",
+                  color: tokens.text,
+                }}
+              >
+                <div
+                  style={{
+                    display: "flex",
+                    padding: "8px",
+                    fontSize: "12px",
+                    fontWeight: "bold",
+                    letterSpacing: "0.1px",
+                    color: tokens.text600,
+                  }}
+                >
+                  Grid
+                </div>
+
+                <div style={{ display: "flex", gap: 8, padding: "0 8px" }}>
+                  <div style={gridCellStyle}>
+                    <img src={gridImage1Data} />
+                  </div>
+                  <div style={gridCellStyle}>
+                    <img src={gridImage2Data} />
+                  </div>
+                  <div style={gridCellStyle}>
+                    <img src={gridImage3Data} />
+                  </div>
+                  <div style={gridCellStyle}>
+                    <img src={gridImage4Data} />
+                  </div>
+                  <div style={gridCellStyle}>
+                    <img src={gridImage5Data} />
                   </div>
                 </div>
               </div>
             </main>
           </div>
+          <div
+            style={{
+              height: 200,
+              position: "absolute",
+              bottom: 0,
+              left: 0,
+              width: "100%",
+              backgroundImage: `linear-gradient(to bottom, transparent, ${tokens.backgroundPrimary})`,
+            }}
+          />
         </div>
       ),
       {

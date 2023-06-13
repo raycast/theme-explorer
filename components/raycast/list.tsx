@@ -33,7 +33,6 @@ export function List() {
           <Tag color="var(--green)" bg="var(--green-100)">
             Green
           </Tag>
-
           <Tag color="var(--yellow)" bg="var(--yellow-100)">
             Yellow
           </Tag>
