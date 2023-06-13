@@ -50,8 +50,9 @@ export function MenuBar() {
           <div>{getCurrentDate()}</div>
         </div>
       </Menubar.Root>
+
       <Dialog.Content
-        className="absolute z-20 left-1/2 top-1/2 w-[300px] dark:bg-black/60 backdrop-blur-[72px] outline-none py-6 pb-5 px-5 rounded-2 text-black/60 dark:text-white/60"
+        className="absolute z-20 left-1/2 top-1/2 w-[300px] dark:bg-black/60 backdrop-blur-[72px] outline-none py-6 pb-5 px-5 rounded-2 text-black/60 dark:text-white/60 shadow-[inset_0_0_0_1px_rgba(0,0,0,0.1)] dark:shadow-[inset_0_0_0_1px_rgba(255,255,255,0.1)] border-t border-black/20 dark:border-white/60"
         style={{ transform: "translate(-50%, -50%)" }}
         onInteractOutside={(e) => e.preventDefault()}
       >
@@ -63,29 +64,50 @@ export function MenuBar() {
             Close
           </span>
         </Dialog.Close>
-        <div className="text-center flex flex-col gap-1 mb-5">
+        <div className="text-center flex flex-col mb-5">
           <p className="text-3 font-semibold">Theme Explorer</p>
           <p className="text-3">v1.0.0</p>
         </div>
-        <div className="flex flex-col gap-2 mb-5">
-          <div className="text-black dark:text-white flex justify-between">
+        <div className="flex flex-col gap-2 mb-5 font-semibold text-black dark:text-white text-2">
+          <div className="flex justify-between">
             Add to Raycast <Shortcut keys={["⌘", "⏎"]} />
           </div>
-          <div className="text-black dark:text-white flex justify-between">
-            Add to Raycast <Shortcut keys={["⌘", "⏎"]} />
+          <div className="flex justify-between">
+            Download JSON <Shortcut keys={["⌘", "⏎"]} />
           </div>
-          <div className="text-black dark:text-white flex justify-between">
-            Add to Raycast <Shortcut keys={["⌘", "⏎"]} />
+          <div className="flex justify-between">
+            Copy JSON <Shortcut keys={["⌘", "⏎"]} />
           </div>
-          <div className="text-black dark:text-white flex justify-between">
-            Add to Raycast <Shortcut keys={["⌘", "⏎"]} />
+          <div className="flex justify-between">
+            Copy Share URL <Shortcut keys={["⌘", "⏎"]} />
+          </div>
+          <div className="flex justify-between">
+            Copy Install URL <Shortcut keys={["⌘", "⏎"]} />
+          </div>
+          <div className="flex justify-between">
+            Select Next <Shortcut keys={["→"]} />
+          </div>
+          <div className="flex justify-between">
+            Select Previous <Shortcut keys={["←"]} />
           </div>
         </div>
-        <p className="text-4 my-3 font-semibold">Adding your own theme</p>
-        <p className="text-3 mb-3">
-          Export your theme as a JSON config from Theme Studio.
-        </p>
-        <p className="text-3 mb-3">Upload it to the theme explorer repo.</p>
+        <div>
+          <p className="text-4 my-3 font-semibold">Adding your own theme</p>
+          <p className="text-3 mb-3">
+            Export your theme as a JSON config from Theme Studio.
+          </p>
+          <p className="text-3 mb-3">
+            Upload it to the{" "}
+            <a
+              href="https://github.com/raycast/theme-explorer/"
+              title="Theme Explorer GitHub Repo"
+              className="text-black dark:text-white"
+            >
+              Theme Explorer GitHub repo
+            </a>
+            .
+          </p>
+        </div>
       </Dialog.Content>
     </Dialog.Root>
   );
@@ -152,7 +174,7 @@ function Shortcut({ keys }: { keys: string[] }) {
       {keys.map((key) => (
         <kbd
           key={key}
-          className="bg-black/10 dark:bg-white/10 text-2 text-black text-white/60 h-[20px] w-[24px] rounded-1 items-center justify-center flex"
+          className="bg-black/10 dark:bg-white/10 text-2 text-black text-white/60 h-[20px] w-[24px] rounded-1 items-center justify-center flex font-medium"
         >
           {key}
         </kbd>
