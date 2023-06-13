@@ -39,8 +39,8 @@ export function List() {
           <Tag color="var(--purple)" bg="var(--purple-100)">
             Purple
           </Tag>
-          <Tag color="var(--pink)" bg="var(--pink-100)">
-            Pink
+          <Tag color="var(--magenta)" bg="var(--magenta-100)">
+            Magenta
           </Tag>
         </div>
       </div>

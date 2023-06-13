@@ -17,10 +17,22 @@ export async function generateMetadata({
   const themes = await getAllThemes();
   const theme = themes.find((theme) => theme.slug === slug);
 
-  const encodedTheme = encodeURIComponent(JSON.stringify(theme));
+  if (!theme) {
+    return {};
+  }
+
+  const { colors, ...restTheme } = theme;
+
+  const encodedColors = encodeURIComponent(JSON.stringify(colors));
+
+  const queryParams = new URLSearchParams();
+  Object.entries(restTheme).forEach(([key, value]) =>
+    queryParams.set(key, value)
+  );
+  queryParams.set("colors", encodedColors);
 
   const title = `${themeName} by ${author}`;
-  const image = `${BASE_URL}/og?theme=${encodedTheme}`;
+  const image = `${BASE_URL}/og?${queryParams}`;
 
   return {
     title,

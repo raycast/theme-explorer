@@ -16,6 +16,47 @@ export function ThemeFilter({ themes }: { themes: Theme[] }) {
     (rayTheme) => rayTheme.appearance === "dark"
   );
 
+  const handleActivateDarkTheme = React.useCallback(() => {
+    if (activeTheme?.appearance === "dark") {
+      return;
+    }
+    setPreviousActiveTheme(activeTheme);
+    setActiveTheme(previousActiveTheme || darkThemes[0]);
+  }, [
+    activeTheme,
+    previousActiveTheme,
+    setActiveTheme,
+    setPreviousActiveTheme,
+    darkThemes,
+  ]);
+
+  const handleActivateLightTheme = React.useCallback(() => {
+    if (activeTheme?.appearance === "light") {
+      return;
+    }
+    setPreviousActiveTheme(activeTheme);
+    setActiveTheme(previousActiveTheme || lightThemes[0]);
+  }, [
+    activeTheme,
+    previousActiveTheme,
+    setActiveTheme,
+    setPreviousActiveTheme,
+    lightThemes,
+  ]);
+
+  React.useEffect(() => {
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.metaKey && event.key === "d" && event.shiftKey) {
+        handleActivateDarkTheme();
+        handleActivateLightTheme();
+      }
+    };
+    window.addEventListener("keydown", handleKeyDown);
+    return () => {
+      window.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [handleActivateDarkTheme, handleActivateLightTheme]);
+
   return (
     <span className="inline-flex items-center gap-1">
       <ModeLink
@@ -23,11 +64,7 @@ export function ThemeFilter({ themes }: { themes: Theme[] }) {
         data-active={activeTheme?.appearance === "dark" ? true : undefined}
         onClick={(event) => {
           event.preventDefault();
-          if (activeTheme?.appearance === "dark") {
-            return;
-          }
-          setPreviousActiveTheme(activeTheme);
-          setActiveTheme(previousActiveTheme || darkThemes[0]);
+          handleActivateDarkTheme();
         }}
       >
         <MoonIcon size={16} /> Dark
@@ -37,11 +74,7 @@ export function ThemeFilter({ themes }: { themes: Theme[] }) {
         data-active={activeTheme?.appearance === "light" ? true : undefined}
         onClick={(event) => {
           event.preventDefault();
-          if (activeTheme?.appearance === "light") {
-            return;
-          }
-          setPreviousActiveTheme(activeTheme);
-          setActiveTheme(previousActiveTheme || lightThemes[0]);
+          handleActivateLightTheme();
         }}
       >
         <SunIcon size={16} /> Light

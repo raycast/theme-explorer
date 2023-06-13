@@ -105,11 +105,36 @@ export async function GET(request: NextRequest) {
 
     const { searchParams } = new URL(request.url);
 
-    const theme = searchParams.has("theme")
-      ? (JSON.parse(
-          decodeURIComponent(searchParams.get("theme") as string)
-        ) as Theme)
-      : undefined;
+    const name = searchParams.get("name");
+    const author = searchParams.get("author");
+    const version = searchParams.get("version");
+    const authorUsername = searchParams.get("authorUsername");
+    const colors = searchParams.get("colors");
+    const appearance = searchParams.get("appearance") as "light" | "dark";
+    const slug = searchParams.get("slug");
+
+    const isValidTheme =
+      appearance &&
+      name &&
+      author &&
+      version &&
+      authorUsername &&
+      colors &&
+      slug;
+
+    if (!isValidTheme) {
+      return NextResponse.json({ error: "Invalid Theme" }, { status: 400 });
+    }
+
+    const theme: Theme = {
+      appearance,
+      name,
+      version,
+      author,
+      authorUsername,
+      colors: JSON.parse(decodeURIComponent(colors)),
+      slug,
+    };
 
     if (!theme) {
       return NextResponse.json({ error: "No theme provided" }, { status: 400 });
@@ -143,8 +168,8 @@ export async function GET(request: NextRequest) {
       blue100: `${theme.colors.blue}${alpha["15"]}`,
       purple: `${theme.colors.purple}`,
       purple100: `${theme.colors.purple}${alpha["15"]}`,
-      pink: `${theme.colors.pink}`,
-      pink100: `${theme.colors.pink}${alpha["15"]}`,
+      magenta: `${theme.colors.magenta}`,
+      magenta100: `${theme.colors.magenta}${alpha["15"]}`,
     };
 
     const tagStyle = {
@@ -477,11 +502,11 @@ export async function GET(request: NextRequest) {
                     <span
                       style={{
                         ...tagStyle,
-                        color: tokens.pink,
-                        backgroundColor: tokens.pink100,
+                        color: tokens.magenta,
+                        backgroundColor: tokens.magenta100,
                       }}
                     >
-                      Pink
+                      Magenta
                     </span>
                   </div>
                 </div>
@@ -567,6 +592,7 @@ export async function GET(request: NextRequest) {
           { name: "Inter", data: interData, weight: 400, style: "normal" },
           { name: "Inter", data: inter500Data, weight: 500, style: "normal" },
           { name: "Inter", data: inter600Data, weight: 600, style: "normal" },
+          { name: "Inter", data: inter700Data, weight: 700, style: "normal" },
         ],
       }
     );

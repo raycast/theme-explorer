@@ -44,8 +44,8 @@ export function Raycast({
     "--blue-100": `${theme?.colors.blue}${alpha["15"]}`,
     "--purple": `${theme?.colors.purple}`,
     "--purple-100": `${theme?.colors.purple}${alpha["15"]}`,
-    "--pink": `${theme?.colors.pink}`,
-    "--pink-100": `${theme?.colors.pink}${alpha["15"]}`,
+    "--magenta": `${theme?.colors.magenta}`,
+    "--magenta-100": `${theme?.colors.magenta}${alpha["15"]}`,
   };
 
   return (

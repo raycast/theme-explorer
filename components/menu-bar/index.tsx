@@ -22,10 +22,13 @@ export function MenuBar() {
             <Trigger bold>Theme Explorer</Trigger>
             <Content>
               <Dialog.Trigger asChild>
-                <Item>About</Item>
+                <Item>About Theme Explorer</Item>
               </Dialog.Trigger>
-              <Item>Download</Item>
-              <Item>Documentation</Item>
+              <Item>Raycast Pro...</Item>
+              <Menubar.Separator className="h-[1px] bg-white/10 my-1 mx-2" />
+              <Menubar.Label className="text-white/60 px-2">
+                © Raycast Technilogies 2023
+              </Menubar.Label>
             </Content>
           </Menubar.Menu>
           <Menubar.Menu>
@@ -74,16 +77,16 @@ export function MenuBar() {
             Add to Raycast <Shortcut keys={["⌘", "⏎"]} />
           </div>
           <div className="flex justify-between">
-            Download JSON <Shortcut keys={["⌘", "⏎"]} />
+            Download JSON <Shortcut keys={["⌘", "D"]} />
           </div>
           <div className="flex justify-between">
-            Copy JSON <Shortcut keys={["⌘", "⏎"]} />
+            Copy JSON <Shortcut keys={["⌘", "⌥", "C"]} />
           </div>
           <div className="flex justify-between">
-            Copy Share URL <Shortcut keys={["⌘", "⏎"]} />
+            Copy Share URL <Shortcut keys={["⌘", "⇧", "C"]} />
           </div>
           <div className="flex justify-between">
-            Copy Install URL <Shortcut keys={["⌘", "⏎"]} />
+            Copy Install URL <Shortcut keys={["⌘", "⇧", "I"]} />
           </div>
           <div className="flex justify-between">
             Select Next <Shortcut keys={["→"]} />
@@ -175,7 +178,7 @@ function Shortcut({ keys }: { keys: string[] }) {
       {keys.map((key) => (
         <kbd
           key={key}
-          className="bg-black/10 dark:bg-white/10 text-2 text-black text-white/60 h-[20px] w-[24px] rounded-1 items-center justify-center flex font-medium"
+          className="bg-black/10 dark:bg-white/10 text-2 text-black dark:text-white/60 h-[20px] w-[24px] rounded-1 items-center justify-center flex font-medium"
         >
           {key}
         </kbd>

@@ -45,7 +45,9 @@ export function ThemeCard({ theme: raycastTheme }: { theme?: Theme }) {
         {raycastTheme && (
           <>
             <span className="font-semibold">{raycastTheme?.name} </span>
-            <span className="opacity-50">by {raycastTheme?.author}</span>
+            <span className="opacity-50">
+              by {raycastTheme?.author || raycastTheme?.authorUsername}
+            </span>
           </>
         )}
       </div>

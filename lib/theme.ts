@@ -5,6 +5,7 @@ import { promisify } from "util";
 
 export type Theme = {
   author: string;
+  authorUsername: string;
   version: string;
   name: string;
   slug: string;
@@ -21,7 +22,7 @@ export type Theme = {
     green: string;
     blue: string;
     purple: string;
-    pink: string;
+    magenta: string;
   };
 };
 
