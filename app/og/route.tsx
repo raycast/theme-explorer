@@ -59,33 +59,33 @@ export async function GET(request: NextRequest) {
     const isDarkTheme = theme.appearance === "dark";
 
     const tokens = {
-      backgroundPrimary: `${theme?.colors.backgroundPrimary}`,
-      backgroundPrimary600: `${theme?.colors.backgroundPrimary}${alpha["60"]}`,
-      backgroundSecondary: `${theme?.colors.backgroundSecondary}`,
-      backgroundSecondary600: `${theme?.colors.backgroundSecondary}${alpha["60"]}`,
-      border100: `${theme?.colors.text}${alpha["10"]}`,
-      border200: `${theme?.colors.text}${alpha["20"]}`,
-      text: `${theme?.colors.text}`,
-      text100: `${theme?.colors.text}${alpha["10"]}`,
-      text400: `${theme?.colors.text}${alpha["40"]}`,
-      text600: `${theme?.colors.text}${alpha["60"]}`,
-      loader: `${theme?.colors.loader}`,
-      selection: `${theme?.colors.selection}`,
-      selection100: `${theme?.colors.selection}${alpha["10"]}`,
-      green: `${theme?.colors.green}`,
-      green100: `${theme?.colors.green}${alpha["15"]}`,
-      yellow: `${theme?.colors.yellow}`,
-      yellow100: `${theme?.colors.yellow}${alpha["15"]}`,
-      red: `${theme?.colors.red}`,
-      red100: `${theme?.colors.red}${alpha["15"]}`,
-      orange: `${theme?.colors.orange}`,
-      orange100: `${theme?.colors.orange}${alpha["15"]}`,
-      blue: `${theme?.colors.blue}`,
-      blue100: `${theme?.colors.blue}${alpha["15"]}`,
-      purple: `${theme?.colors.purple}`,
-      purple100: `${theme?.colors.purple}${alpha["15"]}`,
-      pink: `${theme?.colors.pink}`,
-      pink100: `${theme?.colors.pink}${alpha["15"]}`,
+      backgroundPrimary: `${theme.colors.backgroundPrimary}`,
+      backgroundPrimary600: `${theme.colors.backgroundPrimary}${alpha["60"]}`,
+      backgroundSecondary: `${theme.colors.backgroundSecondary}`,
+      backgroundSecondary600: `${theme.colors.backgroundSecondary}${alpha["60"]}`,
+      border100: `${theme.colors.text}${alpha["10"]}`,
+      border200: `${theme.colors.text}${alpha["20"]}`,
+      text: `${theme.colors.text}`,
+      text100: `${theme.colors.text}${alpha["10"]}`,
+      text400: `${theme.colors.text}${alpha["40"]}`,
+      text600: `${theme.colors.text}${alpha["60"]}`,
+      loader: `${theme.colors.loader}`,
+      selection: `${theme.colors.selection}`,
+      selection100: `${theme.colors.selection}${alpha["10"]}`,
+      green: `${theme.colors.green}`,
+      green100: `${theme.colors.green}${alpha["15"]}`,
+      yellow: `${theme.colors.yellow}`,
+      yellow100: `${theme.colors.yellow}${alpha["15"]}`,
+      red: `${theme.colors.red}`,
+      red100: `${theme.colors.red}${alpha["15"]}`,
+      orange: `${theme.colors.orange}`,
+      orange100: `${theme.colors.orange}${alpha["15"]}`,
+      blue: `${theme.colors.blue}`,
+      blue100: `${theme.colors.blue}${alpha["15"]}`,
+      purple: `${theme.colors.purple}`,
+      purple100: `${theme.colors.purple}${alpha["15"]}`,
+      pink: `${theme.colors.pink}`,
+      pink100: `${theme.colors.pink}${alpha["15"]}`,
     };
 
     return new ImageResponse(
@@ -97,14 +97,17 @@ export async function GET(request: NextRequest) {
             position: "relative",
             width: "100%",
             height: "100%",
+            alignItems: "flex-start",
             // justifyContent: "center",
+            overflow: "hidden",
 
             backgroundColor: tokens.backgroundPrimary,
-            backgroundImage: `linear-gradient(${tokens.backgroundPrimary}, ${tokens.backgroundSecondary})`,
+            backgroundImage: `linear-gradient(${tokens.backgroundPrimary}, ${tokens.loader})`,
           }}
         >
           <span
             style={{
+              flexShrink: 0,
               textAlign: "center",
               margin: "0 auto",
               color: tokens.text,
@@ -117,6 +120,7 @@ export async function GET(request: NextRequest) {
           </span>
           <span
             style={{
+              flexShrink: 0,
               textAlign: "center",
               margin: "0 auto",
               color: tokens.text,
@@ -140,10 +144,12 @@ export async function GET(request: NextRequest) {
               flexShrink: 0,
               backgroundColor: tokens.backgroundPrimary600,
               margin: "0 auto",
-              position: "absolute",
-              top: "250px",
-              left: "50%",
-              transform: "translateX(-50%) scale(1.25)",
+              // position: "absolute",
+              // top: "250px",
+              // left: "0%",
+              // transform: "translateX(-50%) ",
+              transform: "scale(1.25)",
+              transformOrigin: "top",
 
               width: 750,
               height: 475,
@@ -265,13 +271,15 @@ export async function GET(request: NextRequest) {
                   <div
                     style={{
                       fontSize: "13px",
-                      lineHeight: "1",
+                      lineHeight: 1,
                       color: tokens.text,
+                      flex: 1,
                     }}
                   >
                     Primary Text
                   </div>
                 </div>
+
                 <div
                   style={{
                     display: "flex",
@@ -287,7 +295,7 @@ export async function GET(request: NextRequest) {
                   <div
                     style={{
                       fontSize: "13px",
-                      lineHeight: "1",
+                      lineHeight: 1,
                       color: tokens.text600,
                     }}
                   >
