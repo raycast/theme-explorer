@@ -40,7 +40,9 @@ export function RaycastThemeProvider({
       document.documentElement.classList.remove("light", "dark");
       document.documentElement.classList.add(activeTheme.appearance);
       document.documentElement.style.colorScheme = activeTheme.appearance;
-      handleURLChange(activeTheme.slug);
+      if (activeTheme.slug) {
+        handleURLChange(activeTheme.slug);
+      }
       handleTitleChange(`${activeTheme.name} by ${activeTheme.author}`);
     }
   }, [activeTheme]);

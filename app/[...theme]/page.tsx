@@ -23,13 +23,11 @@ export async function generateMetadata({
 
   const { colors, ...restTheme } = theme;
 
-  const encodedColors = encodeURIComponent(JSON.stringify(colors));
-
   const queryParams = new URLSearchParams();
   Object.entries(restTheme).forEach(([key, value]) =>
     queryParams.set(key, value)
   );
-  queryParams.set("colors", encodedColors);
+  Object.entries(colors).forEach(([key, value]) => queryParams.set(key, value));
 
   const title = `${themeName} by ${author}`;
   const image = `${BASE_URL}/og?${queryParams}`;

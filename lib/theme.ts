@@ -3,26 +3,30 @@ import { basename, join } from "path";
 import { glob } from "glob";
 import { promisify } from "util";
 
+export const colorOrder = [
+  "background",
+  "backgroundSecondary",
+  "text",
+  "selection",
+  "loader",
+  "red",
+  "orange",
+  "yellow",
+  "green",
+  "blue",
+  "purple",
+  "magenta",
+] as const;
+
 export type Theme = {
   author: string;
   authorUsername: string;
   version: string;
   name: string;
-  slug: string;
+  slug?: string;
   appearance: "light" | "dark";
   colors: {
-    backgroundPrimary: string;
-    backgroundSecondary: string;
-    text: string;
-    selection: string;
-    loader: string;
-    red: string;
-    orange: string;
-    yellow: string;
-    green: string;
-    blue: string;
-    purple: string;
-    magenta: string;
+    [K in (typeof colorOrder)[number]]?: string;
   };
 };
 
@@ -43,47 +47,23 @@ export async function getAllThemes(): Promise<Theme[]> {
       const fileName = basename(filePath);
       const data = await readFileAsync(filePath);
       const themeData = JSON.parse(data.toString());
+
+      const { colors: colorsArray, ...theme } = themeData;
+
       const parentDirName = basename(filePath.replace(fileName, ""));
       const slug = `${parentDirName}/${fileName.replace(
         ".json",
         ""
       )}`.toLowerCase();
-      return { ...themeData, slug };
+
+      const colors = colorOrder.reduce((acc: any, color) => {
+        acc[color] = colorsArray[colorOrder.indexOf(color)];
+        return acc;
+      }, {});
+
+      return { ...theme, colors, slug };
     })
   );
 
   return themes;
-}
-
-export async function getThemesByAuthor(author: string): Promise<Theme[]> {
-  const allThemePaths = await glob(`${themesDir}/${author}/*.json`);
-
-  const themes = await Promise.all(
-    allThemePaths.map(async (filePath) => {
-      const fileName = basename(filePath);
-      const data = await readFileAsync(filePath);
-      const themeData = JSON.parse(data.toString());
-      const parentDirName = basename(filePath.replace(fileName, ""));
-      const slug = `${parentDirName}/${fileName.replace(
-        ".json",
-        ""
-      )}`.toLowerCase();
-      return { ...themeData, slug };
-    })
-  );
-
-  return themes;
-}
-
-export async function getThemeBySlug(slug: string): Promise<Theme> {
-  const filePath = join(themesDir, `${slug}.json`);
-  const fileName = basename(filePath);
-  const data = await readFileAsync(filePath);
-  const themeData = JSON.parse(data.toString());
-  const parentDirName = basename(filePath.replace(fileName, ""));
-  const themeSlug = `${parentDirName}/${fileName.replace(
-    ".json",
-    ""
-  )}`.toLowerCase();
-  return { ...themeData, slug: themeSlug };
 }

@@ -10,6 +10,7 @@ export function ThemeSwitcher({ themes }: { themes: Theme[] }) {
   return (
     <div className="flex items-center shrink-0 py-5 gap-5 box-content overflow-x-auto snap-x snap-mandatory h-[200px] w-full desktop:h-[214px]">
       <div aria-hidden className="shrink-0" />
+      {!activeTheme?.slug && <ThemeCard theme={activeTheme} />}
       {themes
         .filter((rayTheme) => rayTheme.appearance === activeTheme?.appearance)
         .map((rayTheme) => (

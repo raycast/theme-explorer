@@ -7,6 +7,21 @@ import { ImageResponse, NextRequest, NextResponse } from "next/server";
 
 export const runtime = "edge";
 
+const colorOrder = [
+  "background",
+  "backgroundSecondary",
+  "text",
+  "selection",
+  "loader",
+  "red",
+  "orange",
+  "yellow",
+  "green",
+  "blue",
+  "purple",
+  "magenta",
+] as const;
+
 const inter = fetch(
   new URL(`../../assets/Inter-Regular.woff`, import.meta.url)
 ).then((res) => res.arrayBuffer());
@@ -105,26 +120,38 @@ export async function GET(request: NextRequest) {
 
     const { searchParams } = new URL(request.url);
 
+    const appearance = searchParams.get("appearance") as "light" | "dark";
     const name = searchParams.get("name");
     const author = searchParams.get("author");
-    const version = searchParams.get("version");
     const authorUsername = searchParams.get("authorUsername");
-    const colors = searchParams.get("colors");
-    const appearance = searchParams.get("appearance") as "light" | "dark";
+    const version = searchParams.get("version");
     const slug = searchParams.get("slug");
+    const colorsArray = [
+      searchParams.get("background"),
+      searchParams.get("backgroundSecondary"),
+      searchParams.get("text"),
+      searchParams.get("selection"),
+      searchParams.get("loader"),
+      searchParams.get("red"),
+      searchParams.get("orange"),
+      searchParams.get("yellow"),
+      searchParams.get("green"),
+      searchParams.get("blue"),
+      searchParams.get("purple"),
+      searchParams.get("magenta"),
+    ];
 
     const isValidTheme =
-      appearance &&
-      name &&
-      author &&
-      version &&
-      authorUsername &&
-      colors &&
-      slug;
+      appearance && name && author && version && authorUsername && colorsArray;
 
     if (!isValidTheme) {
       return NextResponse.json({ error: "Invalid Theme" }, { status: 400 });
     }
+
+    const colors = colorOrder.reduce((acc: any, color) => {
+      acc[color] = colorsArray[colorOrder.indexOf(color)];
+      return acc;
+    }, {});
 
     const theme: Theme = {
       appearance,
@@ -132,8 +159,8 @@ export async function GET(request: NextRequest) {
       version,
       author,
       authorUsername,
-      colors: JSON.parse(decodeURIComponent(colors)),
-      slug,
+      colors,
+      slug: slug || undefined,
     };
 
     if (!theme) {
@@ -143,8 +170,8 @@ export async function GET(request: NextRequest) {
     const isDarkTheme = theme.appearance === "dark";
 
     const tokens = {
-      backgroundPrimary: `${theme.colors.backgroundPrimary}`,
-      backgroundPrimary600: `${theme.colors.backgroundPrimary}${alpha["60"]}`,
+      backgroundPrimary: `${theme.colors.background}`,
+      backgroundPrimary600: `${theme.colors.background}${alpha["60"]}`,
       backgroundSecondary: `${theme.colors.backgroundSecondary}`,
       backgroundSecondary600: `${theme.colors.backgroundSecondary}${alpha["60"]}`,
       border100: `${theme.colors.text}${alpha["10"]}`,
@@ -568,7 +595,7 @@ export async function GET(request: NextRequest) {
             }}
           >
             <span style={{ color: tokens.text, fontWeight: 700, fontSize: 16 }}>
-              themes.ray.so/{theme.slug}
+              themes.ray.so{theme.slug ? `/${theme.slug}` : ""}
             </span>
             <span
               style={{
