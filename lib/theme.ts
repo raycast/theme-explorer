@@ -48,20 +48,13 @@ export async function getAllThemes(): Promise<Theme[]> {
       const data = await readFileAsync(filePath);
       const themeData = JSON.parse(data.toString());
 
-      const { colors: colorsArray, ...theme } = themeData;
-
       const parentDirName = basename(filePath.replace(fileName, ""));
       const slug = `${parentDirName}/${fileName.replace(
         ".json",
         ""
       )}`.toLowerCase();
 
-      const colors = colorOrder.reduce((acc: any, color) => {
-        acc[color] = colorsArray[colorOrder.indexOf(color)];
-        return acc;
-      }, {});
-
-      return { ...theme, colors, slug };
+      return { ...themeData, slug };
     })
   );
 

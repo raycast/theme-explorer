@@ -5,6 +5,7 @@ import * as DropdownMenu from "@radix-ui/react-dropdown-menu";
 import { isTouchDevice } from "@/lib/isTouchDevice";
 import { useRaycastTheme } from "@/components/raycast-theme-provider";
 import copy from "copy-to-clipboard";
+import { makeRaycastImportUrl } from "@/lib/url";
 
 const PROTOCOL = {
   prod: "raycast",
@@ -57,11 +58,8 @@ export function AddToRaycast() {
 
   const handleAddToRaycast = React.useCallback(() => {
     if (!activeTheme) return;
-    const { slug, ...theme } = activeTheme;
 
-    const encodedTheme = encodeURIComponent(JSON.stringify(theme));
-
-    window.open(`${PROTOCOL["internal"]}://theme?theme=${encodedTheme}`);
+    window.open(makeRaycastImportUrl(activeTheme));
   }, [activeTheme]);
 
   React.useEffect(() => {
@@ -94,12 +92,23 @@ export function AddToRaycast() {
         event.preventDefault();
         handleDownload();
       }
+
+      if (event.key === "Enter" && event.metaKey) {
+        event.preventDefault();
+        handleAddToRaycast();
+      }
     };
     window.addEventListener("keydown", handleKeyDown);
     return () => {
       window.removeEventListener("keydown", handleKeyDown);
     };
-  }, [handleCopyTheme, handleCopyUrl, handleDownload, handleCopyInstallUrl]);
+  }, [
+    handleCopyTheme,
+    handleCopyUrl,
+    handleDownload,
+    handleCopyInstallUrl,
+    handleAddToRaycast,
+  ]);
 
   return !isTouch ? (
     <span className="inline-flex items-center text-3 font-medium shadow-[0px_0px_29px_10px_rgba(0,0,0,0.03)] dark:shadow-[0px_0px_29px_10px_rgba(255,255,255,.06)] rounded-2">

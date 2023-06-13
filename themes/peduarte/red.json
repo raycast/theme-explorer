@@ -4,18 +4,18 @@
   "author": "Pedro Duarte",
   "appearance": "light",
   "name": "Red Boy",
-  "colors": [
-    "#FFFFFF",
-    "#FFFFFF",
-    "#FF0000",
-    "#FF4D00",
-    "#FF0000",
-    "#E14848",
-    "#E5753C",
-    "#B7B400",
-    "#00AC5D",
-    "#4F80FF",
-    "#9454FF",
-    "#D756BF"
-  ]
+  "colors": {
+    "background": "#FFFFFF",
+    "backgroundSecondary": "#FFFFFF",
+    "text": "#FF0000",
+    "selection": "#004DFF",
+    "loader": "#FF0000",
+    "red": "#E14848",
+    "purple": "#9454FF",
+    "magenta": "#D756BF",
+    "orange": "#E5753C",
+    "yellow": "#B7B400",
+    "blue": "#4F80FF",
+    "green": "#00AC5D"
+  }
 }
