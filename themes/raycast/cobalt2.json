@@ -1,20 +1,20 @@
 {
-  "author": "Raycast",
-  "version": "1",
-  "name": "Cobalt 2",
+  "authorUsername": "peduarte",
   "appearance": "dark",
   "colors": {
-    "backgroundPrimary": "#064E82",
-    "backgroundSecondary": "#001F38",
-    "text": "#FFFDFA",
+    "text": "#FFFEFA",
     "selection": "#FFC600",
-    "loader": "#FFC600",
-    "red": "#FF5757",
-    "orange": "#FF9D00",
-    "yellow": "#FFC600",
-    "green": "#ACF4A5",
-    "blue": "#68BCFB",
+    "backgroundSecondary": "#001F38",
     "purple": "#A496FF",
-    "pink": "#FF73BE"
-  }
+    "orange": "#FF9D00",
+    "magenta": "#FF73BE",
+    "backgroundPrimary": "#064E82",
+    "red": "#FF5757",
+    "blue": "#68BCFB",
+    "yellow": "#FFC600",
+    "green": "#ACF4A5"
+  },
+  "author": "Pedro Duarte",
+  "name": "Cobalt 2",
+  "version": 1
 }

@@ -1,20 +1,20 @@
 {
-  "author": "Raycast",
-  "version": "1",
+  "author": "Pedro Duarte",
   "name": "Spotify",
+  "version": 1,
   "appearance": "dark",
+  "authorUsername": "peduarte",
   "colors": {
-    "backgroundPrimary": "#121212",
-    "backgroundSecondary": "#121212",
+    "purple": "#470AF5",
     "text": "#FFFFFF",
     "selection": "#00FF5A",
-    "loader": "#28FF74",
+    "magenta": "#F50AA3",
+    "backgroundPrimary": "#121212",
+    "backgroundSecondary": "#121212",
     "red": "#F50A0A",
     "orange": "#F5600A",
     "yellow": "#E0A200",
     "green": "#07BA65",
-    "blue": "#0A7FF5",
-    "purple": "#470AF5",
-    "pink": "#F50AA3"
+    "blue": "#0A7FF5"
   }
 }

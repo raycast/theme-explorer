@@ -1,20 +1,20 @@
 {
-  "author": "zenorocha",
-  "version": "1",
-  "name": "Dracula",
+  "author": "Pedro Duarte",
+  "authorUsername": "peduarte",
+  "version": 1,
   "appearance": "dark",
   "colors": {
     "backgroundPrimary": "#282A36",
-    "backgroundSecondary": "#282A36",
-    "text": "#F8F8F2",
-    "selection": "#BD93F9",
-    "loader": "#BD93F9",
     "red": "#FF5555",
+    "text": "#F8F8F2",
+    "backgroundSecondary": "#282A36",
+    "selection": "#BD93F9",
+    "purple": "#BD93F9",
+    "magenta": "#FF79C6",
+    "green": "#50FA7B",
     "orange": "#FFB86C",
     "yellow": "#F1FA8C",
-    "green": "#50FA7B",
-    "blue": "#8BE9FD",
-    "purple": "#BD93F9",
-    "pink": "#FF79C6"
-  }
+    "blue": "#8BE9FD"
+  },
+  "name": "Dracula"
 }

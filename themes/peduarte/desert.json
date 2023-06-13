@@ -1,21 +1,20 @@
 {
-  "author": "peduarte",
-  "version": "1",
-  "name": "Desert Light",
-  "slug": "",
-  "appearance": "light",
+  "author": "Pedro Duarte",
+  "version": 1,
   "colors": {
-    "backgroundPrimary": "#FFF8F1",
-    "backgroundSecondary": "#FFD4C1",
-    "text": "#120032",
-    "selection": "#FF4D00",
-    "loader": "#FF8C00",
     "red": "#E14848",
-    "orange": "#E5753C",
+    "selection": "#FF4D00",
     "yellow": "#B7B400",
-    "green": "#00AC5D",
+    "text": "#120032",
     "blue": "#4F80FF",
+    "orange": "#E5753C",
+    "backgroundSecondary": "#FFD4C1",
+    "green": "#00AC5D",
+    "backgroundPrimary": "#FFFAF1",
     "purple": "#9454FF",
-    "pink": "#D756BF"
-  }
+    "magenta": "#D756BF"
+  },
+  "authorUsername": "peduarte",
+  "name": "Desert Light",
+  "appearance": "light"
 }

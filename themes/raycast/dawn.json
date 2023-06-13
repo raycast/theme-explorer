@@ -1,20 +1,20 @@
 {
-  "author": "Raycast",
-  "version": "1",
   "name": "Dawn",
-  "appearance": "light",
+  "version": 1,
   "colors": {
-    "backgroundPrimary": "#FFF1F7",
-    "backgroundSecondary": "#D0C1FF",
-    "text": "#120032",
-    "selection": "#602AFF",
-    "loader": "#5A00FF",
-    "red": "#E14848",
-    "orange": "#E5753C",
-    "yellow": "#B7B400",
-    "green": "#00AC5D",
     "blue": "#4F80FF",
+    "yellow": "#B7B400",
+    "text": "#120032",
+    "backgroundSecondary": "#D0C1FF",
+    "selection": "#8961FF",
+    "orange": "#E5753C",
+    "green": "#00AC5D",
+    "backgroundPrimary": "#FFF1F7",
     "purple": "#9454FF",
-    "pink": "#D756BF"
-  }
+    "magenta": "#D756BF",
+    "red": "#E14848"
+  },
+  "appearance": "light",
+  "author": "Pedro Duarte",
+  "authorUsername": "peduarte"
 }

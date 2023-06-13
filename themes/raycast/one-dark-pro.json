@@ -1,20 +1,20 @@
 {
-  "author": "Raycast",
-  "version": "1",
   "name": "One Dark Pro",
+  "author": "Pedro Duarte",
   "appearance": "dark",
   "colors": {
+    "magenta": "#D675A7",
+    "green": "#95BE77",
+    "red": "#E06C75",
     "backgroundPrimary": "#21252B",
+    "selection": "#808FA7",
+    "yellow": "#E5D67B",
+    "purple": "#BF75D6",
     "backgroundSecondary": "#21252B",
     "text": "#FFFFFF",
-    "selection": "#808FA7",
-    "loader": "#61AFEF",
-    "red": "#E06C75",
-    "orange": "#E5C07B",
-    "yellow": "#E5D66D",
-    "green": "#95BE70",
     "blue": "#61AFEF",
-    "purple": "#BF79BF",
-    "pink": "#D675AF"
-  }
+    "orange": "#E5C07B"
+  },
+  "authorUsername": "peduarte",
+  "version": 1
 }

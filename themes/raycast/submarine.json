@@ -1,20 +1,20 @@
 {
-  "author": "Raycast",
-  "version": "1",
-  "name": "Submarine",
-  "appearance": "dark",
+  "authorUsername": "peduarte",
   "colors": {
-    "backgroundPrimary": "#001068",
     "backgroundSecondary": "#00685E",
-    "text": "#EAFCFF",
-    "selection": "#00FFEA",
-    "loader": "#D6AEFF",
-    "red": "#F87E7E",
-    "orange": "#FFB765",
-    "yellow": "#FEFF7F",
-    "green": "#7EECAC",
     "blue": "#72BAFB",
+    "selection": "#00FFEA",
+    "green": "#7EECAE",
+    "yellow": "#FEFF7F",
+    "magenta": "#FFA2D4",
+    "backgroundPrimary": "#001068",
+    "text": "#EAFBFF",
+    "orange": "#FFB765",
     "purple": "#CE9DFA",
-    "pink": "#FFA2D4"
-  }
+    "red": "#F87E7E"
+  },
+  "author": "Pedro Duarte",
+  "name": "Submarine",
+  "version": 1,
+  "appearance": "dark"
 }

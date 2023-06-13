@@ -1,20 +1,20 @@
 {
-  "author": "peduarte",
-  "version": "1",
-  "name": "Blue",
+  "authorUsername": "peduarte",
+  "version": 1,
+  "author": "Pedro Duarte",
   "appearance": "light",
+  "name": "Blue Boy",
   "colors": {
-    "backgroundPrimary": "#FAFAFA",
-    "backgroundSecondary": "#E4E4E4",
+    "backgroundSecondary": "#FFFFFF",
     "text": "#0000FF",
-    "selection": "#0000FF",
-    "loader": "#0000FF",
-    "red": "#E24343",
-    "orange": "#E2612A",
-    "yellow": "#CAC235",
-    "green": "#56A156",
-    "blue": "#1485BA",
-    "purple": "#642EA4",
-    "pink": "#A62EA4"
+    "red": "#E14848",
+    "selection": "#FF4D00",
+    "purple": "#9454FF",
+    "magenta": "#D756BF",
+    "orange": "#E5753C",
+    "yellow": "#B7B400",
+    "backgroundPrimary": "#FFFFFF",
+    "blue": "#4F80FF",
+    "green": "#00AC5D"
   }
 }
