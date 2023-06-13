@@ -81,6 +81,8 @@ body {
   position: fixed;
   z-index: 1000;
   inset: 0;
+  height: 100dvh;
+  width: 100vw;
   transition: opacity 500ms 250ms ease-in-out;
   will-change: opacity;
 
@@ -100,16 +102,6 @@ body {
 
 [data-loader] svg {
   animation: flicker 2000ms linear;
-}
-
-[data-desktop] {
-  .dark & {
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.33),
-      0px 9px 29px 10px rgba(10, 10, 10, 0.09);
-  }
-  .light & {
-    box-shadow: 0px 9px 29px 10px rgba(10, 10, 10, 0.09);
-  }
 }
 
 .dark [data-hide-on-theme="dark"],
