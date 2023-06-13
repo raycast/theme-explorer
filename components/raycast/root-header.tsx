@@ -25,7 +25,7 @@ export function RootHeader({
         </svg>
       </div>
       <div className="w-full leading-none bg-transparent border-none outline-none text-4 text-[--text-400]">
-        Search...
+        Search for apps and commands...
       </div>
 
       {!disableLoadingAnimation && (

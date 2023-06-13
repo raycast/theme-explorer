@@ -1,6 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 /* eslint-disable jsx-a11y/alt-text */
 
+import { alpha } from "@/lib/alpha";
 import { Theme } from "@/lib/theme";
 import { ImageResponse, NextRequest, NextResponse } from "next/server";
 
@@ -14,14 +15,6 @@ const inter500 = fetch(
 ).then((res) => res.arrayBuffer());
 const inter600 = fetch(
   new URL(`../../assets/Inter-SemiBold.woff`, import.meta.url)
-).then((res) => res.arrayBuffer());
-
-const bgLight = fetch(
-  new URL("../../public/bg-light.jpeg", import.meta.url)
-).then((res) => res.arrayBuffer());
-
-const bgDark = fetch(
-  new URL("../../public/bg-dark.jpeg", import.meta.url)
 ).then((res) => res.arrayBuffer());
 
 const checkIcon = (
@@ -50,8 +43,6 @@ export async function GET(request: NextRequest) {
     const interData = await inter;
     const inter500Data = await inter500;
     const inter600Data = await inter600;
-    const bgLightData: any = await bgLight;
-    const bgDarkData: any = await bgDark;
 
     const { searchParams } = new URL(request.url);
 
@@ -65,203 +56,247 @@ export async function GET(request: NextRequest) {
       return NextResponse.json({ error: "No theme provided" }, { status: 400 });
     }
 
+    const isDarkTheme = theme.appearance === "dark";
+
+    const tokens = {
+      backgroundPrimary: `${theme?.colors.backgroundPrimary}`,
+      backgroundPrimary600: `${theme?.colors.backgroundPrimary}${alpha["60"]}`,
+      backgroundSecondary: `${theme?.colors.backgroundSecondary}`,
+      backgroundSecondary600: `${theme?.colors.backgroundSecondary}${alpha["60"]}`,
+      border100: `${theme?.colors.text}${alpha["10"]}`,
+      border200: `${theme?.colors.text}${alpha["20"]}`,
+      text: `${theme?.colors.text}`,
+      text100: `${theme?.colors.text}${alpha["10"]}`,
+      text400: `${theme?.colors.text}${alpha["40"]}`,
+      text600: `${theme?.colors.text}${alpha["60"]}`,
+      loader: `${theme?.colors.loader}`,
+      selection: `${theme?.colors.selection}`,
+      selection100: `${theme?.colors.selection}${alpha["10"]}`,
+      green: `${theme?.colors.green}`,
+      green100: `${theme?.colors.green}${alpha["15"]}`,
+      yellow: `${theme?.colors.yellow}`,
+      yellow100: `${theme?.colors.yellow}${alpha["15"]}`,
+      red: `${theme?.colors.red}`,
+      red100: `${theme?.colors.red}${alpha["15"]}`,
+      orange: `${theme?.colors.orange}`,
+      orange100: `${theme?.colors.orange}${alpha["15"]}`,
+      blue: `${theme?.colors.blue}`,
+      blue100: `${theme?.colors.blue}${alpha["15"]}`,
+      purple: `${theme?.colors.purple}`,
+      purple100: `${theme?.colors.purple}${alpha["15"]}`,
+      pink: `${theme?.colors.pink}`,
+      pink100: `${theme?.colors.pink}${alpha["15"]}`,
+    };
+
     return new ImageResponse(
       (
         <div
           style={{
             display: "flex",
+            flexDirection: "column",
             position: "relative",
             width: "100%",
             height: "100%",
+            // justifyContent: "center",
+
+            backgroundColor: tokens.backgroundPrimary,
+            backgroundImage: `linear-gradient(${tokens.backgroundPrimary}, ${tokens.backgroundSecondary})`,
           }}
         >
-          <img
-            src={theme.appearance === "dark" ? bgDarkData : bgLightData}
+          <span
             style={{
-              position: "absolute",
-              bottom: 0,
-              left: "-30%",
-              width: "150%",
-              height: "150%",
-              objectFit: "cover",
-              objectPosition: "bottom center",
-            }}
-            alt=""
-          />
-          <svg
-            viewBox="0 0 750 475"
-            height="475"
-            xmlns="http://www.w3.org/2000/svg"
-            style={{
-              display: "flex",
-              border: "none",
-              position: "absolute",
-              transform: "scale(2.5)",
-              left: "700px",
-              top: "500px",
+              textAlign: "center",
+              margin: "0 auto",
+              color: tokens.text,
+              fontSize: 40,
+              fontWeight: 600,
+              marginTop: 50,
             }}
           >
-            <foreignObject width="750" height="475" x="0" y="0">
+            {theme.name}
+          </span>
+          <span
+            style={{
+              textAlign: "center",
+              margin: "0 auto",
+              color: tokens.text,
+              fontSize: 24,
+              marginBottom: 50,
+            }}
+          >
+            by {theme.author}
+          </span>
+
+          <div
+            style={{
+              borderRadius: "12px",
+              border: "1px solid",
+              borderColor: tokens.border200,
+              display: "flex",
+              flexDirection: "column",
+              justifyContent: "flex-start",
+              alignItems: "stretch",
+              overflow: "hidden",
+              flexShrink: 0,
+              backgroundColor: tokens.backgroundPrimary600,
+              margin: "0 auto",
+              position: "absolute",
+              top: "250px",
+              left: "50%",
+              transform: "translateX(-50%) scale(1.25)",
+
+              width: 750,
+              height: 475,
+
+              boxShadow: isDarkTheme
+                ? "0px 0px 29px 10px rgba(255,255,255,.06)"
+                : "0px 0px 29px 10px rgba(0,0,0,.06)",
+            }}
+          >
+            <header
+              style={{
+                height: "52px",
+                paddingLeft: "16px",
+                paddingRight: "16px",
+                borderStyle: "solid",
+                borderBottomWidth: "1px",
+                borderBottomColor: tokens.border100,
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "space-between",
+                flexShrink: 0,
+                position: "relative",
+              }}
+            >
               <div
                 style={{
-                  borderRadius: "12px",
-                  border: "1px solid",
-                  borderColor: `rgba(${theme.colors.text}, 0.2)`,
+                  width: "24px",
+                  height: "24px",
+                  borderRadius: "6px",
+                  backgroundColor: tokens.text100,
+                  color: tokens.text,
                   display: "flex",
-                  flexDirection: "column",
-                  justifyContent: "flex-start",
-                  alignItems: "stretch",
-                  overflow: "hidden",
-                  flexShrink: 0,
-                  backgroundColor: `rgba(${theme.colors.backgroundPrimary}, 0.90)`,
+                  alignItems: "center",
+                  justifyContent: "center",
                 }}
               >
-                <header
+                <svg
+                  viewBox="0 0 16 16"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                  width={16}
+                  height={16}
+                >
+                  <path
+                    d="M6.25 4.75L2.75 8M2.75 8L6.25 11.25M2.75 8H13.25"
+                    stroke="currentColor"
+                    strokeWidth="1.5"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                </svg>
+              </div>
+              <div
+                style={{
+                  width: "100%",
+                  lineHeight: "1",
+                  backgroundColor: "transparent",
+                  border: "none",
+                  fontSize: "16px",
+                  marginLeft: "10px",
+                  color: tokens.text400,
+                }}
+              >
+                Search for apps and commands...
+              </div>
+              <div
+                style={{
+                  position: "absolute",
+                  top: "100%",
+                  width: "200px",
+                  height: "1px",
+                  backgroundImage: `linear-gradient(to right, rgba(255, 255, 255, 0), ${tokens.loader}, rgba(255, 255, 255, 0))`,
+                }}
+              ></div>
+            </header>
+
+            <main
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                flex: "1",
+                overflow: "hidden",
+                paddingTop: "4px",
+              }}
+            >
+              <div
+                style={{
+                  display: "flex",
+                  flexDirection: "column",
+                  padding: "4px 8px",
+                  color: tokens.text,
+                }}
+              >
+                <div
                   style={{
-                    height: "52px",
-                    paddingLeft: "16px",
-                    paddingRight: "16px",
-                    borderStyle: "solid",
-                    borderBottomWidth: "1px",
-                    borderBottomColor: `rgba(${theme.colors.text}, 0.1)`,
+                    display: "flex",
+                    padding: "8px",
+                    fontSize: "12px",
+                    fontWeight: "bold",
+                    letterSpacing: "0.1px",
+                    color: tokens.text600,
+                  }}
+                >
+                  List
+                </div>
+                <div
+                  style={{
                     display: "flex",
                     alignItems: "center",
-                    justifyContent: "space-between",
-                    flexShrink: 0,
-                    position: "relative",
+                    height: "40px",
+                    padding: "8px",
+                    borderRadius: "8px",
+                    backgroundColor: tokens.selection100,
                   }}
                 >
-                  <div
-                    style={{
-                      width: "24px",
-                      height: "24px",
-                      borderRadius: "6px",
-                      backgroundColor: `rgba(${theme.colors.text}, 0.1)`,
-                      color: `rgba(${theme.colors.text}, 1)`,
-                      display: "flex",
-                      alignItems: "center",
-                      justifyContent: "center",
-                    }}
-                  >
-                    <svg
-                      viewBox="0 0 16 16"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                      width={16}
-                      height={16}
-                    >
-                      <path
-                        d="M6.25 4.75L2.75 8M2.75 8L6.25 11.25M2.75 8H13.25"
-                        stroke="currentColor"
-                        strokeWidth="1.5"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                      />
-                    </svg>
+                  <div style={{ display: "flex", marginRight: "10px" }}>
+                    {checkIcon}
                   </div>
                   <div
                     style={{
-                      width: "100%",
+                      fontSize: "13px",
                       lineHeight: "1",
-                      backgroundColor: "transparent",
-                      border: "none",
-                      fontSize: "16px",
-                      marginLeft: "10px",
-                      color: `rgba(${theme.colors.text}, 0.4)`,
+                      color: tokens.text,
                     }}
                   >
-                    Search for apps and commands...
+                    Primary Text
                   </div>
-                  <div
-                    style={{
-                      position: "absolute",
-                      top: "100%",
-                      width: "200px",
-                      height: "1px",
-                      backgroundImage: `linear-gradient(to right, rgba(255, 255, 255, 0), rgba(${theme.colors.loader}, 1), rgba(255, 255, 255, 0))`,
-                    }}
-                  ></div>
-                </header>
-
-                <main
+                </div>
+                <div
                   style={{
                     display: "flex",
-                    flexDirection: "column",
-                    flex: "1",
-                    overflow: "hidden",
-                    paddingTop: "4px",
+                    alignItems: "center",
+                    height: "40px",
+                    padding: "8px",
+                    borderRadius: "8px",
                   }}
                 >
+                  <div style={{ display: "flex", marginRight: "10px" }}>
+                    {checkIcon}
+                  </div>
                   <div
                     style={{
-                      display: "flex",
-                      flexDirection: "column",
-                      padding: "4px 8px",
-                      color: `rgba(${theme.colors.text}, 1)`,
+                      fontSize: "13px",
+                      lineHeight: "1",
+                      color: tokens.text600,
                     }}
                   >
-                    <div
-                      style={{
-                        display: "flex",
-                        padding: "8px",
-                        fontSize: "12px",
-                        fontWeight: "bold",
-                        letterSpacing: "0.1px",
-                        color: `rgba(${theme.colors.text}, 0.6)`,
-                      }}
-                    >
-                      List
-                    </div>
-                    <div
-                      style={{
-                        display: "flex",
-                        alignItems: "center",
-                        height: "40px",
-                        padding: "8px",
-                        borderRadius: "8px",
-                        backgroundColor: `rgba(${theme.colors.selection}, 0.1)`,
-                      }}
-                    >
-                      <div style={{ display: "flex", marginRight: "10px" }}>
-                        {checkIcon}
-                      </div>
-                      <div
-                        style={{
-                          fontSize: "13px",
-                          lineHeight: "1",
-                          color: `rgba(${theme.colors.text}, 1)`,
-                        }}
-                      >
-                        Primary Text
-                      </div>
-                    </div>
-                    <div
-                      style={{
-                        display: "flex",
-                        alignItems: "center",
-                        height: "40px",
-                        padding: "8px",
-                        borderRadius: "8px",
-                      }}
-                    >
-                      <div style={{ display: "flex", marginRight: "10px" }}>
-                        {checkIcon}
-                      </div>
-                      <div
-                        style={{
-                          fontSize: "13px",
-                          lineHeight: "1",
-                          color: `rgba(${theme.colors.text}, 0.6)`,
-                        }}
-                      >
-                        Secondary Text
-                      </div>
-                    </div>
+                    Secondary Text
                   </div>
-                </main>
+                </div>
               </div>
-            </foreignObject>
-          </svg>
+            </main>
+          </div>
         </div>
       ),
       {
