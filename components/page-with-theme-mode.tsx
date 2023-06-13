@@ -16,6 +16,7 @@ export function PageWithThemeMode({
     setTimeout(() => {
       setActiveTheme(theme);
     }, 2000);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return <>{children}</>;

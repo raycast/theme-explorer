@@ -1,5 +1,5 @@
 import React from "react";
-import { notFound } from "next/navigation";
+import { redirect } from "next/navigation";
 import { Raycast } from "@/components/raycast";
 import { BASE_URL } from "@/lib/url";
 import { getAllThemes } from "@/lib/theme";
@@ -56,8 +56,7 @@ export default async function ThemePage({
   const theme = themes.find((theme) => theme.slug === slug);
 
   if (!theme) {
-    notFound();
-    return;
+    redirect("/");
   }
 
   return (
