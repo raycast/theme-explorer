@@ -58,8 +58,9 @@ export function MenuBar() {
       >
         <Dialog.Close
           aria-label="Close About"
-          className="w-[12px] h-[12px] bg-[#DD7265] outline-none cursor-auto rounded-full absolute top-4 left-4"
+          className="w-[12px] h-[12px] bg-[#DD7265] outline-none cursor-auto rounded-full absolute top-4 left-4 text-transparent hover:text-black/60 flex justify-center items-center text-1 leading-[12px]"
         >
+          <span className="-mt-[1px]">×</span>
           <span aria-hidden hidden>
             Close
           </span>
