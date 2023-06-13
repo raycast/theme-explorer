@@ -3,7 +3,7 @@ import { basename, join } from "path";
 import { glob } from "glob";
 import { promisify } from "util";
 
-export const colorOrder = [
+const colorOrder = [
   "background",
   "backgroundSecondary",
   "text",
@@ -59,4 +59,42 @@ export async function getAllThemes(): Promise<Theme[]> {
   );
 
   return themes;
+}
+
+// This function checks whether the query params generated from Raycast's Theme Studio
+// can be converted into a Theme object that is used in this App
+export function canConvertParamsToTheme(params: any): boolean {
+  const { appearance, name, author, authorUsername, version, colors } = params;
+  return appearance && name && author && authorUsername && version && colors;
+}
+
+// This function converts the query params generated from Raycast's Theme Studio
+// into a Theme object that is used in this App
+export function makeThemeObjectFromParams(params: any): Theme | undefined {
+  if (canConvertParamsToTheme(params)) {
+    const {
+      appearance,
+      name,
+      author,
+      authorUsername,
+      version,
+      colors: colorString,
+    } = params;
+    const colorArray = colorString.split(",");
+    const colorObject = colorOrder.reduce((acc: any, color) => {
+      acc[color] = colorArray[colorOrder.indexOf(color)];
+      return acc;
+    }, {});
+
+    return {
+      appearance,
+      name,
+      version,
+      author,
+      authorUsername,
+      colors: colorObject,
+    };
+  } else {
+    return undefined;
+  }
 }
