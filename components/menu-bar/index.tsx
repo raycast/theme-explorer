@@ -86,9 +86,6 @@ export function MenuBar() {
             Copy Share URL <Shortcut keys={["⌘", "⇧", "C"]} />
           </div>
           <div className="flex justify-between">
-            Copy Install URL <Shortcut keys={["⌘", "⇧", "I"]} />
-          </div>
-          <div className="flex justify-between">
             Select Next <Shortcut keys={["→"]} />
           </div>
           <div className="flex justify-between">

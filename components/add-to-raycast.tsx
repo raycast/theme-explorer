@@ -7,12 +7,6 @@ import { useRaycastTheme } from "@/components/raycast-theme-provider";
 import copy from "copy-to-clipboard";
 import { makeRaycastImportUrl } from "@/lib/url";
 
-const PROTOCOL = {
-  prod: "raycast",
-  internal: "raycastinternal",
-  debug: "raycastdebug",
-};
-
 export function AddToRaycast() {
   const [isTouch, setIsTouch] = React.useState<boolean | null>(null);
   const [showActions, setShowActions] = React.useState(false);
@@ -30,21 +24,6 @@ export function AddToRaycast() {
     copy(`https://themes.ray.so/${slug}`);
   }, [activeTheme]);
 
-  const handleCopyInstallUrl = React.useCallback(() => {
-    if (!activeTheme) return;
-    const { slug, colors, ...theme } = activeTheme;
-
-    const encodedColors = encodeURIComponent(JSON.stringify(colors));
-
-    const queryParams = new URLSearchParams();
-    Object.entries(theme).forEach(([key, value]) =>
-      queryParams.set(key, value)
-    );
-    queryParams.set("colors", encodedColors);
-
-    copy(`${PROTOCOL["internal"]}://theme?${queryParams}`);
-  }, [activeTheme]);
-
   const handleDownload = React.useCallback(() => {
     if (!activeTheme) return;
     const { slug, ...theme } = activeTheme;
@@ -58,7 +37,6 @@ export function AddToRaycast() {
 
   const handleAddToRaycast = React.useCallback(() => {
     if (!activeTheme) return;
-
     window.open(makeRaycastImportUrl(activeTheme));
   }, [activeTheme]);
 
@@ -83,11 +61,6 @@ export function AddToRaycast() {
         handleCopyUrl();
       }
 
-      if (event.key === "i" && event.metaKey && event.shiftKey) {
-        event.preventDefault();
-        handleCopyInstallUrl();
-      }
-
       if (event.key === "d" && event.metaKey) {
         event.preventDefault();
         handleDownload();
@@ -102,13 +75,7 @@ export function AddToRaycast() {
     return () => {
       window.removeEventListener("keydown", handleKeyDown);
     };
-  }, [
-    handleCopyTheme,
-    handleCopyUrl,
-    handleDownload,
-    handleCopyInstallUrl,
-    handleAddToRaycast,
-  ]);
+  }, [handleCopyTheme, handleCopyUrl, handleDownload, handleAddToRaycast]);
 
   return !isTouch ? (
     <span className="inline-flex items-center text-3 font-medium shadow-[0px_0px_29px_10px_rgba(0,0,0,0.03)] dark:shadow-[0px_0px_29px_10px_rgba(255,255,255,.06)] rounded-2">
@@ -130,34 +97,18 @@ export function AddToRaycast() {
             sideOffset={8}
             className="rounded-2 z-20 p-1 min-w-[200px] backdrop-blur-[6px] text-2 leading-[22px] shadow-[0px_10px_38px_-10px_rgba(22,_23,_24,_0.35),_0px_10px_20px_-15px_rgba(22,_23,_24,_0.2)] text-black dark:text-white bg-white/50 dark:bg-black/50"
           >
-            <DropdownMenu.Item
-              className="flex justify-between gap-3 rounded-1 px-2 py-1 outline-none data-[highlighted]:bg-black/20 data-[highlighted]:text-white dark:data-[highlighted]:text-black cursor-default"
-              onSelect={() => handleDownload()}
-            >
+            <Item onSelect={() => handleDownload()}>
               Download JSON
               <Shortcut keys={["⌘", "D"]} />
-            </DropdownMenu.Item>
-            <DropdownMenu.Item
-              className="flex justify-between gap-3 rounded-1 px-2 py-1 outline-none data-[highlighted]:bg-black/20 data-[highlighted]:text-white dark:data-[highlighted]:text-black cursor-default"
-              onSelect={() => handleCopyTheme()}
-            >
+            </Item>
+            <Item onSelect={() => handleCopyTheme()}>
               Copy JSON
               <Shortcut keys={["⌘", "⌥", "C"]} />
-            </DropdownMenu.Item>
-            <DropdownMenu.Item
-              className="flex justify-between gap-3 rounded-1 px-2 py-1 outline-none data-[highlighted]:bg-black/20 data-[highlighted]:text-white dark:data-[highlighted]:text-black cursor-default"
-              onSelect={() => handleCopyUrl()}
-            >
+            </Item>
+            <Item onSelect={() => handleCopyUrl()}>
               Copy URL to share
               <Shortcut keys={["⌘", "⇧", "C"]} />
-            </DropdownMenu.Item>
-            <DropdownMenu.Item
-              className="flex justify-between gap-3 rounded-1 px-2 py-1 outline-none data-[highlighted]:bg-black/20 data-[highlighted]:text-white dark:data-[highlighted]:text-black cursor-default"
-              onSelect={() => handleCopyInstallUrl()}
-            >
-              Copy Install URL
-              <Shortcut keys={["⌘", "⇧", "I"]} />
-            </DropdownMenu.Item>
+            </Item>
           </DropdownMenu.Content>
         </DropdownMenu.Portal>
       </DropdownMenu.Root>
@@ -192,6 +143,27 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
 );
 
 Button.displayName = "Button";
+
+function Item({
+  children,
+  onSelect,
+}: {
+  children: React.ReactNode;
+  onSelect: () => void;
+}) {
+  return (
+    <DropdownMenu.Item
+      className="flex justify-between gap-3 rounded-1 pl-2 pr-1 py-1 outline-none 
+      data-[highlighted]:bg-black/10 
+      dark:data-[highlighted]:bg-white/10 
+      
+      cursor-default"
+      onSelect={onSelect}
+    >
+      {children}
+    </DropdownMenu.Item>
+  );
+}
 
 function Shortcut({ keys }: { keys: string[] }) {
   return (

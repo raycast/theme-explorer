@@ -6,6 +6,12 @@ export const BASE_URL = {
   production: "https://themes.ray.so",
 }[process.env.NEXT_PUBLIC_VERCEL_ENV || "development"];
 
+const PROTOCOL = {
+  prod: "raycast",
+  internal: "raycastinternal",
+  debug: "raycastdebug",
+};
+
 export function makeRaycastImportUrl(theme: Theme) {
   const { slug, colors, ...restTheme } = theme;
 
@@ -19,5 +25,5 @@ export function makeRaycastImportUrl(theme: Theme) {
 
   const formattedQueries = queryParams.toString().replace(/%7C/g, ",");
 
-  return `raycastinternal://theme?${formattedQueries}`;
+  return `${PROTOCOL["prod"]}://theme?${formattedQueries}`;
 }
