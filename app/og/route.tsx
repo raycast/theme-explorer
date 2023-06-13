@@ -444,7 +444,7 @@ export async function GET(request: NextRequest) {
                       flex: 1,
                     }}
                   >
-                    Secondary Text
+                    Primary Text
                   </div>
                   <div style={{ display: "flex", gap: 8 }}>
                     <span
