@@ -17,15 +17,15 @@ const PROTOCOL: Record<BuildTypes, string> = {
 export function makeRaycastImportUrl(theme: Theme, build: BuildTypes = "prod") {
   const { slug, colors, ...restTheme } = theme;
 
-  const queryParams = new URLSearchParams();
+  const url = new URL(`${PROTOCOL[build]}://theme`);
 
-  Object.entries(restTheme).forEach(([key, value]) => {
-    queryParams.set(key, encodeURIComponent(value));
-  });
-  const colorString = String(Object.values(colors).join("|"));
-  queryParams.set("colors", colorString);
+  const encodedParams = Object.entries(restTheme).map(
+    ([key, value]) => `${encodeURIComponent(key)}=${encodeURIComponent(value)}`
+  );
+  encodedParams.push(
+    `colors=${Object.values(colors).map(encodeURIComponent).join(",")}`
+  );
+  url.search = encodedParams.join("&");
 
-  const formattedQueries = queryParams.toString().replace(/%7C/g, ",");
-
-  return `${PROTOCOL[build]}://theme?${formattedQueries}`;
+  return url.toString();
 }
