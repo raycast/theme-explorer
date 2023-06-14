@@ -14,9 +14,7 @@ export async function generateMetadata({
 
   if (!themeInUrl) {
     return {
-      title: "Raycast Themes",
       openGraph: {
-        title: "Raycast Themes",
         images: [
           {
             url: `${BASE_URL}/default-og-image.png`,
