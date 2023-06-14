@@ -1,21 +1,21 @@
 {
   "author": "Pedro Duarte",
-  "name": "Spotify",
-  "version": 1,
-  "appearance": "dark",
   "authorUsername": "peduarte",
+  "version": "1",
+  "name": "Spotify",
+  "appearance": "dark",
   "colors": {
-    "purple": "#470AF5",
-    "text": "#FFFFFF",
-    "selection": "#00FF5A",
-    "loader": "#00FF5A",
-    "magenta": "#F50AA3",
     "background": "#121212",
     "backgroundSecondary": "#121212",
+    "text": "#FFFFFF",
+    "selection": "#00FF5A",
+    "loader": "#28FF74",
     "red": "#F50A0A",
     "orange": "#F5600A",
     "yellow": "#E0A200",
     "green": "#07BA65",
-    "blue": "#0A7FF5"
+    "blue": "#0A7FF5",
+    "purple": "#470AF5",
+    "magenta": "#F50AA3"
   }
 }
