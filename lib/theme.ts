@@ -3,21 +3,6 @@ import { basename, join } from "path";
 import { glob } from "glob";
 import { promisify } from "util";
 
-const colorOrder = [
-  "background",
-  "backgroundSecondary",
-  "text",
-  "selection",
-  "loader",
-  "red",
-  "orange",
-  "yellow",
-  "green",
-  "blue",
-  "purple",
-  "magenta",
-] as const;
-
 export type Theme = {
   author: string;
   authorUsername: string;
@@ -26,7 +11,18 @@ export type Theme = {
   slug?: string;
   appearance: "light" | "dark";
   colors: {
-    [K in (typeof colorOrder)[number]]: string;
+    background: string;
+    backgroundSecondary: string;
+    text: string;
+    selection: string;
+    loader: string;
+    red: string;
+    orange: string;
+    yellow: string;
+    green: string;
+    blue: string;
+    purple: string;
+    magenta: string;
   };
 };
 
@@ -91,12 +87,20 @@ export function makeThemeObjectFromParams(params: any): Theme | undefined {
 
     const colorArray = colorString.split(",");
 
-    const colorObject = colorOrder.reduce((acc: any, color) => {
-      acc[color] = convertLegacyColorIfNeeded(
-        colorArray[colorOrder.indexOf(color)]
-      );
-      return acc;
-    }, {});
+    const colorObject = {
+      background: convertLegacyColorIfNeeded(colorArray[0]),
+      backgroundSecondary: convertLegacyColorIfNeeded(colorArray[1]),
+      text: convertLegacyColorIfNeeded(colorArray[2]),
+      selection: convertLegacyColorIfNeeded(colorArray[3]),
+      loader: convertLegacyColorIfNeeded(colorArray[4]),
+      red: convertLegacyColorIfNeeded(colorArray[5]),
+      orange: convertLegacyColorIfNeeded(colorArray[6]),
+      yellow: convertLegacyColorIfNeeded(colorArray[7]),
+      green: convertLegacyColorIfNeeded(colorArray[8]),
+      blue: convertLegacyColorIfNeeded(colorArray[9]),
+      purple: convertLegacyColorIfNeeded(colorArray[10]),
+      magenta: convertLegacyColorIfNeeded(colorArray[11]),
+    };
 
     return {
       appearance,
