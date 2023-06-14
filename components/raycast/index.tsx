@@ -22,7 +22,9 @@ export function Raycast({
 
   const style = {
     "--backgroundPrimary": `${theme?.colors.background}${alpha["40"]}`,
-    "--backgroundSecondary": `${theme?.colors.backgroundSecondary}${alpha["40"]}`,
+    "--backgroundSecondary": theme?.colors.backgroundSecondary
+      ? `${theme?.colors.backgroundSecondary}${alpha["40"]}`
+      : `${theme?.colors.background}${alpha["40"]}`,
     "--border-100": `${theme?.colors.text}${alpha["10"]}`,
     "--border-200": `${theme?.colors.text}${alpha["20"]}`,
     "--text": `${theme?.colors.text}`,
@@ -55,10 +57,12 @@ export function Raycast({
       style={{
         ...style,
         zIndex: 2,
+
         backgroundColor:
           activeTheme?.appearance === "dark"
             ? "rgba(128, 128, 128, 0.2)"
             : "rgba(255, 255, 255, 0.2)",
+
         backgroundImage: `linear-gradient(to bottom, var(--backgroundPrimary) 0%, var(--backgroundSecondary) 70%)`,
         boxShadow: `inset 0 0 0 1px var(--border-200)`,
         backdropFilter: !thumbnail ? `blur(72px)` : undefined,

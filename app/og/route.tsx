@@ -171,9 +171,17 @@ export async function GET(request: NextRequest) {
 
     const tokens = {
       backgroundPrimary: `${theme.colors.background}`,
+      backgroundPrimary200: `${theme.colors.background}${alpha["20"]}`,
       backgroundPrimary400: `${theme.colors.background}${alpha["40"]}`,
-      backgroundSecondary: `${theme.colors.backgroundSecondary}`,
-      backgroundSecondary400: `${theme.colors.backgroundSecondary}${alpha["40"]}`,
+      backgroundSecondary: `${
+        theme.colors.backgroundSecondary || theme.colors.background
+      }`,
+      backgroundSecondary200: theme.colors.backgroundSecondary
+        ? `${theme.colors.backgroundSecondary}${alpha["20"]}`
+        : `${theme.colors.background}${alpha["20"]}`,
+      backgroundSecondary400: theme.colors.backgroundSecondary
+        ? `${theme.colors.backgroundSecondary}${alpha["40"]}`
+        : `${theme.colors.background}${alpha["40"]}`,
       border100: `${theme.colors.text}${alpha["10"]}`,
       border200: `${theme.colors.text}${alpha["20"]}`,
       text: `${theme.colors.text}`,
@@ -226,8 +234,8 @@ export async function GET(request: NextRequest) {
             height: "100%",
             alignItems: "flex-start",
             overflow: "hidden",
-            backgroundColor: tokens.backgroundPrimary,
-            backgroundImage: `linear-gradient(to bottom, ${tokens.backgroundPrimary}, ${tokens.backgroundSecondary})`,
+            backgroundColor: isDarkTheme ? "rgb(50,50,50)" : "white",
+            backgroundImage: `linear-gradient(to bottom, ${tokens.backgroundPrimary200}, ${tokens.backgroundSecondary200})`,
           }}
         >
           <span
@@ -324,7 +332,7 @@ export async function GET(request: NextRequest) {
               height: 475,
 
               boxShadow: isDarkTheme
-                ? "0px 0px 29px 10px rgba(255,255,255,.06)"
+                ? "0px 0px 29px 10px rgba(0,0,0,.06)"
                 : "0px 0px 29px 10px rgba(0,0,0,.06)",
             }}
           >
@@ -590,8 +598,26 @@ export async function GET(request: NextRequest) {
               position: "absolute",
               bottom: 0,
               left: 0,
+              zIndex: 1,
               width: "100%",
-              backgroundImage: `linear-gradient(to bottom, transparent , ${tokens.backgroundSecondary} 90%)`,
+              backgroundImage: `linear-gradient(to bottom, ${
+                isDarkTheme ? "rgba(0,0,0,0)" : "rgba(255,255,255,0)"
+              }, ${isDarkTheme ? "black" : "white"} 90%)`,
+              display: "flex",
+              justifyContent: "space-between",
+              alignItems: "flex-end",
+              padding: 30,
+            }}
+          />
+          <div
+            style={{
+              height: 400,
+              position: "absolute",
+              bottom: 0,
+              left: 0,
+              zIndex: 2,
+              width: "100%",
+              backgroundImage: `linear-gradient(to bottom, rgba(255,255,255,0), ${tokens.backgroundSecondary400} 90%)`,
               display: "flex",
               justifyContent: "space-between",
               alignItems: "flex-end",
