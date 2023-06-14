@@ -32,7 +32,9 @@ export function RaycastThemeProvider({
   };
 
   const handleURLChange = (slug: string) => {
-    return window.history.pushState({}, "", `/${slug}`);
+    const searchParams = new URLSearchParams(window.location.search);
+    console.log(searchParams.toString());
+    window.history.pushState({}, "", `/${slug}?${searchParams.toString()}`);
   };
 
   React.useEffect(() => {

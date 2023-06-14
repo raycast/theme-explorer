@@ -5,12 +5,14 @@ import * as DropdownMenu from "@radix-ui/react-dropdown-menu";
 import { isTouchDevice } from "@/lib/isTouchDevice";
 import { useRaycastTheme } from "@/components/raycast-theme-provider";
 import copy from "copy-to-clipboard";
-import { makeRaycastImportUrl } from "@/lib/url";
+import { BuildTypes, makeRaycastImportUrl } from "@/lib/url";
+import { useParams } from "next/navigation";
 
 export function AddToRaycast() {
   const [isTouch, setIsTouch] = React.useState<boolean | null>(null);
   const [showActions, setShowActions] = React.useState(false);
   const { activeTheme } = useRaycastTheme();
+  const params = useParams();
 
   const handleCopyTheme = React.useCallback(() => {
     if (!activeTheme) return;
@@ -37,7 +39,12 @@ export function AddToRaycast() {
 
   const handleAddToRaycast = React.useCallback(() => {
     if (!activeTheme) return;
-    window.open(makeRaycastImportUrl(activeTheme));
+    const queryParams = new URLSearchParams(window.location.search);
+    const build = (queryParams.get("build") ?? undefined) as
+      | BuildTypes
+      | undefined;
+
+    window.open(makeRaycastImportUrl(activeTheme, build));
   }, [activeTheme]);
 
   React.useEffect(() => {
