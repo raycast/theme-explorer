@@ -68,6 +68,14 @@ function canConvertParamsToTheme(params: any): boolean {
   return appearance && name && version && colors;
 }
 
+function convertLegacyColorIfNeeded(color: string) {
+  const [hex, value] = color.split("#");
+  if (value.length === 8) {
+    return `#${value.slice(0, -2)}`;
+  }
+  return color;
+}
+
 // This function converts the query params generated from Raycast's Theme Studio
 // into a Theme object that is used in this App
 export function makeThemeObjectFromParams(params: any): Theme | undefined {
@@ -80,11 +88,16 @@ export function makeThemeObjectFromParams(params: any): Theme | undefined {
       version,
       colors: colorString,
     } = params;
+
     const colorArray = colorString.split(",");
     const colorObject = colorOrder.reduce((acc: any, color) => {
-      acc[color] = colorArray[colorOrder.indexOf(color)];
+      acc[color] = convertLegacyColorIfNeeded(
+        colorArray[colorOrder.indexOf(color)]
+      );
       return acc;
     }, {});
+
+    console.log(colorObject);
 
     return {
       appearance,
