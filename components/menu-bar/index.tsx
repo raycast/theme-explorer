@@ -198,16 +198,15 @@ export function MenuBar() {
           </div>
         </div>
         <div>
-          <p className="text-4 my-3 font-semibold">Adding your own theme</p>
-          <p className="text-3 mb-3">
-            Export your theme as a JSON config from Theme Studio.
+          <p className="text-4 my-3 font-semibold text-black dark:text-white">
+            Adding your own theme
           </p>
-          <p className="text-3 mb-3">
-            Upload it to the{" "}
+          <p className="text-2 mb-3">
+            Export your theme as JSON from Theme Studio and upload it to the{" "}
             <a
               href="https://github.com/raycast/theme-explorer/"
               title="Theme Explorer GitHub Repo"
-              className="text-black dark:text-white"
+              className="text-black dark:text-white underline"
             >
               Theme Explorer GitHub repo
             </a>
