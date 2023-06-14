@@ -9,8 +9,8 @@ import "./globals.css";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
-  title: "Theme Explorer",
-  description: "By Raycast",
+  title: "Theme Explorer by Raycast",
+  description: "A tool to easily share, browse and import Raycast Themes.",
 };
 
 export default async function RootLayout({
