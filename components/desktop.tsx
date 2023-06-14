@@ -2,6 +2,7 @@ import { MenuBar } from "@/components/menu-bar";
 import Image from "next/image";
 import lightWallpaper from "@/public/bg-light.jpeg";
 import darkWallpaper from "@/public/bg-dark.jpeg";
+import { Dock } from "@/components/dock";
 
 export function Desktop({ children }: { children?: React.ReactNode }) {
   return (
@@ -15,6 +16,8 @@ export function Desktop({ children }: { children?: React.ReactNode }) {
         <div className="relative" style={{ zIndex: 1 }}>
           {children}
         </div>
+
+        <Dock />
 
         <Image
           data-wallpaper="dark"

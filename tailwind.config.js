@@ -42,6 +42,7 @@ module.exports = {
       },
       screens: {
         tall: { raw: "(min-height: 840px)" },
+        tallx2: { raw: "(min-height: 1000px)" },
         desktop: { raw: "(min-height: 840px) and (min-width: 960px)" },
       },
     },

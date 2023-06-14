@@ -1,4 +1,5 @@
 "use client";
+import { Dot } from "@/components/dot";
 import { Raycast } from "@/components/raycast";
 import { useRaycastTheme } from "@/components/raycast-theme-provider";
 import { Theme } from "@/lib/theme";
@@ -63,19 +64,5 @@ export function ThemeCard({ theme: raycastTheme }: { theme?: Theme }) {
         </div>
       </div>
     </button>
-  );
-}
-
-function Dot({ color }: { color?: string }) {
-  return (
-    <span
-      className="shadow-[0_0_0_1px_rgba(0,0,0,0.1)] dark:shadow-[0_0_0_1px_rgba(255,255,255,0.1)]"
-      style={{
-        width: 12,
-        height: 12,
-        borderRadius: 6,
-        backgroundColor: color,
-      }}
-    ></span>
   );
 }
