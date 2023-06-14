@@ -259,6 +259,7 @@ export async function GET(request: NextRequest) {
                 height: 20,
                 borderRadius: 10,
                 backgroundColor: tokens.backgroundPrimary,
+                backgroundImage: `linear-gradient(to bottom, ${tokens.backgroundPrimary}, ${tokens.backgroundSecondary})`,
                 // todo: gradient
                 boxShadow: isDarkTheme
                   ? "0 0 0 1px rgba(255, 255, 255, 0.1)"

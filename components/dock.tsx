@@ -28,7 +28,11 @@ export function Dock() {
             flexWrap: "wrap",
           }}
         >
-          <Dot size={18} color={activeTheme?.colors.background} />
+          <Dot
+            size={18}
+            color={activeTheme?.colors.background}
+            colorSecondary={activeTheme?.colors.backgroundSecondary}
+          />
           <Dot size={18} color={activeTheme?.colors.text} />
           <Dot size={18} color={activeTheme?.colors.selection} />
           <Dot size={18} color={activeTheme?.colors.loader} />

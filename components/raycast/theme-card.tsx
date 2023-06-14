@@ -57,7 +57,10 @@ export function ThemeCard({ theme: raycastTheme }: { theme?: Theme }) {
             gap: 4,
           }}
         >
-          <Dot color={raycastTheme?.colors.background} />
+          <Dot
+            color={raycastTheme?.colors.background}
+            colorSecondary={raycastTheme?.colors.backgroundSecondary}
+          />
           <Dot color={raycastTheme?.colors.text} />
           <Dot color={raycastTheme?.colors.selection} />
           <Dot color={raycastTheme?.colors.loader} />
