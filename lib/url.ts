@@ -19,9 +19,9 @@ export function makeRaycastImportUrl(theme: Theme, build: BuildTypes = "prod") {
 
   const queryParams = new URLSearchParams();
 
-  Object.entries(restTheme).forEach(([key, value]) =>
-    queryParams.set(key, value)
-  );
+  Object.entries(restTheme).forEach(([key, value]) => {
+    queryParams.set(key, encodeURIComponent(value));
+  });
   const colorString = String(Object.values(colors).join("|"));
   queryParams.set("colors", colorString);
 

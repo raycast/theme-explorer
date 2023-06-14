@@ -14,7 +14,7 @@ export function ThemeSwitcher({ themes }: { themes: Theme[] }) {
       {themes
         .filter((rayTheme) => rayTheme.appearance === activeTheme?.appearance)
         .map((rayTheme) => (
-          <ThemeCard key={rayTheme.name} theme={rayTheme} />
+          <ThemeCard key={rayTheme.slug} theme={rayTheme} />
         ))}
       <div aria-hidden className="shrink-0" />
     </div>
