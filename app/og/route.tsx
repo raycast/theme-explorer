@@ -141,18 +141,18 @@ export async function GET(request: NextRequest) {
 
     const images = {
       light: [
-        lightGridImage1Data,
-        lightGridImage2Data,
-        lightGridImage3Data,
-        lightGridImage4Data,
-        lightGridImage5Data,
+        lightGridImage1Data as unknown as string,
+        lightGridImage2Data as unknown as string,
+        lightGridImage3Data as unknown as string,
+        lightGridImage4Data as unknown as string,
+        lightGridImage5Data as unknown as string,
       ],
       dark: [
-        darkGridImage1Data,
-        darkGridImage2Data,
-        darkGridImage3Data,
-        darkGridImage4Data,
-        darkGridImage5Data,
+        darkGridImage1Data as unknown as string,
+        darkGridImage2Data as unknown as string,
+        darkGridImage3Data as unknown as string,
+        darkGridImage4Data as unknown as string,
+        darkGridImage5Data as unknown as string,
       ],
     };
 
