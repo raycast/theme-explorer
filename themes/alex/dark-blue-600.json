@@ -2,20 +2,20 @@
   "author": "Alex",
   "authorUsername": "alex",
   "version": "1",
-  "name": "Palenight",
+  "name": "Alex's Dark Blue 600",
   "appearance": "dark",
   "colors": {
-    "background": "#2A2D3D",
-    "backgroundSecondary": "#2A2D3D",
-    "text": "#C0C7D4",
-    "selection": "#856ACF",
-    "loader": "#89DDFF",
-    "red": "#F07178",
-    "orange": "#DD9373",
-    "yellow": "#FFCB6B",
-    "green": "#C3E88D",
-    "blue": "#82AAFF",
-    "purple": "#856ACF",
-    "magenta": "#C792EA"
+    "background": "#0086C9",
+    "backgroundSecondary": "#0B4A6F",
+    "text": "#E3E8EF",
+    "selection": "#F8FAFC",
+    "loader": "#F8FAFC",
+    "red": "#F99266",
+    "orange": "#E05316",
+    "yellow": "#CA8504",
+    "green": "#039855",
+    "blue": "#0BA5EC",
+    "purple": "#6938EF",
+    "magenta": "#DD2590"
   }
 }
