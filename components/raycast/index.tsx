@@ -21,8 +21,8 @@ export function Raycast({
   const theme = forcedTheme || activeTheme;
 
   const style = {
-    "--backgroundPrimary": `${theme?.colors.background}${alpha["100"]}`,
-    "--backgroundSecondary": `${theme?.colors.backgroundSecondary}${alpha["100"]}`,
+    "--backgroundPrimary": `${theme?.colors.background}${alpha["40"]}`,
+    "--backgroundSecondary": `${theme?.colors.backgroundSecondary}${alpha["40"]}`,
     "--border-100": `${theme?.colors.text}${alpha["10"]}`,
     "--border-200": `${theme?.colors.text}${alpha["20"]}`,
     "--text": `${theme?.colors.text}`,

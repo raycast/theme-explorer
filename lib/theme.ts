@@ -97,8 +97,6 @@ export function makeThemeObjectFromParams(params: any): Theme | undefined {
       return acc;
     }, {});
 
-    console.log(colorObject);
-
     return {
       appearance,
       name,
