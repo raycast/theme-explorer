@@ -97,10 +97,11 @@ export function MenuBar() {
               <RaycastIcon mode={activeTheme.appearance} size={16} />
             </Trigger>
             <Content align="end">
+              <Label>Raycast</Label>
               <Item
                 onSelect={() => window.open("https://raycast.com", "_blank")}
               >
-                Download Raycast...
+                Download...
               </Item>
               <Item
                 onSelect={() =>
