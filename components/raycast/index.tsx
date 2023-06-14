@@ -53,7 +53,9 @@ export function Raycast({
   return (
     <div
       data-raycast
-      className={`w-[750px] h-[475px] rounded-4 shadow flex flex-col relative select-none shrink-0 text-left overflow-hidden`}
+      className={`w-[750px] h-[475px] rounded-4 shadow flex flex-col relative select-none shrink-0 text-left overflow-hidden ${
+        !thumbnail ? "backdrop-blur-[72px]" : ""
+      }`}
       style={{
         ...style,
         zIndex: 2,
@@ -65,7 +67,6 @@ export function Raycast({
 
         backgroundImage: `linear-gradient(to bottom, var(--backgroundPrimary) 0%, var(--backgroundSecondary) 70%)`,
         boxShadow: `inset 0 0 0 1px var(--border-200)`,
-        backdropFilter: !thumbnail ? `blur(72px)` : undefined,
       }}
     >
       <RootHeader
