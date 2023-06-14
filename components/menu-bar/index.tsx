@@ -24,7 +24,13 @@ export function MenuBar() {
               <Dialog.Trigger asChild>
                 <Item>About Theme Explorer</Item>
               </Dialog.Trigger>
-              <Item>Raycast Pro...</Item>
+              <Item
+                onSelect={() =>
+                  window.open("https://raycast.com/pro", "_blank")
+                }
+              >
+                Raycast Pro...
+              </Item>
               <Menubar.Separator className="h-[1px] bg-black/10 dark:bg-white/10 my-1 mx-2" />
               <Menubar.Label className="text-black/60 dark:text-white/60 px-2">
                 © Raycast Technilogies 2023
@@ -34,17 +40,56 @@ export function MenuBar() {
           <Menubar.Menu>
             <Trigger>Social</Trigger>
             <Content>
-              <Item>Slack</Item>
-              <Item>Twitter</Item>
-              <Item>Mastodon</Item>
-              <Item>GitHub</Item>
+              <Item
+                onSelect={() =>
+                  window.open("https://raycast.com/community", "_blank")
+                }
+              >
+                Slack...
+              </Item>
+              <Item
+                onSelect={() =>
+                  window.open("https://twitter.com/raycastapp", "_blank")
+                }
+              >
+                Twitter...
+              </Item>
+              <Item
+                onSelect={() =>
+                  window.open("https://mastodon.social/@raycast", "_blank")
+                }
+              >
+                Mastodon...
+              </Item>
+              <Item
+                onSelect={() =>
+                  window.open("https://github.com/raycast", "_blank")
+                }
+              >
+                GitHub...
+              </Item>
             </Content>
           </Menubar.Menu>
           <Menubar.Menu>
             <Trigger>Help</Trigger>
             <Content>
-              <Item>Uploading a Theme</Item>
-              <Item>Installing a Theme</Item>
+              <Item
+                onSelect={() =>
+                  window.open(
+                    "https://github.com/raycast/theme-explorer",
+                    "_blank"
+                  )
+                }
+              >
+                Uploading a Theme...
+              </Item>
+              <Item
+                onSelect={() =>
+                  window.open("https://manual.raycast.com/", "_blank")
+                }
+              >
+                Raycast Manual...
+              </Item>
             </Content>
           </Menubar.Menu>
         </div>
@@ -162,17 +207,18 @@ function Trigger({
   );
 }
 
-const Item = React.forwardRef<HTMLDivElement, { children: React.ReactNode }>(
-  ({ children, ...props }, ref) => (
-    <Menubar.Item
-      {...props}
-      ref={ref}
-      className="rounded-1 px-2 outline-none data-[highlighted]:bg-[#4D79DA] data-[highlighted]:text-white cursor-default"
-    >
-      {children}
-    </Menubar.Item>
-  )
-);
+const Item = React.forwardRef<
+  HTMLDivElement,
+  { children: React.ReactNode; onSelect?: () => void }
+>(({ children, ...props }, ref) => (
+  <Menubar.Item
+    {...props}
+    ref={ref}
+    className="rounded-1 px-2 outline-none data-[highlighted]:bg-[#4D79DA] data-[highlighted]:text-white cursor-default"
+  >
+    {children}
+  </Menubar.Item>
+));
 
 Item.displayName = "MenubarItem";
 
