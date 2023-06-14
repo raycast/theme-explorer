@@ -10,7 +10,7 @@
     "selection": "#00FF5A",
     "loader": "#00FF5A",
     "magenta": "#F50AA3",
-    "backgroundPrimary": "#121212",
+    "background": "#121212",
     "backgroundSecondary": "#121212",
     "red": "#F50A0A",
     "orange": "#F5600A",
