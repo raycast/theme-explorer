@@ -29,7 +29,7 @@ export async function generateMetadata({
   );
   Object.entries(colors).forEach(([key, value]) => queryParams.set(key, value));
 
-  const title = `${themeName} by ${author}`;
+  const title = `${restTheme.name} by ${restTheme.author}`;
   const image = `${BASE_URL}/og?${queryParams}`;
 
   return {
