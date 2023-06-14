@@ -7,12 +7,12 @@ export function Dock() {
 
   return (
     <div
-      className="hidden tallx2:flex gap-4 absolute z-10 bottom-5 left-1/2 backdrop-blur[20px] rounded-6 
+      className="hidden tallx2:flex gap-4 absolute z-10 bottom-5 left-1/2 backdrop-blur[20px] rounded-5 
       bg-white/20
       dark:bg-black/20
       shadow-[0px_0px_0px_1px_rgba(0,0,0,0.1)]
       dark:shadow-[0px_0px_0px_1px_rgba(255,255,255,0.1)]
-      py-3 px-4 transition-all"
+      py-[12px] px-[16px] transition-all"
       style={{ transform: "translateX(-50%)" }}
     >
       <div className="text-black dark:text-white">

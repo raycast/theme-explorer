@@ -33,9 +33,9 @@ export function ThemeCard({ theme: raycastTheme }: { theme?: Theme }) {
         raycastTheme ? setActiveTheme(raycastTheme) : {};
       }}
     >
-      <div className="overflow-hidden rounded-4 flex-1 w-full">
+      <div className="overflow-hidden rounded-2 flex-1 w-full">
         <div className="rounded-3 h-full w-full bg-black/10 dark:bg-white/10 relative">
-          <div className="absolute left-2 top-2">
+          <div className="absolute left-3 top-3">
             <Raycast
               theme={raycastTheme}
               disableLoadingAnimation={!isActiveTheme}
@@ -44,9 +44,10 @@ export function ThemeCard({ theme: raycastTheme }: { theme?: Theme }) {
           </div>
         </div>
       </div>
-      <div className="flex items-center justify-between w-full">
-        <div className="text-2 text-left">
-          <span className="font-semibold">{raycastTheme?.name} </span>
+
+      <div className="flex items-center justify-between w-full gap-2">
+        <div className="text-2 text-left truncate flex gap-1">
+          <div className="font-semibold">{raycastTheme?.name} </div>
           {raycastTheme?.author ||
             (raycastTheme?.authorUsername && (
               <span className="opacity-50">
