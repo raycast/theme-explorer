@@ -1,0 +1,21 @@
+{
+  "author": "Per Tilkær",
+  "authorUsername": "per_tikaer",
+  "version": "1",
+  "name": "Catppuccin Frappe",
+  "appearance": "dark",
+  "colors": {
+    "background": "#303446",
+    "backgroundSecondary": "#303446",
+    "text": "#C6D0F5",
+    "selection": "#C6D0F5",
+    "loader": "#C6D0F5",
+    "red": "#E78284",
+    "orange": "#F8A16E",
+    "yellow": "#E5C890",
+    "green": "#A6D189",
+    "blue": "#8CAAEE",
+    "purple": "#A080F8",
+    "magenta": "#F4B8E4"
+  }
+}
