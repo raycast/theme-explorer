@@ -1,0 +1,21 @@
+{
+  "author": "Daniel Hollick",
+  "authorUsername": "danhollick",
+  "version": "1",
+  "name": "Github Light",
+  "appearance": "light",
+  "colors": {
+    "background": "#F0F0F0",
+    "backgroundSecondary": "#F0F0F0",
+    "text": "#000000",
+    "selection": "#F0D300",
+    "loader": "#DA404C",
+    "red": "#DA404C",
+    "orange": "#D98F26",
+    "yellow": "#E4C900",
+    "green": "#00C121",
+    "blue": "#0059C8",
+    "purple": "#7700FF",
+    "magenta": "#B200C8"
+  }
+}
