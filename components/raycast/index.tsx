@@ -75,7 +75,7 @@ export function Raycast({
 
       <main className="flex-1 overflow-hidden py-1">
         <List />
-        <Grid />
+        {activeTheme && <Grid mode={activeTheme.appearance} />}
       </main>
 
       <RootFooter mode={theme?.appearance} />

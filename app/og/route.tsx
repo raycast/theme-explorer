@@ -35,20 +35,36 @@ const inter700 = fetch(
   new URL(`../../assets/Inter-Bold.woff`, import.meta.url)
 ).then((res) => res.arrayBuffer());
 
-const gridImage1 = fetch(
-  new URL(`../../public/grid-1.jpg`, import.meta.url)
+const lightGridImage1 = fetch(
+  new URL(`../../public/grid-item-1-light.jpg`, import.meta.url)
 ).then((res) => res.arrayBuffer());
-const gridImage2 = fetch(
-  new URL(`../../public/grid-2.jpg`, import.meta.url)
+const lightGridImage2 = fetch(
+  new URL(`../../public/grid-item-2-light.jpg`, import.meta.url)
 ).then((res) => res.arrayBuffer());
-const gridImage3 = fetch(
-  new URL(`../../public/grid-3.jpg`, import.meta.url)
+const lightGridImage3 = fetch(
+  new URL(`../../public/grid-item-3-light.jpg`, import.meta.url)
 ).then((res) => res.arrayBuffer());
-const gridImage4 = fetch(
-  new URL(`../../public/grid-4.jpg`, import.meta.url)
+const lightGridImage4 = fetch(
+  new URL(`../../public/grid-item-4-light.jpg`, import.meta.url)
 ).then((res) => res.arrayBuffer());
-const gridImage5 = fetch(
-  new URL(`../../public/grid-5.jpg`, import.meta.url)
+const lightGridImage5 = fetch(
+  new URL(`../../public/grid-item-5-light.jpg`, import.meta.url)
+).then((res) => res.arrayBuffer());
+
+const darkGridImage1 = fetch(
+  new URL(`../../public/grid-item-1-dark.jpg`, import.meta.url)
+).then((res) => res.arrayBuffer());
+const darkGridImage2 = fetch(
+  new URL(`../../public/grid-item-2-dark.jpg`, import.meta.url)
+).then((res) => res.arrayBuffer());
+const darkGridImage3 = fetch(
+  new URL(`../../public/grid-item-3-dark.jpg`, import.meta.url)
+).then((res) => res.arrayBuffer());
+const darkGridImage4 = fetch(
+  new URL(`../../public/grid-item-4-dark.jpg`, import.meta.url)
+).then((res) => res.arrayBuffer());
+const darkGridImage5 = fetch(
+  new URL(`../../public/grid-item-5-dark.jpg`, import.meta.url)
 ).then((res) => res.arrayBuffer());
 
 const checkIcon = (
@@ -112,11 +128,33 @@ export async function GET(request: NextRequest) {
     const inter500Data = await inter500;
     const inter600Data = await inter600;
     const inter700Data = await inter700;
-    const gridImage1Data: any = await gridImage1;
-    const gridImage2Data: any = await gridImage2;
-    const gridImage3Data: any = await gridImage3;
-    const gridImage4Data: any = await gridImage4;
-    const gridImage5Data: any = await gridImage5;
+    const lightGridImage1Data = await lightGridImage1;
+    const lightGridImage2Data = await lightGridImage2;
+    const lightGridImage3Data = await lightGridImage3;
+    const lightGridImage4Data = await lightGridImage4;
+    const lightGridImage5Data = await lightGridImage5;
+    const darkGridImage1Data = await darkGridImage1;
+    const darkGridImage2Data = await darkGridImage2;
+    const darkGridImage3Data = await darkGridImage3;
+    const darkGridImage4Data = await darkGridImage4;
+    const darkGridImage5Data = await darkGridImage5;
+
+    const images = {
+      light: [
+        lightGridImage1Data,
+        lightGridImage2Data,
+        lightGridImage3Data,
+        lightGridImage4Data,
+        lightGridImage5Data,
+      ],
+      dark: [
+        darkGridImage1Data,
+        darkGridImage2Data,
+        darkGridImage3Data,
+        darkGridImage4Data,
+        darkGridImage5Data,
+      ],
+    };
 
     const { searchParams } = new URL(request.url);
 
@@ -574,19 +612,19 @@ export async function GET(request: NextRequest) {
 
                 <div style={{ display: "flex", gap: 8, padding: "0 8px" }}>
                   <div style={gridCellStyle}>
-                    <img src={gridImage1Data} />
+                    <img src={images[theme.appearance][0]} />
                   </div>
                   <div style={gridCellStyle}>
-                    <img src={gridImage2Data} />
+                    <img src={images[theme.appearance][1]} />
                   </div>
                   <div style={gridCellStyle}>
-                    <img src={gridImage3Data} />
+                    <img src={images[theme.appearance][2]} />
                   </div>
                   <div style={gridCellStyle}>
-                    <img src={gridImage4Data} />
+                    <img src={images[theme.appearance][3]} />
                   </div>
                   <div style={gridCellStyle}>
-                    <img src={gridImage5Data} />
+                    <img src={images[theme.appearance][4]} />
                   </div>
                 </div>
               </div>
