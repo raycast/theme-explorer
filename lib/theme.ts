@@ -65,7 +65,7 @@ export async function getAllThemes(): Promise<Theme[]> {
 // can be converted into a Theme object that is used in this App
 export function canConvertParamsToTheme(params: any): boolean {
   const { appearance, name, author, authorUsername, version, colors } = params;
-  return appearance && name && author && authorUsername && version && colors;
+  return appearance && name && version && colors;
 }
 
 // This function converts the query params generated from Raycast's Theme Studio
