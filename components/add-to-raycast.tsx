@@ -6,13 +6,11 @@ import { isTouchDevice } from "@/lib/isTouchDevice";
 import { useRaycastTheme } from "@/components/raycast-theme-provider";
 import copy from "copy-to-clipboard";
 import { BuildTypes, makeRaycastImportUrl } from "@/lib/url";
-import { useParams } from "next/navigation";
 
 export function AddToRaycast() {
   const [isTouch, setIsTouch] = React.useState<boolean | null>(null);
   const [showActions, setShowActions] = React.useState(false);
   const { activeTheme } = useRaycastTheme();
-  const params = useParams();
 
   const handleCopyTheme = React.useCallback(() => {
     if (!activeTheme) return;
@@ -102,7 +100,14 @@ export function AddToRaycast() {
         <DropdownMenu.Portal>
           <DropdownMenu.Content
             sideOffset={8}
-            className="rounded-2 z-20 p-1 min-w-[200px] backdrop-blur-[6px] text-2 leading-[22px] shadow-[0px_10px_38px_-10px_rgba(22,_23,_24,_0.35),_0px_10px_20px_-15px_rgba(22,_23,_24,_0.2)] text-black dark:text-white bg-white/50 dark:bg-black/50"
+            className={`rounded-2 z-20 p-1 min-w-[200px] backdrop-blur-[6px] text-2 leading-[22px] 
+            text-black 
+            dark:text-white 
+            bg-white/50 
+            dark:bg-neutral-700/40
+            shadow-[0px_0px_0px_1px_rgba(0,0,0,0.2),0px_10px_38px_-10px_rgba(22,23,24,0.35),_0px_10px_20px_-15px_rgba(22,23,24,0.2)] 
+            dark:shadow-[0px_0px_0px_1px_rgba(255,255,255,0.2),0px_10px_38px_-10px_rgba(22,23,24,0.35),_0px_10px_20px_-15px_rgba(22,23,24,0.2)] 
+            `}
           >
             <Item onSelect={() => handleDownload()}>
               Download JSON

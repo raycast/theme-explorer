@@ -25,8 +25,8 @@ export function MenuBar() {
                 <Item>About Theme Explorer</Item>
               </Dialog.Trigger>
               <Item>Raycast Pro...</Item>
-              <Menubar.Separator className="h-[1px] bg-white/10 my-1 mx-2" />
-              <Menubar.Label className="text-white/60 px-2">
+              <Menubar.Separator className="h-[1px] bg-black/10 dark:bg-white/10 my-1 mx-2" />
+              <Menubar.Label className="text-black/60 dark:text-white/60 px-2">
                 © Raycast Technilogies 2023
               </Menubar.Label>
             </Content>
@@ -129,7 +129,14 @@ function Content({ children }: { children: React.ReactNode }) {
     <Menubar.Portal>
       <Menubar.Content
         sideOffset={8}
-        className={`rounded-2 z-20 p-1 min-w-[200px] backdrop-blur-[6px] text-2 leading-[22px] shadow-[0px_10px_38px_-10px_rgba(22,_23,_24,_0.35),_0px_10px_20px_-15px_rgba(22,_23,_24,_0.2)] text-black dark:text-white bg-white/50 dark:bg-black/50`}
+        className={`rounded-2 z-20 p-1 min-w-[200px] backdrop-blur-[6px] text-2 leading-[22px] 
+        text-black 
+        dark:text-white 
+        bg-white/50 
+        dark:bg-neutral-700/40
+        shadow-[0px_0px_0px_1px_rgba(0,0,0,0.2),0px_10px_38px_-10px_rgba(22,23,24,0.35),_0px_10px_20px_-15px_rgba(22,23,24,0.2)] 
+        dark:shadow-[0px_0px_0px_1px_rgba(255,255,255,0.2),0px_10px_38px_-10px_rgba(22,23,24,0.35),_0px_10px_20px_-15px_rgba(22,23,24,0.2)] 
+        `}
       >
         {children}
       </Menubar.Content>

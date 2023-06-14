@@ -43,16 +43,39 @@ export function ThemeCard({ theme: raycastTheme }: { theme?: Theme }) {
           </div>
         </div>
       </div>
-      <div className="text-2">
-        {raycastTheme && (
-          <>
-            <span className="font-semibold">{raycastTheme?.name} </span>
-            <span className="opacity-50">
-              by {raycastTheme?.author || raycastTheme?.authorUsername}
-            </span>
-          </>
-        )}
+      <div className="flex items-center justify-between w-full">
+        <div className="text-2">
+          <span className="font-semibold">{raycastTheme?.name} </span>
+          <span className="opacity-50">
+            by {raycastTheme?.author || raycastTheme?.authorUsername}
+          </span>
+        </div>
+        <div
+          style={{
+            display: "flex",
+            gap: 4,
+          }}
+        >
+          <Dot color={raycastTheme?.colors.background} />
+          <Dot color={raycastTheme?.colors.text} />
+          <Dot color={raycastTheme?.colors.selection} />
+          <Dot color={raycastTheme?.colors.loader} />
+        </div>
       </div>
     </button>
+  );
+}
+
+function Dot({ color }: { color?: string }) {
+  return (
+    <span
+      className="shadow-[0_0_0_1px_rgba(0,0,0,0.1)] dark:shadow-[0_0_0_1px_rgba(255,255,255,0.1)]"
+      style={{
+        width: 12,
+        height: 12,
+        borderRadius: 6,
+        backgroundColor: color,
+      }}
+    ></span>
   );
 }
