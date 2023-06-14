@@ -26,7 +26,7 @@ export type Theme = {
   slug?: string;
   appearance: "light" | "dark";
   colors: {
-    [K in (typeof colorOrder)[number]]?: string;
+    [K in (typeof colorOrder)[number]]: string;
   };
 };
 
@@ -90,6 +90,7 @@ export function makeThemeObjectFromParams(params: any): Theme | undefined {
     } = params;
 
     const colorArray = colorString.split(",");
+
     const colorObject = colorOrder.reduce((acc: any, color) => {
       acc[color] = convertLegacyColorIfNeeded(
         colorArray[colorOrder.indexOf(color)]

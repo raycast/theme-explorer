@@ -22,8 +22,24 @@ export function makeRaycastImportUrl(theme: Theme, build: BuildTypes = "prod") {
   const encodedParams = Object.entries(restTheme).map(
     ([key, value]) => `${encodeURIComponent(key)}=${encodeURIComponent(value)}`
   );
+
+  const orderedColors = [
+    colors.background,
+    colors.backgroundSecondary,
+    colors.text,
+    colors.selection,
+    colors.loader,
+    colors.red,
+    colors.orange,
+    colors.yellow,
+    colors.green,
+    colors.blue,
+    colors.purple,
+    colors.magenta,
+  ];
+
   encodedParams.push(
-    `colors=${Object.values(colors).map(encodeURIComponent).join(",")}`
+    `colors=${orderedColors.map(encodeURIComponent).join(",")}`
   );
   url.search = encodedParams.join("&");
 
