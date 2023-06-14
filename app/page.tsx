@@ -21,6 +21,14 @@ export async function generateMetadata({
           },
         ],
       },
+      twitter: {
+        card: "summary_large_image",
+        images: [
+          {
+            url: `${BASE_URL}/default-og-image.png`,
+          },
+        ],
+      },
     };
   }
 
@@ -37,6 +45,14 @@ export async function generateMetadata({
     title,
     openGraph: {
       title,
+      images: [
+        {
+          url: image,
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
       images: [
         {
           url: image,
