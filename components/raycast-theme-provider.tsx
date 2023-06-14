@@ -34,7 +34,7 @@ export function RaycastThemeProvider({
   const handleURLChange = (slug: string) => {
     const searchParams = new URLSearchParams(window.location.search);
 
-    window.history.pushState(
+    window.history.replaceState(
       {},
       "",
       `/${slug}${searchParams.size > 0 ? `?${searchParams.toString()}` : ""}`
