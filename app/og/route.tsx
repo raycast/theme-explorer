@@ -272,80 +272,12 @@ export async function GET(request: NextRequest) {
             height: "100%",
             alignItems: "flex-start",
             overflow: "hidden",
-            backgroundColor: isDarkTheme ? "rgb(50,50,50)" : "white",
-            backgroundImage: `linear-gradient(to bottom, ${tokens.backgroundPrimary200}, ${tokens.backgroundSecondary200})`,
+            backgroundColor: isDarkTheme ? "rgb(0,0,0)" : "white",
+            // backgroundColor: tokens.backgroundPrimary,
+            // backgroundImage: `linear-gradient(to bottom, ${tokens.backgroundPrimary200}, ${tokens.backgroundSecondary200})`,
+            paddingTop: 40,
           }}
         >
-          <span
-            style={{
-              flexShrink: 0,
-              textAlign: "center",
-              margin: "0 auto",
-              color: tokens.text,
-              fontSize: 40,
-              fontWeight: 700,
-              marginTop: 30,
-              marginBottom: 10,
-            }}
-          >
-            {theme.name}
-          </span>
-          <div
-            style={{
-              display: "flex",
-              gap: 6,
-              margin: "0 auto",
-              marginBottom: 30,
-            }}
-          >
-            <span
-              style={{
-                width: 20,
-                height: 20,
-                borderRadius: 10,
-                backgroundColor: tokens.backgroundPrimary,
-                backgroundImage: `linear-gradient(to bottom, ${tokens.backgroundPrimary}, ${tokens.backgroundSecondary})`,
-                // todo: gradient
-                boxShadow: isDarkTheme
-                  ? "0 0 0 1px rgba(255, 255, 255, 0.1)"
-                  : "0 0 0 1px rgba(0, 0, 0, 0.1)",
-              }}
-            ></span>
-            <span
-              style={{
-                width: 20,
-                height: 20,
-                borderRadius: 10,
-                backgroundColor: tokens.text,
-                boxShadow: isDarkTheme
-                  ? "0 0 0 1px rgba(255, 255, 255, 0.1)"
-                  : "0 0 0 1px rgba(0, 0, 0, 0.1)",
-              }}
-            ></span>
-            <span
-              style={{
-                width: 20,
-                height: 20,
-                borderRadius: 10,
-                backgroundColor: tokens.selection,
-                boxShadow: isDarkTheme
-                  ? "0 0 0 1px rgba(255, 255, 255, 0.1)"
-                  : "0 0 0 1px rgba(0, 0, 0, 0.1)",
-              }}
-            ></span>
-            <span
-              style={{
-                width: 20,
-                height: 20,
-                borderRadius: 10,
-                backgroundColor: tokens.loader,
-                boxShadow: isDarkTheme
-                  ? "0 0 0 1px rgba(255, 255, 255, 0.1)"
-                  : "0 0 0 1px rgba(0, 0, 0, 0.1)",
-              }}
-            ></span>
-          </div>
-
           <div
             style={{
               borderRadius: "12px",
@@ -630,6 +562,7 @@ export async function GET(request: NextRequest) {
               </div>
             </main>
           </div>
+
           <div
             style={{
               height: 400,
@@ -655,16 +588,45 @@ export async function GET(request: NextRequest) {
               left: 0,
               zIndex: 2,
               width: "100%",
-              backgroundImage: `linear-gradient(to bottom, rgba(255,255,255,0), ${tokens.backgroundSecondary400} 90%)`,
+              backgroundImage: `linear-gradient(to bottom, ${
+                isDarkTheme ? "rgba(0,0,0,0)" : "rgba(255,255,255,0)"
+              }, ${tokens.backgroundSecondary400} 90%)`,
               display: "flex",
               justifyContent: "space-between",
               alignItems: "flex-end",
               padding: 30,
             }}
           >
-            <span style={{ color: tokens.text, fontWeight: 700, fontSize: 16 }}>
-              themes.ray.so{theme.slug ? `/${theme.slug}` : ""}
-            </span>
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                textAlign: "left",
+                alignItems: "flex-start",
+                gap: 8,
+              }}
+            >
+              <span
+                style={{
+                  flexShrink: 0,
+                  color: tokens.text,
+                  fontSize: 40,
+                  fontWeight: 700,
+                }}
+              >
+                {theme.name}
+              </span>
+              <span
+                style={{
+                  color: tokens.text600,
+                  fontWeight: 500,
+                  fontSize: 16,
+                }}
+              >
+                themes.ray.so{theme.slug ? `/${theme.slug}` : ""}
+              </span>
+            </div>
+
             <span
               style={{
                 display: "flex",

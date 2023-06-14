@@ -125,7 +125,7 @@ export function MenuBar() {
                 Changelog
               </Item>
               <Separator />
-              <Label>More by Raycsast</Label>
+              <Label>More by Raycast</Label>
               <Item
                 onSelect={() =>
                   window.open("https://snippets.ray.so", "_blank")
