@@ -31,10 +31,8 @@ export function MenuBar() {
               >
                 Raycast Pro...
               </Item>
-              <Menubar.Separator className="h-[1px] bg-black/10 dark:bg-white/10 my-1 mx-2" />
-              <Menubar.Label className="text-black/60 dark:text-white/60 px-2">
-                © Raycast Technilogies 2023
-              </Menubar.Label>
+              <Separator />
+              <Label>© Raycast Technilogies 2023</Label>
             </Content>
           </Menubar.Menu>
           <Menubar.Menu>
@@ -93,8 +91,69 @@ export function MenuBar() {
             </Content>
           </Menubar.Menu>
         </div>
-        <div className="flex items-center gap-4">
-          <RaycastIcon mode={activeTheme.appearance} size={16} />
+        <div className="flex items-center gap-2">
+          <Menubar.Menu>
+            <Trigger>
+              <RaycastIcon mode={activeTheme.appearance} size={16} />
+            </Trigger>
+            <Content align="end">
+              <Item
+                onSelect={() => window.open("https://raycast.com", "_blank")}
+              >
+                Download Raycast...
+              </Item>
+              <Item
+                onSelect={() =>
+                  window.open("https://raycast.com/store", "_blank")
+                }
+              >
+                Extension Store...
+              </Item>
+              <Item
+                onSelect={() =>
+                  window.open("https://manual.raycast.com/", "_blank")
+                }
+              >
+                Manual...
+              </Item>
+              <Item
+                onSelect={() =>
+                  window.open("https://raycast.com/changelog", "_blank")
+                }
+              >
+                Changelog...
+              </Item>
+              <Separator />
+              <Label>More by Raycsast</Label>
+              <Item
+                onSelect={() =>
+                  window.open("https://snippets.ray.so", "_blank")
+                }
+              >
+                Snippets...
+              </Item>
+              <Item
+                onSelect={() => window.open("https://prompts.ray.so", "_blank")}
+              >
+                Prompts...
+              </Item>
+              <Item onSelect={() => window.open("https://ray.so", "_blank")}>
+                Code Snippets...
+              </Item>
+              <Item
+                onSelect={() => window.open("https://icon.ray.so", "_blank")}
+              >
+                Icon Maker...
+              </Item>
+              <Item
+                onSelect={() =>
+                  window.open("https://raycast.com/wallpapers", "_blank")
+                }
+              >
+                Wallpapers...
+              </Item>
+            </Content>
+          </Menubar.Menu>
           <div>{getCurrentDate()}</div>
         </div>
       </Menubar.Root>
@@ -169,10 +228,17 @@ export function getCurrentDate(): string {
   return `${day} ${month} ${hours}:${minutes < 10 ? "0" : ""}${minutes}`;
 }
 
-function Content({ children }: { children: React.ReactNode }) {
+function Content({
+  children,
+  align = "start",
+}: {
+  children: React.ReactNode;
+  align?: "start" | "end";
+}) {
   return (
     <Menubar.Portal>
       <Menubar.Content
+        align={align}
         sideOffset={8}
         className={`rounded-2 z-20 p-1 min-w-[200px] backdrop-blur-[6px] text-2 leading-[22px] 
         text-black 
@@ -219,6 +285,20 @@ const Item = React.forwardRef<
     {children}
   </Menubar.Item>
 ));
+
+function Separator() {
+  return (
+    <Menubar.Separator className="h-[1px] bg-black/10 dark:bg-white/10 my-1 mx-2" />
+  );
+}
+
+function Label({ children }: { children: React.ReactNode }) {
+  return (
+    <Menubar.Label className="text-black/60 dark:text-white/60 px-2">
+      {children}
+    </Menubar.Label>
+  );
+}
 
 Item.displayName = "MenubarItem";
 
