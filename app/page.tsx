@@ -71,6 +71,7 @@ export default async function Home({
       <Desktop>
         <Raycast />
       </Desktop>
+
       {shouldOpenInRaycast && themeInUrl && (
         <RedirectToRaycast theme={themeInUrl} build={raycastBuild} />
       )}
