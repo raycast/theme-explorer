@@ -44,7 +44,7 @@ export function ThemeCard({ theme: raycastTheme }: { theme?: Theme }) {
         </div>
       </div>
       <div className="flex items-center justify-between w-full">
-        <div className="text-2">
+        <div className="text-2 text-left">
           <span className="font-semibold">{raycastTheme?.name} </span>
           <span className="opacity-50">
             by {raycastTheme?.author || raycastTheme?.authorUsername}

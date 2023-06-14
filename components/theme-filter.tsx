@@ -102,11 +102,14 @@ const ModeLink = React.forwardRef<HTMLAnchorElement, LinkProps>(
       dark:data-[active]:text-white
 
       data-[active]:ring-[#737373]
+      focus:ring-[#737373]
       data-[active]:bg-[rgba(0,0,0,0.1)]
       data-[active]:shadow-[0px_0px_29px_10px_rgba(0,_0,_0,_0.06)]
+      
 
       dark:data-[active]:bg-[rgba(255,255,255,0.1)]
       dark:data-[active]:shadow-[0px_0px_29px_10px_rgba(255,_255,_255,_0.06)]
+      
       `}
     >
       {children}

@@ -1,10 +1,10 @@
 "use client";
 import React from "react";
-import { ChevronDownIcon, PlusIcon } from "@/components/icons";
-import * as DropdownMenu from "@radix-ui/react-dropdown-menu";
-import { isTouchDevice } from "@/lib/isTouchDevice";
-import { useRaycastTheme } from "@/components/raycast-theme-provider";
 import copy from "copy-to-clipboard";
+import * as DropdownMenu from "@radix-ui/react-dropdown-menu";
+import { ChevronDownIcon, PlusIcon } from "@/components/icons";
+import { useRaycastTheme } from "@/components/raycast-theme-provider";
+import { isTouchDevice } from "@/lib/isTouchDevice";
 import { BuildTypes, makeRaycastImportUrl } from "@/lib/url";
 
 export function AddToRaycast() {
@@ -42,6 +42,7 @@ export function AddToRaycast() {
       | BuildTypes
       | undefined;
 
+    console.log("Opening theme in Raycast from button");
     window.open(makeRaycastImportUrl(activeTheme, build));
   }, [activeTheme]);
 

@@ -11,6 +11,7 @@ export function RedirectToRaycast({
   build?: BuildTypes;
 }) {
   React.useEffect(() => {
+    console.log("Opening theme in Raycast from redirect");
     window.open(makeRaycastImportUrl(theme, build));
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
