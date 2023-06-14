@@ -1,11 +1,17 @@
 "use client";
-import { Theme } from "@/lib/theme";
-import { makeRaycastImportUrl } from "@/lib/url";
 import React from "react";
+import { Theme } from "@/lib/theme";
+import { BuildTypes, makeRaycastImportUrl } from "@/lib/url";
 
-export function RedirectToRaycast({ theme }: { theme: Theme }) {
+export function RedirectToRaycast({
+  theme,
+  build,
+}: {
+  theme: Theme;
+  build?: BuildTypes;
+}) {
   React.useEffect(() => {
-    window.open(makeRaycastImportUrl(theme));
+    window.open(makeRaycastImportUrl(theme, build));
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   return null;

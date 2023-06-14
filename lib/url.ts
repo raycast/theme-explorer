@@ -6,13 +6,15 @@ export const BASE_URL = {
   production: "https://themes.ray.so",
 }[process.env.NEXT_PUBLIC_VERCEL_ENV || "development"];
 
-const PROTOCOL = {
+export type BuildTypes = "prod" | "internal" | "debug";
+
+const PROTOCOL: Record<BuildTypes, string> = {
   prod: "raycast",
   internal: "raycastinternal",
   debug: "raycastdebug",
 };
 
-export function makeRaycastImportUrl(theme: Theme) {
+export function makeRaycastImportUrl(theme: Theme, build: BuildTypes = "prod") {
   const { slug, colors, ...restTheme } = theme;
 
   const queryParams = new URLSearchParams();
@@ -25,5 +27,5 @@ export function makeRaycastImportUrl(theme: Theme) {
 
   const formattedQueries = queryParams.toString().replace(/%7C/g, ",");
 
-  return `${PROTOCOL["prod"]}://theme?${formattedQueries}`;
+  return `${PROTOCOL[build]}://theme?${formattedQueries}`;
 }

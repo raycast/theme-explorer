@@ -3,7 +3,7 @@ import { PageWithThemeMode } from "@/components/page-with-theme-mode";
 import { Raycast } from "@/components/raycast";
 import { RedirectToRaycast } from "@/components/redirect-to-raycast";
 import { Theme, getAllThemes, makeThemeObjectFromParams } from "@/lib/theme";
-import { BASE_URL } from "@/lib/url";
+import { BASE_URL, BuildTypes } from "@/lib/url";
 
 export async function generateMetadata({
   searchParams,
@@ -58,10 +58,12 @@ export default async function Home({
 
   let themeInUrl: Theme | undefined = undefined;
   let shouldOpenInRaycast: boolean = false;
+  let raycastBuild: BuildTypes | undefined = undefined;
 
   if (searchParams) {
     themeInUrl = makeThemeObjectFromParams(searchParams);
     shouldOpenInRaycast = "addToRaycast" in searchParams;
+    raycastBuild = searchParams.build as BuildTypes;
   }
 
   return (
@@ -70,7 +72,7 @@ export default async function Home({
         <Raycast />
       </Desktop>
       {shouldOpenInRaycast && themeInUrl && (
-        <RedirectToRaycast theme={themeInUrl} />
+        <RedirectToRaycast theme={themeInUrl} build={raycastBuild} />
       )}
     </PageWithThemeMode>
   );
