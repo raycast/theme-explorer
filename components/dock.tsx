@@ -7,7 +7,8 @@ export function Dock() {
 
   return (
     <div
-      className="hidden tallx2:flex gap-4 absolute z-10 bottom-5 left-1/2 backdrop-blur[20px] rounded-5 
+      className="hidden tallx2:flex gap-4 absolute z-10 bottom-5 left-1/2 
+      backdrop-blur-[20px] rounded-5 
       bg-white/20
       dark:bg-black/20
       shadow-[0px_0px_0px_1px_rgba(0,0,0,0.1)]
