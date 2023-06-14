@@ -32,7 +32,7 @@ export function MenuBar() {
                 Raycast Pro...
               </Item>
               <Separator />
-              <Label>© Raycast Technilogies 2023</Label>
+              <Label>© Raycast Technologies 2023</Label>
             </Content>
           </Menubar.Menu>
           <Menubar.Menu>
