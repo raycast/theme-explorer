@@ -17,7 +17,10 @@ export function Dock() {
     >
       <div className="text-black dark:text-white">
         <div className="text-4 font-medium">{activeTheme?.name}</div>
-        <div className="text-2 opacity-60">by {activeTheme?.author}</div>
+        {activeTheme?.author ||
+          (activeTheme?.authorUsername && (
+            <div className="text-2 opacity-60">by {activeTheme?.author}</div>
+          ))}
       </div>
       <div className="w-[1px] bg-white/30" />
       <div className="w-[45px]">
