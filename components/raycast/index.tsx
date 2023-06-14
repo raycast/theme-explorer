@@ -57,7 +57,7 @@ export function Raycast({
         zIndex: 2,
         backgroundColor:
           activeTheme?.appearance === "dark"
-            ? "rgba(127, 127, 127, 0.2)"
+            ? "rgba(128, 128, 128, 0.2)"
             : "rgba(255, 255, 255, 0.2)",
         backgroundImage: `linear-gradient(to bottom, var(--backgroundPrimary) 0%, var(--backgroundSecondary) 70%)`,
         boxShadow: `inset 0 0 0 1px var(--border-200)`,

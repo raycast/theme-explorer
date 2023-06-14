@@ -171,9 +171,9 @@ export async function GET(request: NextRequest) {
 
     const tokens = {
       backgroundPrimary: `${theme.colors.background}`,
-      backgroundPrimary600: `${theme.colors.background}${alpha["60"]}`,
+      backgroundPrimary400: `${theme.colors.background}${alpha["40"]}`,
       backgroundSecondary: `${theme.colors.backgroundSecondary}`,
-      backgroundSecondary600: `${theme.colors.backgroundSecondary}${alpha["60"]}`,
+      backgroundSecondary400: `${theme.colors.backgroundSecondary}${alpha["40"]}`,
       border100: `${theme.colors.text}${alpha["10"]}`,
       border200: `${theme.colors.text}${alpha["20"]}`,
       text: `${theme.colors.text}`,
@@ -226,7 +226,6 @@ export async function GET(request: NextRequest) {
             height: "100%",
             alignItems: "flex-start",
             overflow: "hidden",
-
             backgroundColor: tokens.backgroundPrimary,
             backgroundImage: `linear-gradient(to bottom, ${tokens.backgroundPrimary}, ${tokens.backgroundSecondary})`,
           }}
@@ -312,10 +311,14 @@ export async function GET(request: NextRequest) {
               alignItems: "stretch",
               overflow: "hidden",
               flexShrink: 0,
-              backgroundColor: tokens.backgroundPrimary600,
               margin: "0 auto",
               transform: "scale(1.25)",
               transformOrigin: "top",
+
+              backgroundColor: isDarkTheme
+                ? "rgba(128, 128, 128, 0.2)"
+                : "rgba(255, 255, 255, 0.2)",
+              backgroundImage: `linear-gradient(to bottom, ${tokens.backgroundPrimary400}, ${tokens.backgroundSecondary400} 70%)`,
 
               width: 750,
               height: 475,
