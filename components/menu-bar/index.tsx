@@ -43,28 +43,28 @@ export function MenuBar() {
                   window.open("https://raycast.com/community", "_blank")
                 }
               >
-                Slack...
+                Slack
               </Item>
               <Item
                 onSelect={() =>
                   window.open("https://twitter.com/raycastapp", "_blank")
                 }
               >
-                Twitter...
+                Twitter
               </Item>
               <Item
                 onSelect={() =>
                   window.open("https://mastodon.social/@raycast", "_blank")
                 }
               >
-                Mastodon...
+                Mastodon
               </Item>
               <Item
                 onSelect={() =>
                   window.open("https://github.com/raycast", "_blank")
                 }
               >
-                GitHub...
+                GitHub
               </Item>
             </Content>
           </Menubar.Menu>
@@ -101,28 +101,28 @@ export function MenuBar() {
               <Item
                 onSelect={() => window.open("https://raycast.com", "_blank")}
               >
-                Download...
+                Download
               </Item>
               <Item
                 onSelect={() =>
                   window.open("https://raycast.com/store", "_blank")
                 }
               >
-                Extension Store...
+                Extension Store
               </Item>
               <Item
                 onSelect={() =>
                   window.open("https://manual.raycast.com/", "_blank")
                 }
               >
-                Manual...
+                Manual
               </Item>
               <Item
                 onSelect={() =>
                   window.open("https://raycast.com/changelog", "_blank")
                 }
               >
-                Changelog...
+                Changelog
               </Item>
               <Separator />
               <Label>More by Raycsast</Label>
@@ -131,27 +131,27 @@ export function MenuBar() {
                   window.open("https://snippets.ray.so", "_blank")
                 }
               >
-                Snippets...
+                Snippets
               </Item>
               <Item
                 onSelect={() => window.open("https://prompts.ray.so", "_blank")}
               >
-                Prompts...
+                Prompts
               </Item>
               <Item onSelect={() => window.open("https://ray.so", "_blank")}>
-                Code Snippets...
+                Code Snippets
               </Item>
               <Item
                 onSelect={() => window.open("https://icon.ray.so", "_blank")}
               >
-                Icon Maker...
+                Icon Maker
               </Item>
               <Item
                 onSelect={() =>
                   window.open("https://raycast.com/wallpapers", "_blank")
                 }
               >
-                Wallpapers...
+                Wallpapers
               </Item>
             </Content>
           </Menubar.Menu>
