@@ -4,9 +4,10 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "next build --debug",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "generate-og-images": "node lib/generate-og-images.js"
   },
   "dependencies": {
     "@radix-ui/react-dialog": "^1.0.4",
@@ -27,10 +28,11 @@
     "powerglitch": "^2.3.2",
     "react": "18.2.0",
     "react-dom": "18.2.0",
+    "sharp": "^0.32.1",
     "tailwindcss": "3.3.2",
     "typescript": "5.0.4"
   },
   "devDependencies": {
-    "@types/chroma-js": "^2.4.0"
+    "image-downloader": "^4.3.0"
   }
 }
