@@ -290,7 +290,7 @@ export async function GET(request: NextRequest) {
               overflow: "hidden",
               flexShrink: 0,
               margin: "0 auto",
-              transform: "scale(1.25)",
+              transform: "scale(1.4)",
               transformOrigin: "top",
 
               backgroundColor: isDarkTheme
@@ -569,7 +569,7 @@ export async function GET(request: NextRequest) {
               position: "absolute",
               bottom: 0,
               left: 0,
-              zIndex: 1,
+              zIndex: "1",
               width: "100%",
               backgroundImage: `linear-gradient(to bottom, ${
                 isDarkTheme ? "rgba(0,0,0,0)" : "rgba(255,255,255,0)"
@@ -586,7 +586,7 @@ export async function GET(request: NextRequest) {
               position: "absolute",
               bottom: 0,
               left: 0,
-              zIndex: 2,
+              zIndex: "2",
               width: "100%",
               backgroundImage: `linear-gradient(to bottom, ${
                 isDarkTheme ? "rgba(0,0,0,0)" : "rgba(255,255,255,0)"
@@ -643,8 +643,8 @@ export async function GET(request: NextRequest) {
         </div>
       ),
       {
-        width: 1024,
-        height: 512,
+        width: 1200,
+        height: 600,
         fonts: [
           { name: "Inter", data: interData, weight: 400, style: "normal" },
           { name: "Inter", data: inter500Data, weight: 500, style: "normal" },
