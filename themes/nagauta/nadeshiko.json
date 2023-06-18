@@ -7,9 +7,9 @@
   "colors": {
     "background": "#DC9FB4",
     "backgroundSecondary": "#DC9FB4",
-    "text": "#FFFFFF",
-    "selection": "#FFFFFF",
-    "loader": "#FFFFFF",
+    "text": "#000000",
+    "selection": "#DC2F6A",
+    "loader": "#000000",
     "red": "#F84E4E",
     "orange": "#F88D4E",
     "yellow": "#FFCC47",
