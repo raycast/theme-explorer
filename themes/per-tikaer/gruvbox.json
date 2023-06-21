@@ -8,14 +8,17 @@
     "background": "#282828",
     "backgroundSecondary": "#282828",
     "text": "#EBDBB2",
-    "selection": "#D2BFB5",
-    "loader": "#404480",
-    "red": "#CC521D",
-    "orange": "#FE8019",
-    "yellow": "#FABD2F",
-    "green": "#B8BB26",
-    "blue": "#83A598",
+    "selection": "#A89984",
+    "loader": "#EBDBB2",
+    "red": "#CC241D",
+    "orange": "#D65D0E",
+    "yellow": "#D79921",
+    "green": "#98971A",
+    "blue": "#458588",
     "purple": "#D3869B",
     "magenta": "#B16286"
   }
 }
+
+
+
