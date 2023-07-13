@@ -3,6 +3,7 @@ import { PageWithThemeMode } from "@/components/page-with-theme-mode";
 import { Raycast } from "@/components/raycast";
 import { RedirectToRaycast } from "@/components/redirect-to-raycast";
 import { Theme, getAllThemes, makeThemeObjectFromParams } from "@/lib/theme";
+import { Analytics } from "@vercel/analytics/react";
 import { BASE_URL, BuildTypes } from "@/lib/url";
 
 export async function generateMetadata({
@@ -89,6 +90,7 @@ export default async function Home({
       {shouldOpenInRaycast && themeInUrl && (
         <RedirectToRaycast theme={themeInUrl} build={raycastBuild} />
       )}
+      <Analytics />
     </PageWithThemeMode>
   );
 }
