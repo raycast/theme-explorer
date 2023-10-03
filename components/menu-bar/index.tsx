@@ -264,7 +264,7 @@ function Trigger({
 }) {
   return (
     <Menubar.Trigger
-      className={`outline-none cursor-default data-[state=open]:bg-black/10 dark:data-[state=open]:bg-white/10 rounded-1 px-2 h-[25px] ${
+      className={`outline-none cursor-default data-[state=open]:bg-black/10 focus:bg-black/10 dark:data-[state=open]:bg-white/10 dark:focus:bg-white/10 rounded-1 px-2 h-[25px] ${
         bold ? "font-semibold" : undefined
       }`}
     >
