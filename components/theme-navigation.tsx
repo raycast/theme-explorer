@@ -26,7 +26,10 @@ export function ThemeNavigation({ themes }: { themes: Theme[] }) {
 
   React.useEffect(() => {
     const handleKeyDown = (event: KeyboardEvent) => {
-      if (document.activeElement?.closest("[data-radix-menubar-content]")) {
+      if (
+        document.activeElement?.closest('[role="menubar"]') ||
+        document.activeElement?.closest("[data-radix-menubar-content]")
+      ) {
         return;
       }
 
