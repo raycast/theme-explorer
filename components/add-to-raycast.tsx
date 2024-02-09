@@ -18,10 +18,26 @@ export function AddToRaycast() {
     copy(JSON.stringify(theme, null, 2));
   }, [activeTheme]);
 
-  const handleCopyUrl = React.useCallback(() => {
+  const handleCopyUrl = React.useCallback(async () => {
     if (!activeTheme) return;
     const { slug } = activeTheme;
-    copy(`https://themes.ray.so/${slug}`);
+
+    const url = `https://themes.ray.so/${slug}`;
+    // Copying the base URL before copying the shortened URL
+    // Because we don't have a loading state while the URL is being shortened
+    // So... yeah, it's a bit of a hack
+    copy(url);
+    const encodedUrl = encodeURIComponent(url);
+    const response = await fetch(
+      `https://ray.so/api/shorten-url?url=${encodedUrl}`
+    ).then((res) => res.json());
+
+    if (response.error) {
+      console.error(response.error);
+      return;
+    }
+
+    copy(response.link);
   }, [activeTheme]);
 
   const handleDownload = React.useCallback(() => {
