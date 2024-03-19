@@ -29,7 +29,7 @@ export function AddToRaycast() {
     copy(url);
     const encodedUrl = encodeURIComponent(url);
     const response = await fetch(
-      `https://ray.so/api/shorten-url?url=${encodedUrl}`
+      `https://ray.so/api/shorten-url?url=${encodedUrl}&ref=themes`
     ).then((res) => res.json());
 
     if (response.error) {
