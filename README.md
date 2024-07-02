@@ -1,9 +1,8 @@
+> [!NOTE]  
+> Moved to https://github.com/raycast/ray-so
+
+
 <!-- TEXT_SECTION:header:START -->
-<p align="center">
-  <a href="https://themes.ray.so" target="_blank" rel="noopener noreferrer">
-    <img width="1024" src="https://themes.ray.so/default-og-image.png" alt="Theme Explorer">
-  </a> 
-</p>
 <h1 align="center">
   Theme Explorer
 </h1>
